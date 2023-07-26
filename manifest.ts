@@ -26,12 +26,12 @@ export default defineManifest((env) => ({
   content_scripts: [
     {
       js: ["src/core/chrome/content.tsx"],
-      matches: ["https://*/*"]
+      "matches": ["<all_urls>"],
     }
   ],
   web_accessible_resources: [{
-    matches: ['https://*/*'],
+    "matches": ["<all_urls>"],
     // copies all png files in src/images
-    resources: ["*.png"]
-  }]
+    resources: ["*.png", "assets/*.css"]
+  }],
 }))
