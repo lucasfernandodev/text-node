@@ -1,0 +1,120 @@
+.main{
+  grid-area: editor;
+  display: flex;
+  height: 380px;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 500px;
+}
+
+.main .header{
+  width: 100%;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 16px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+  background: transparent;
+  position: relative;
+}
+
+.main .header button{
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .9s linear;
+  border-radius: 3px;
+}
+
+.main .header button[data-navigation-is-open="false"]{
+  display: flex;
+  visibility: visible;
+  animation: bshowIn 0.5s linear forwards;
+}
+
+.main .header button[data-navigation-is-open="true"]{
+  display: none;
+  visibility: none;
+  animation: bshowOut 0.5s linear forwards;
+}
+
+.main .header button svg{
+  width: 24px;
+  height: 24px;
+}
+
+.main .header button:hover{
+  background-color: #1f1f1f;
+}
+
+.main .header .title{
+  font-weight: 600;
+  font-size: 18px;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  line-height: var(--header-height);
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  margin: 0px;
+  transition: 1s ease-in-out;
+  width: 100%;
+  user-select: none;
+  cursor: default;
+}
+
+
+
+.main .content{
+  width: 100%;
+  box-sizing: border-box;
+  height: clamp(280px, calc(100% - (var(--header-height) + var(--header-height))), calc(380px - var(--header-height)));
+  padding: 24px;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin: 0px;
+}
+
+
+.main .content::-webkit-scrollbar {
+  width: 10px;
+  background: transparent;
+}
+
+.main .content::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+}
+
+.main .content::-webkit-scrollbar-button{
+  display: none;
+}
+
+.main .footer{
+  height: var(--footer-height);
+  display: flex;
+  align-items: center;
+  padding: 0px 16px;
+  width: 100%;
+  border-top: 1px solid var(--border);
+}
+
+
+@keyframes bshowIn {
+  0%{ opacity: 0; transform: translateX(-5px) }
+  100%{opacity: 1; transform: translateX(0px)}
+}
+
+@keyframes bshowOut {
+  0%{opacity: 1;   transform: translateX(0px)}
+  100%{opacity: 0;    transform: translateX(-5px)}
+}

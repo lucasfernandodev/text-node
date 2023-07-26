@@ -1,0 +1,92 @@
+.root{
+  position: relative;
+}
+
+.btn{
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .9s linear;
+  border-radius: 3px;
+}
+
+.btn[data-navigation-is-open="false"]{
+  display: flex;
+  visibility: visible;
+  animation: bshowIn 0.5s linear forwards;
+}
+
+.btn[data-navigation-is-open="true"]{
+  display: none;
+  visibility: none;
+  animation: bshowOut 0.5s linear forwards;
+}
+
+.btn svg{
+  width: 24px;
+  height: 24px;
+}
+
+.btn:hover{
+  background-color: #1f1f1f;
+}
+
+.portal{
+  width: 200px;
+  padding: 8px 4px;
+  background-color: var(--dropdown-menu-bg);
+  position: absolute;
+  top: 36px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  right: 0px;
+  border-radius: 3px;
+  box-shadow: -4px 4px 9px 0px rgba(0, 0, 0, 0.25);
+  list-style: none;
+  z-index: 1000;
+}
+
+.portal[data-open="true"]{
+  display: flex;
+}
+
+.portal[data-open="false"]{
+  display: none;
+}
+
+.item{
+  width: 100%;
+}
+
+.item a{
+  display: flex;
+  padding: 0px 4px;
+  height: 32px;
+  justify-content: flex-start;
+  gap: 4px;
+  font-size: 14px;
+  align-items: center;
+  color: currentColor;
+  cursor: pointer;
+  color: #818181;
+  border-radius: 1px;
+}
+
+.item a:hover{
+ background-color: #323232;
+  color: #fff;
+}
+
+.icon{
+  width: 16px;
+  height: 16px;
+}
+
+.icon svg{
+  width: 16px;
+  height: 16px;
+}

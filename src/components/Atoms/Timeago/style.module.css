@@ -1,0 +1,11 @@
+
+.time{
+  all: revert;
+  line-height: auto;
+  font-size: 14px;
+  color: var(--time);
+}
+
+.time time{
+  color: var(--time);
+}

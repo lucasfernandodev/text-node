@@ -1,0 +1,24 @@
+.modal{
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  z-index: 99999;
+
+  width: auto;
+  height: 380px;
+
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 16px;
+  box-shadow: 8px 16px 24px 0px rgba(0, 0, 0, 0.25);
+  background-color: var(--bg);
+
+  display: grid;
+  grid-template-columns: 500px;
+  grid-template-areas: "editor";
+}
+
+.modal:has(aside[data-is-open="true"]){
+  grid-template-columns: 230px 500px;
+  grid-template-areas: "navigation editor";
+}

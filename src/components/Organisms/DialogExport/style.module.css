@@ -1,0 +1,57 @@
+.form{
+  width: 100%;
+  height: auto;
+}
+
+.form fieldset{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 24px;
+}
+
+.form fieldset label{
+  font-size: 16px;
+}
+
+.form fieldset .select{
+  position: relative;
+}
+
+.footer{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.btn{
+  all: revert;
+  width: 96px;
+  height: 32px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  background: transparent;
+  color: #818181;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 250ms linear;
+}
+
+.btn.action{
+  background-color: hsl(201, 100%, 45%);
+ color: #fff;
+}
+
+.btn.action:hover{
+ background-color: hsl(201, 100%, 35%);
+}
+
+.btn:hover{
+  color: #fff;
+}

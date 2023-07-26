@@ -1,0 +1,22 @@
+/* Reset */
+.tn-editor *,
+.tn-editor *::before,
+.tn-editor *::after{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  background: revert;
+  border: revert;
+  color: inherit;
+  outline: revert;
+  position: static;
+  transition: revert;
+  transform: revert;
+  font-weight: revert;
+  font-size: inherit;
+  z-index: revert;
+  border-radius: revert;
+  font-family: revert;
+  line-height: revert;
+  visibility: revert;
+}

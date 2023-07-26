@@ -1,0 +1,122 @@
+.navigation{
+  grid-area: navigation;
+  height: 380px;
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  background: var(--bg);
+  border-radius: 16px 0px 0px 16px;
+  box-shadow: 2px 0px 12px 0px rgba(0, 0, 0, 0.25);
+  border-right: 1px solid var(--border);
+  visibility: hidden;
+  display: none;
+  transition: 0.9s linear;
+}
+
+
+.navigation[data-is-open="false"]{
+  visibility: hidden;
+  animation: showOut 0.5s linear forwards;
+}
+
+.navigation[data-is-open="true"]{
+  display: flex;
+  visibility: visible;
+  animation: showIn 0.5s linear forwards;
+}
+
+
+.navigation .header{
+  width: 100%;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 16px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+  background: transparent;
+}
+
+
+.navigation .header button{
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .9s linear;
+  border-radius: 3px;
+}
+
+.navigation .header button svg{
+  width: 24px;
+  height: 24px;
+}
+
+.navigation .header button:hover{
+  background-color: #1f1f1f;
+}
+
+.navigation[data-is-open="true"] .header button{
+  display: flex;
+  visibility: visible;
+  animation: btnNotesAnimationIn 0.5s linear forwards;
+}
+
+.navigation[data-is-open="false"] .header button{
+  display: none;
+  visibility: none;
+  animation: btnNotesAnimationOut 0.5s linear forwards;
+}
+
+.navigation .header .title{
+  font-weight: 600;
+  font-size: 18px;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  line-height: 48px;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  margin: 0px;
+  user-select: none;
+  cursor: default;
+}
+
+.navigation .explorer{
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 16px 8px 24px 8px;
+  text-align: center;
+}
+
+@keyframes btnNotesAnimationIn {
+  0%{ opacity: 0; transform: translateX(5px) }
+  100%{opacity: 1; transform: translateX(0px)}
+}
+
+@keyframes btnNotesAnimationOut {
+  0%{opacity: 1;   transform: translateX(0px)}
+  100%{opacity: 0;    transform: translateX(5px)}
+}
+
+
+@keyframes showIn {
+  0%{ opacity: 0; transform: translateX(5px) }
+  100%{opacity: 1; transform: translateX(0px)}
+}
+
+@keyframes showOut {
+  0%{opacity: 1;   transform: translateX(0px)}
+  90%{opacity: 0;    transform: translateX(5px)}
+  100%{display: none; opacity: 0; transform: translateX(5px)}
+}

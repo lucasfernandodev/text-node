@@ -1,0 +1,155 @@
+#editor{
+  height: 100%;
+  height: 100%;
+  background: none;
+  font-size: 14px;
+  font-family: var(--font-family);
+  font-size: 15px;
+  width: 100%;
+  --flow-space: 1em;
+  width: 100%;
+  position: relative;
+  z-index: 500;
+}
+
+
+#editor *::selection{
+  background-color: var(--accent);
+}
+
+#editor  [data-placeholder]:is(p)::before{
+  visibility: hidden;
+}
+
+#editor .placeholder:is(h1):nth-child(1)::before,
+#editor  [data-placeholder]:is(p)::before{
+  color: var(--placeholder);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#editor .placeholder:is(h1):nth-child(1)::before{
+  color: var(--placeholder-title);
+  visibility: visible;
+}
+
+#editor .has-focus[data-placeholder]:is(p)::before{
+  visibility: visible;
+}
+
+#editor:focus{
+  outline: none;
+  border: none;
+}
+
+#editor * + *{
+  margin-block-start: var(--flow-space)
+}
+
+#editor p {
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+
+#editor *:is(h1, h2, h3, blockquote) {
+  --flow-space: 1.6em;
+}
+
+#editor h1,
+#editor h2,
+#editor h3,
+#editor h4,
+#editor h5,
+#editor h6{
+  line-height: 1.1;
+  font-weight: 800;
+  width: 100%;
+  display: inline-block;
+}
+
+#editor h1{
+  font-size: 28px;
+}
+
+#editor h2{
+  font-size: 22px;
+}
+
+#editor h3{
+  font-size: 18px;
+}
+
+#editor ul,
+#editor ol {
+  padding-inline-start: 1em;
+}
+
+#editor blockquote {
+ padding-inline-start: 1em;
+  border-inline-start: 0.3em solid;
+  font-style: italic;
+  display: block;
+  width: 100%;
+  padding: 16px;
+}
+
+#editor pre{
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: var(--bg-code);
+  border-radius: 3px;
+}
+
+#editor hr{
+  width: 100%;
+  height: 13px;
+  border: none;
+  display: block;
+  position: relative;
+}
+
+#editor hr::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0px;
+  height: 1px;
+  width: 100%;
+  background: var(--hr);
+  border-radius: 13px;
+}
+
+#editor *:is(h1, h2, h3) + hr{
+  --flow-space: 0.5em;
+}
+
+#editor code{
+  background-color: var(--bg-code);
+  color: var(--text);
+  font-weight: 700;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.7em;
+  display: inline-block;
+  letter-spacing: 0.007rem
+}
+
+#editor li + li{
+  --flow-space: 0.3em
+}
+
+#editor a{
+  all: revert;
+  cursor: pointer;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--accent);
+}
