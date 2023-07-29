@@ -1,22 +1,18 @@
 import { JSONContent } from '@tiptap/react';
 import Dexie, { Table } from 'dexie';
+import { INote } from '../types/note';
 
-export interface documentScheme {
-  id: string,
-  title: string,
-  site: string,
-  updateAt?: string,
-  createAt: string,
-  content: JSONContent,
+interface AddNoteProps {
+  data: Omit<INote, 'updateAt' | 'createAt'>
 }
 
-interface updateProps {
+interface UpdateNoteProps {
   id: string,
-  data: Omit<documentScheme, 'createAt'>
+  data: Omit<INote, 'createAt'>
 }
 
 export class Initialise extends Dexie {
-  public editor!: Table<documentScheme, string>
+  public editor!: Table<INote, string>
 
   public constructor() {
     const database_name = 'editordb'
@@ -26,7 +22,7 @@ export class Initialise extends Dexie {
     })
   }
 
-  async addNote({ data }: { data: Omit<documentScheme, 'updateAt' | 'createAt'> }): Promise<string> {
+  async addNote({ data }: AddNoteProps): Promise<string> {
     return await this.editor.add({
       ...data,
       id: data.id,
@@ -35,27 +31,26 @@ export class Initialise extends Dexie {
     })
   }
 
-  async getAllNotes(): Promise<[] | documentScheme[]> {
+  async getAllNotes(): Promise<INote[]> {
     return await this.editor.toArray()
   }
 
-  async getNote({ id }: { id: string }): Promise<documentScheme | undefined> {
+  async getNote({ id }: { id: string }): Promise<INote | undefined> {
     return await this.editor.get({
       id
     })
   }
 
-  async updateNote({ id, data }: updateProps) {
+  async updateNote({ id, data }: UpdateNoteProps) {
     return this.editor.update(id, {
       ...data,
       updateAt: new Date()
     })
   }
 
-  public hookCreate(fn: () => void) {
-
+  public hookCreate(callback: () => void) {
     this.editor.hook('creating', function () {
-      this.onsuccess = fn
+      this.onsuccess = callback
       this.onerror = console.log
     })
   }

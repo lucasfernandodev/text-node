@@ -1,9 +1,9 @@
 import { LuFileText } from 'react-icons/lu';
-import { documentScheme } from '../../../database';
 import style from './style.module.css';
+import { INote } from '../../../types/note';
 
 interface ListNotesProps {
-  notes: documentScheme[],
+  notes: INote[],
   changeNote: (noteId: string) => void
 }
 

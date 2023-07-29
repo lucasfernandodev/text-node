@@ -31,7 +31,7 @@ const storeNotesInDB = async ({ content, title, id }: storeNotesProps) => {
   await notes.add({
     id: id,
     title: title,
-    site: location.href,
+    site: window.location.hostname,
     content: content
   })
 

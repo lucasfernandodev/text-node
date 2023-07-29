@@ -2,8 +2,8 @@ import { LuChevronsLeft } from 'react-icons/lu';
 import style from './style.module.css';
 import { useEffect, useState } from 'react';
 import { notes } from '../../../database/notes';
-import { documentScheme } from '../../../database';
 import { ListNotes } from '../../Molecules/ListNotes';
+import { INote } from '../../../types/note';
 
 interface NavigationProps {
   open: boolean
@@ -14,7 +14,7 @@ interface NavigationProps {
 
 export const Navigation: React.FC<NavigationProps> = ({ changeNote, open, close }) => {
 
-  const [listNotes, setListNotes] = useState([] as documentScheme[])
+  const [listNotes, setListNotes] = useState<INote[]>([])
 
   useEffect(() => {
     const initialize = async () => {

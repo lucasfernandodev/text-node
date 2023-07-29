@@ -6,18 +6,18 @@ import { useEffect, useMemo, useState } from 'react';
 import { extensions } from './extensions';
 import { storageEditor } from './storeNote';
 import { notes } from '../../database/notes';
-import { documentScheme } from '../../database';
+import { INote } from '../../types/note';
 
 interface props {
+  noteId: string
   changeTitle: (title: string) => void,
   changeUpdateAt: (time: string) => void,
-  noteId: string
 }
 
 const Editor = ({ changeTitle, noteId, changeUpdateAt }: props) => {
 
   const storeEditorContent = useMemo(storageEditor, [])
-  const [note, setNote] = useState<documentScheme | null>(null)
+  const [note, setNote] = useState<INote | null>(null)
 
   const editor = useEditor({
     extensions: [...extensions],
@@ -53,7 +53,7 @@ const Editor = ({ changeTitle, noteId, changeUpdateAt }: props) => {
   })
 
   useEffect(() => {
-    async function loadContent({ id }: { id: string }) {
+    async function setNewContent({ id }: { id: string }) {
       if (noteId !== note?.id && editor) {
         const result = await notes.get({ id })
         if (result !== null && result !== undefined) {
@@ -70,7 +70,7 @@ const Editor = ({ changeTitle, noteId, changeUpdateAt }: props) => {
 
 
 
-    loadContent({ id: noteId }).catch(console.error)
+    setNewContent({ id: noteId }).catch(console.error)
 
   }, [changeTitle, editor, note, noteId])
 
