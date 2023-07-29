@@ -1,15 +1,16 @@
-.main{
+.main {
   grid-area: editor;
-  display: flex;
+  display: grid;
   height: 380px;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-wrap: wrap;
   width: 100%;
   max-width: 500px;
+  grid-template-rows: 48px calc(100% - 96px) 48px;
+  grid-template-areas: "header" "content" "footer";
+
 }
 
-.main .header{
+.main .header {
+  grid-area: header;
   width: 100%;
   height: var(--header-height);
   display: flex;
@@ -23,7 +24,7 @@
   position: relative;
 }
 
-.main .header button{
+.main .header button {
   height: 32px;
   width: 32px;
   display: flex;
@@ -33,28 +34,28 @@
   border-radius: 3px;
 }
 
-.main .header button[data-navigation-is-open="false"]{
+.main .header button[data-navigation-is-open="false"] {
   display: flex;
   visibility: visible;
   animation: bshowIn 0.5s linear forwards;
 }
 
-.main .header button[data-navigation-is-open="true"]{
+.main .header button[data-navigation-is-open="true"] {
   display: none;
   visibility: none;
   animation: bshowOut 0.5s linear forwards;
 }
 
-.main .header button svg{
+.main .header button svg {
   width: 24px;
   height: 24px;
 }
 
-.main .header button:hover{
+.main .header button:hover {
   background-color: #1f1f1f;
 }
 
-.main .header .title{
+.main .header .title {
   font-weight: 600;
   font-size: 18px;
   overflow: hidden;
@@ -74,7 +75,8 @@
 
 
 
-.main .content{
+.main .content {
+  grid-area: content;
   width: 100%;
   box-sizing: border-box;
   height: clamp(280px, calc(100% - (var(--header-height) + var(--header-height))), calc(380px - var(--header-height)));
@@ -95,11 +97,12 @@
   background-color: var(--scroll-thumb);
 }
 
-.main .content::-webkit-scrollbar-button{
+.main .content::-webkit-scrollbar-button {
   display: none;
 }
 
-.main .footer{
+.main .footer {
+  grid-area: footer;
   height: var(--footer-height);
   display: flex;
   align-items: center;
@@ -110,11 +113,25 @@
 
 
 @keyframes bshowIn {
-  0%{ opacity: 0; transform: translateX(-5px) }
-  100%{opacity: 1; transform: translateX(0px)}
+  0% {
+    opacity: 0;
+    transform: translateX(-5px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px)
+  }
 }
 
 @keyframes bshowOut {
-  0%{opacity: 1;   transform: translateX(0px)}
-  100%{opacity: 0;    transform: translateX(-5px)}
+  0% {
+    opacity: 1;
+    transform: translateX(0px)
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-5px)
+  }
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState, lazy } from "react"
 import { communication, CommunicationProps, } from "../../core/chrome/communication";
 import { nanoid } from "nanoid";
+import { Container } from "../../components/Atoms/Container";
 
 const HomepageTemplate = lazy(() => import('../../components/Templates/Modal'))
 
@@ -35,7 +36,9 @@ export const Homepage = () => {
     }
   }, [])
 
-  return (<div>
-    {command && <HomepageTemplate closeModal={() => setCommand(null)} noteId={noteId} />}
-  </div>)
+  return (
+    <Container>
+      {command && <HomepageTemplate closeModal={() => setCommand(null)} noteId={noteId} />}
+    </Container>
+  )
 }

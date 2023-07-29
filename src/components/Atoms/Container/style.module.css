@@ -1,0 +1,12 @@
+.container {
+  all: revert;
+  display: block;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.container *:is(header, footer, main, section, article, div) {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
