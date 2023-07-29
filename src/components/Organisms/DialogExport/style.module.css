@@ -1,9 +1,9 @@
-.form{
+.form {
   width: 100%;
   height: auto;
 }
 
-.form fieldset{
+.form fieldset {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -12,22 +12,22 @@
   gap: 24px;
 }
 
-.form fieldset label{
+.form fieldset label {
   font-size: 16px;
 }
 
-.form fieldset .select{
+.form fieldset .select {
   position: relative;
 }
 
-.footer{
+.footer {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   margin-top: 16px;
 }
 
-.btn{
+.btn {
   all: revert;
   width: 96px;
   height: 32px;
@@ -37,21 +37,21 @@
   align-items: center;
   font-weight: 600;
   background: transparent;
-  color: #818181;
+  color: var(--gray-300);
   border-radius: 4px;
   cursor: pointer;
   transition: 250ms linear;
 }
 
-.btn.action{
-  background-color: hsl(201, 100%, 45%);
- color: #fff;
+.btn.action {
+  background-color: var(--blue-300);
+  color: var(--white);
 }
 
-.btn.action:hover{
- background-color: hsl(201, 100%, 35%);
+.btn.action:hover {
+  background-color: var(--blue-400);
 }
 
-.btn:hover{
-  color: #fff;
+.btn:hover {
+  color: var(--white);
 }

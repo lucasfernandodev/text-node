@@ -1,4 +1,4 @@
-.list{
+.list {
   all: revert;
   display: flex;
   flex-direction: column;
@@ -26,11 +26,11 @@
   background-color: var(--scroll-thumb);
 }
 
-.list::-webkit-scrollbar-button{
+.list::-webkit-scrollbar-button {
   display: none;
 }
 
-.list .item{
+.list .item {
   display: flex;
   flex-shrink: 0;
   flex-grow: 0;
@@ -41,25 +41,26 @@
 }
 
 
-.list .item a{
+.list .item a {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 8px;
-  color: #818181;
+  color: var(--gray-300);
   height: 100%;
   padding: 0px 4px;
   width: 100%;
   max-width: calc(100% - 4px);
-  overflow: hidden
+  overflow: hidden;
+  text-decoration: none;
 }
 
-.list .item a:hover{
-  background-color: #323232;
-  color: #fff;
+.list .item a:hover {
+  background-color: var(--navy-400);
+  color: var(--white);
 }
 
-.list .item a svg{
+.list .item a svg {
   width: 20px;
   height: 20px;
   min-width: 20px;
@@ -68,7 +69,7 @@
 }
 
 
-.list .item a span{
+.list .item a span {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;

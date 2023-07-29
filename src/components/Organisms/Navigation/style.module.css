@@ -1,4 +1,4 @@
-.navigation{
+.navigation {
   grid-area: navigation;
   height: 380px;
   width: 230px;
@@ -16,19 +16,19 @@
 }
 
 
-.navigation[data-is-open="false"]{
+.navigation[data-is-open="false"] {
   visibility: hidden;
   animation: showOut 0.5s linear forwards;
 }
 
-.navigation[data-is-open="true"]{
+.navigation[data-is-open="true"] {
   display: flex;
   visibility: visible;
   animation: showIn 0.5s linear forwards;
 }
 
 
-.navigation .header{
+.navigation .header {
   width: 100%;
   height: var(--header-height);
   display: flex;
@@ -42,7 +42,7 @@
 }
 
 
-.navigation .header button{
+.navigation .header button {
   height: 32px;
   width: 32px;
   display: flex;
@@ -52,28 +52,28 @@
   border-radius: 3px;
 }
 
-.navigation .header button svg{
+.navigation .header button svg {
   width: 24px;
   height: 24px;
 }
 
-.navigation .header button:hover{
-  background-color: #1f1f1f;
+.navigation .header button:hover {
+  background-color: var(--navy-400);
 }
 
-.navigation[data-is-open="true"] .header button{
+.navigation[data-is-open="true"] .header button {
   display: flex;
   visibility: visible;
   animation: btnNotesAnimationIn 0.5s linear forwards;
 }
 
-.navigation[data-is-open="false"] .header button{
+.navigation[data-is-open="false"] .header button {
   display: none;
   visibility: none;
   animation: btnNotesAnimationOut 0.5s linear forwards;
 }
 
-.navigation .header .title{
+.navigation .header .title {
   font-weight: 600;
   font-size: 18px;
   overflow: hidden;
@@ -89,7 +89,7 @@
   cursor: default;
 }
 
-.navigation .explorer{
+.navigation .explorer {
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -100,23 +100,56 @@
 }
 
 @keyframes btnNotesAnimationIn {
-  0%{ opacity: 0; transform: translateX(5px) }
-  100%{opacity: 1; transform: translateX(0px)}
+  0% {
+    opacity: 0;
+    transform: translateX(5px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px)
+  }
 }
 
 @keyframes btnNotesAnimationOut {
-  0%{opacity: 1;   transform: translateX(0px)}
-  100%{opacity: 0;    transform: translateX(5px)}
+  0% {
+    opacity: 1;
+    transform: translateX(0px)
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(5px)
+  }
 }
 
 
 @keyframes showIn {
-  0%{ opacity: 0; transform: translateX(5px) }
-  100%{opacity: 1; transform: translateX(0px)}
+  0% {
+    opacity: 0;
+    transform: translateX(5px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px)
+  }
 }
 
 @keyframes showOut {
-  0%{opacity: 1;   transform: translateX(0px)}
-  90%{opacity: 0;    transform: translateX(5px)}
-  100%{display: none; opacity: 0; transform: translateX(5px)}
+  0% {
+    opacity: 1;
+    transform: translateX(0px)
+  }
+
+  90% {
+    opacity: 0;
+    transform: translateX(5px)
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+    transform: translateX(5px)
+  }
 }

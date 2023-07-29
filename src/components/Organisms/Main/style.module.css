@@ -6,7 +6,6 @@
   max-width: 500px;
   grid-template-rows: 48px calc(100% - 96px) 48px;
   grid-template-areas: "header" "content" "footer";
-
 }
 
 .main .header {
@@ -52,7 +51,7 @@
 }
 
 .main .header button:hover {
-  background-color: #1f1f1f;
+  background-color: var(--navy-400);
 }
 
 .main .header .title {
