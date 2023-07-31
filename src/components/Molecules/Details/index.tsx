@@ -64,7 +64,6 @@ const Root: React.FC<Props> = (props) => {
     }
 
     const open = () => {
-      console.log('open', details, summary, wrapper)
       if (details !== null && summary && wrapper) {
 
         details.style.height = `${details?.offsetHeight}px`
