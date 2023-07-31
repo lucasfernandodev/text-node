@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-.container *:is(header, footer, main, section, article, div) {
+.container *:is(header, footer, main, section, article, div, details, summary, ul, li) {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
