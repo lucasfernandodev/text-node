@@ -1,10 +1,11 @@
 import style from './style.module.css';
 import { LuChevronsRight, LuFileUp, LuMoreHorizontal } from 'react-icons/lu';
-import { TbCloudDownload, TbDownload, TbFileX, TbSquareRoundedPlus } from 'react-icons/tb'
+import { TbDownload, TbFileX, TbSquareRoundedPlus } from 'react-icons/tb'
 import { DropdownMenu } from '../../Molecules/DropdownMenu';
 import { useState } from 'react';
 import { Timeago } from '../../Atoms/Timeago';
 import { DialogExport } from '../DialogExport';
+import { useDialogContext } from '../../../context/DialogsContext';
 
 interface MainProps {
   children: React.ReactNode
@@ -22,11 +23,11 @@ export const Main: React.FC<MainProps> = ({
   title,
   children,
   isNaviOpen,
-  noteId,
   closeModal
 }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [exportDialog, setExportDialog] = useState(false)
+  const { dialog, setDialog } = useDialogContext()
+
 
   function toggleMenu() {
     setIsOpen(!isOpen)
@@ -42,13 +43,6 @@ export const Main: React.FC<MainProps> = ({
         setIsOpen(false)
       }
     }, 300)
-  }
-
-  function showExportDialog(ev: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
-    console.log('exportDialog', exportDialog)
-    ev.stopPropagation()
-    ev.preventDefault()
-    setExportDialog(!exportDialog)
   }
 
   return (
@@ -76,7 +70,7 @@ export const Main: React.FC<MainProps> = ({
                 <DropdownMenu.Icon><TbFileX shapeRendering="geometricPrecision" /></DropdownMenu.Icon>
                 Delete
               </DropdownMenu.Item>
-              <DropdownMenu.Item onClick={showExportDialog}>
+              <DropdownMenu.Item onClick={() => setDialog('export')}>
                 <DropdownMenu.Icon><TbDownload shapeRendering="geometricPrecision" /></DropdownMenu.Icon>
                 Export
               </DropdownMenu.Item>
@@ -93,11 +87,7 @@ export const Main: React.FC<MainProps> = ({
           {updateAt !== null && <Timeago time={updateAt} />}
         </footer>
       </main >
-      {exportDialog && <DialogExport
-        id={noteId}
-        open={exportDialog}
-        closeDialog={() => setExportDialog(false)}
-      />}
+      {dialog === 'export' && <DialogExport />}
     </>
   )
 }

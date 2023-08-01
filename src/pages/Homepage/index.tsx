@@ -3,6 +3,7 @@ import { communication, CommunicationProps, } from "../../core/chrome/communicat
 import { nanoid } from "nanoid";
 import { Container } from "../../components/Atoms/Container";
 import { NoteContextProvider, useNoteContext } from "../../context/NoteContext";
+import { DialogContextProvider } from "../../context/DialogsContext";
 
 const HomepageTemplate = lazy(() => import('../../components/Templates/Modal'))
 
@@ -14,6 +15,7 @@ export const Homepage = () => {
 
   const [noteId, setNoteId] = useState(nanoid())
   const [command, setCommand] = useState<null | string>(null)
+  const [dialog, setDialog] = useState<null | string>(null)
 
   useEffect(() => {
     function listener({ data, source, subject }: CommunicationProps<data>) {
@@ -43,9 +45,11 @@ export const Homepage = () => {
 
   return (
     <Container>
-      <NoteContextProvider context={{ changeId: setNoteId, id: noteId }}>
-        {command && <HomepageTemplate removeModal={removeModal} noteId={noteId} />}
-      </NoteContextProvider>
-    </Container>
+      <DialogContextProvider context={{ dialog, setDialog }}>
+        <NoteContextProvider context={{ changeId: setNoteId, id: noteId }}>
+          {command && <HomepageTemplate removeModal={removeModal} noteId={noteId} />}
+        </NoteContextProvider>
+      </DialogContextProvider>
+    </Container >
   )
 }

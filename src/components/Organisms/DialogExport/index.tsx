@@ -5,33 +5,32 @@ import { useEffect, useState } from 'react';
 import { extensions } from '../../../core/Editor/extensions';
 import { generateHTML } from '@tiptap/react';
 import { notes } from '../../../database/notes';
+import { useNoteContext } from '../../../context/NoteContext';
+import { useDialogContext } from '../../../context/DialogsContext';
 
 interface Props {
-  id: string,
-  open: boolean,
-  closeDialog: () => void
 }
 
-const DialogExport: React.FC<Props> = ({ id, open, closeDialog }) => {
-  const [isOpen, setIsOpen] = useState(open)
+const DialogExport: React.FC<Props> = () => {
+
   const [exportType, setExportType] = useState('html')
   const [currentContent, setCurrentContent] = useState<null | string>(null)
   const [title, setTitle] = useState('Unitled')
-
-  useEffect(() => {
-    setIsOpen(open)
-  }, [open])
+  const { id } = useNoteContext()
+  const { setDialog } = useDialogContext()
 
   useEffect(() => {
     async function setContent() {
-      const response = await notes.get({ id })
+      if (id) {
+        const response = await notes.get({ id })
 
-      response && setCurrentContent(generateHTML(response.content, extensions))
-      response && setTitle(response.title)
+        response && setCurrentContent(generateHTML(response.content, extensions))
+        response && setTitle(response.title)
+      }
     }
 
     setContent().catch(console.error)
-  }, [id, title])
+  }, [id])
 
 
   const options = [
@@ -59,7 +58,7 @@ const DialogExport: React.FC<Props> = ({ id, open, closeDialog }) => {
 
 
   return (
-    <Dialog.Root open={isOpen}>
+    <Dialog.Root open={true}>
       <Dialog.Box>
         <div className={style.form}>
           <fieldset>
@@ -107,7 +106,7 @@ const DialogExport: React.FC<Props> = ({ id, open, closeDialog }) => {
             }} />
           </fieldset>
           <div className={style.footer}>
-            <button onClick={closeDialog} className={style.btn}>Cancel</button>
+            <button onClick={() => setDialog('')} className={style.btn}>Cancel</button>
             <button onClick={handleExport} className={[style.btn, style.action].join(" ")}>Export</button>
           </div>
         </div>
