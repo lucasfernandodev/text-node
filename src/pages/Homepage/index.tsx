@@ -2,6 +2,7 @@ import { useEffect, useState, lazy } from "react"
 import { communication, CommunicationProps, } from "../../core/chrome/communication";
 import { nanoid } from "nanoid";
 import { Container } from "../../components/Atoms/Container";
+import { NoteContextProvider, useNoteContext } from "../../context/NoteContext";
 
 const HomepageTemplate = lazy(() => import('../../components/Templates/Modal'))
 
@@ -18,8 +19,10 @@ export const Homepage = () => {
     function listener({ data, source, subject }: CommunicationProps<data>) {
       if (source === 'service_worker' && subject === 'contextmenu:editor') {
         if (data.editor.command === 'new') {
+          const id = nanoid();
           setCommand(data.editor.command)
-          setNoteId(nanoid())
+          setNoteId(id)
+
         }
 
         if (data.editor.id && data.editor.command === 'open') {
@@ -36,9 +39,13 @@ export const Homepage = () => {
     }
   }, [])
 
+  const removeModal = () => setCommand(null)
+
   return (
     <Container>
-      {command && <HomepageTemplate closeModal={() => setCommand(null)} noteId={noteId} />}
+      <NoteContextProvider context={{ changeId: setNoteId, id: noteId }}>
+        {command && <HomepageTemplate removeModal={removeModal} noteId={noteId} />}
+      </NoteContextProvider>
     </Container>
   )
 }

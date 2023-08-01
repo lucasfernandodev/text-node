@@ -8,10 +8,10 @@ import { Modal } from '../../Atoms/Modal';
 
 interface HomepageTemplateProps {
   noteId: string,
-  closeModal: () => void
+  removeModal: () => void
 }
 
-const HomepageTemplate: React.FC<HomepageTemplateProps> = ({ closeModal, noteId }) => {
+const HomepageTemplate: React.FC<HomepageTemplateProps> = ({ removeModal, noteId }) => {
 
   const [title, setTitle] = useState('Unitled');
   const [openNavigation, setOpenNavigation] = useState(false);
@@ -35,11 +35,11 @@ const HomepageTemplate: React.FC<HomepageTemplateProps> = ({ closeModal, noteId 
         isNaviOpen={openNavigation}
         title={title}
         updateAt={updateAt}
-        closeModal={closeModal}
+        closeModal={removeModal}
       >
         <Editor noteId={currentNoteId} changeTitle={setTitle} changeUpdateAt={setUpdateAt} />
       </Main>
-    </Modal>
+    </Modal >
   )
 }
 

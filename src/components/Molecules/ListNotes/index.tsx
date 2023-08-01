@@ -3,6 +3,7 @@ import style from './style.module.css';
 import { INote } from '../../../types/note';
 import React, { useCallback } from 'react';
 import { Details } from '../Details';
+import { useNoteContext } from '../../../context/NoteContext';
 
 interface ListNotesProps {
   notes: INote[],
@@ -16,9 +17,14 @@ interface ListProps {
 }
 
 
-const List: React.FC<ListProps> = ({ title, notes, openNote }) => {
+const List: React.FC<ListProps> = ({ title, notes }) => {
 
-  const callback = useCallback(openNote, [openNote])
+  const { id, changeId } = useNoteContext()
+
+  function openNote(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, noteId: string) {
+    e.preventDefault()
+    changeId(noteId)
+  }
 
   return (
     <Details.Root className={style.group} open={title === 'Local' && true}>
@@ -29,8 +35,8 @@ const List: React.FC<ListProps> = ({ title, notes, openNote }) => {
       <Details.Content>
         <ul>
           {notes.map(note => (
-            <li className={style.item} key={note.id}>
-              <a href="#" className={style['item-action']} onClick={() => callback(note.id)}>
+            <li className={style.item} key={note.id} data-active={id === note.id}>
+              <a href="#" className={style['item-action']} onClick={e => openNote(e, note.id)}>
                 <i><LuFileText /></i>
                 <span>{note.title}</span>
               </a>

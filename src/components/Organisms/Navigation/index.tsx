@@ -16,6 +16,7 @@ export const Navigation: React.FC<NavigationProps> = ({ changeNote, open, close 
 
   const [listNotes, setListNotes] = useState<INote[]>([])
 
+
   useEffect(() => {
     const initialize = async () => {
       const data = await notes.getAll()

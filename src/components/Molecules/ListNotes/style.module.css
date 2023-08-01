@@ -78,6 +78,10 @@
   place-items: center;
 }
 
+.group ul li[data-active=true] a {
+  color: var(--white);
+}
+
 .group ul li a i svg {
   width: 16px;
   height: 16px;
