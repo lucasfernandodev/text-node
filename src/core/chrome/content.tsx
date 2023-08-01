@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import '../../style/colors.css';
 import '../../style/global.css';
 import '../../style/editor.css';
 import '../../style/highlight.css';

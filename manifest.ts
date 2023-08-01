@@ -32,6 +32,6 @@ export default defineManifest((env) => ({
   web_accessible_resources: [{
     "matches": ["<all_urls>"],
     // copies all png files in src/images
-    resources: ["*.png", "assets/*.css"]
+    resources: ["*.png", "assets/*.css", "*.ttf"]
   }],
 }))
