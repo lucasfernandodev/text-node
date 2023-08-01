@@ -2,7 +2,7 @@ import style from './style.module.css';
 import { useEditor, EditorContent } from '@tiptap/react'
 
 import { BubbleMenu } from './components/BubbleMenu';
-import { useEffect, useMemo, useState } from 'react';
+import { memo, useEffect, useMemo, useState } from 'react';
 import { extensions } from './extensions';
 import { storageEditor } from './storeNote';
 import { notes } from '../../database/notes';
@@ -14,7 +14,7 @@ interface props {
   changeUpdateAt: (time: string) => void,
 }
 
-const Editor = ({ changeTitle, noteId, changeUpdateAt }: props) => {
+const _Editor = ({ changeTitle, noteId, changeUpdateAt }: props) => {
 
   const storeEditorContent = useMemo(storageEditor, [])
   const [note, setNote] = useState<INote | null>(null)
@@ -85,5 +85,7 @@ const Editor = ({ changeTitle, noteId, changeUpdateAt }: props) => {
     </>
   )
 }
+
+const Editor = memo(_Editor)
 
 export default Editor

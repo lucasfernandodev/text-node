@@ -2,17 +2,17 @@ import style from './style.module.css';
 import { LuChevronsRight, LuFileUp, LuMoreHorizontal } from 'react-icons/lu';
 import { TbDownload, TbFileX, TbSquareRoundedPlus } from 'react-icons/tb'
 import { DropdownMenu } from '../../Molecules/DropdownMenu';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Timeago } from '../../Atoms/Timeago';
 import { DialogExport } from '../DialogExport';
 import { useDialogContext } from '../../../context/DialogsContext';
+import { Menu } from '../Menu';
 
 interface MainProps {
   children: React.ReactNode
   isNaviOpen: boolean
   showNavi: () => void
   title: string,
-  noteId: string,
   updateAt: string | null,
   closeModal: () => void
 }
@@ -25,25 +25,15 @@ export const Main: React.FC<MainProps> = ({
   isNaviOpen,
   closeModal
 }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const { dialog, setDialog } = useDialogContext()
 
+  const { dialog } = useDialogContext()
+  const [currentTitle, setCurrentTitle] = useState(title)
 
-  function toggleMenu() {
-    setIsOpen(!isOpen)
-  }
-
-  function closeDropdownMenu() {
-    let timeOut: NodeJS.Timeout | null = null
-    timeOut = setTimeout(() => {
-      setIsOpen(false)
-      if (isOpen === false) {
-        timeOut && clearTimeout(timeOut)
-      } else {
-        setIsOpen(false)
-      }
-    }, 300)
-  }
+  useEffect(() => {
+    if (title !== currentTitle) {
+      setCurrentTitle(title)
+    }
+  }, [title])
 
   return (
     <>
@@ -55,30 +45,7 @@ export const Main: React.FC<MainProps> = ({
           <h3 className={style.title}>
             {title}
           </h3>
-          <DropdownMenu.Root>
-            <DropdownMenu.Trigger toggleMenu={toggleMenu}>
-              <LuMoreHorizontal shapeRendering="geometricPrecision" />
-            </DropdownMenu.Trigger>
-            <DropdownMenu.Portal open={isOpen} onBlur={closeDropdownMenu}>
-              <DropdownMenu.Item>
-                <DropdownMenu.Icon >
-                  <TbSquareRoundedPlus shapeRendering="geometricPrecision" />
-                </DropdownMenu.Icon>
-                Create Note
-              </DropdownMenu.Item>
-              <DropdownMenu.Item>
-                <DropdownMenu.Icon><TbFileX shapeRendering="geometricPrecision" /></DropdownMenu.Icon>
-                Delete
-              </DropdownMenu.Item>
-              <DropdownMenu.Item onClick={() => setDialog('export')}>
-                <DropdownMenu.Icon><TbDownload shapeRendering="geometricPrecision" /></DropdownMenu.Icon>
-                Export
-              </DropdownMenu.Item>
-              <DropdownMenu.Item onClick={closeModal}>
-                Sair
-              </DropdownMenu.Item>
-            </DropdownMenu.Portal>
-          </DropdownMenu.Root>
+          <Menu />
         </header>
         <section className={style.content}>
           {children}

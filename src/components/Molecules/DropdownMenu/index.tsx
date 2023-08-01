@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { memo, useCallback, useEffect, useRef } from 'react'
 import style from './style.module.css'
 
 interface Props {
@@ -11,33 +11,37 @@ interface TriggerProps extends Props {
 }
 
 interface PortalProps extends Props {
-  open: boolean,
-  onBlur: () => void
+  onBlur: () => void,
+  open: boolean
 }
 
 interface ItemProps extends Props {
   onClick?: (ev: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
 }
 
-const Root: React.FC<Props> = ({ children }) => <div className={style.root}>{children}</div>
+const Root: React.FC<Props> = ({ children }) => {
+  return (<div className={style.root}>{children}</div>)
+}
+
 
 const Portal: React.FC<PortalProps> = ({
-  children, open, onBlur
+  children, onBlur, open
 }) => {
-
   const portalRef = useRef<HTMLUListElement>(null)
 
   useEffect(() => {
-    if (portalRef.current && open === true) {
+    if (portalRef.current) {
       portalRef.current.focus()
     }
-  }, [portalRef, open])
+  }, [portalRef.current])
+
+  if (!open) return null
 
   return (
     <ul ref={portalRef}
       tabIndex={0}
-      aria-expanded={open}
-      data-open={open}
+      aria-expanded={true}
+      data-open={true}
       onBlur={onBlur}
       className={style.portal}>
       {children}
@@ -45,15 +49,36 @@ const Portal: React.FC<PortalProps> = ({
   )
 }
 
-const Trigger: React.FC<TriggerProps> = ({
-  children,
-  toggleMenu
-}) => <button aria-haspopup="true" onClick={toggleMenu} className={style.btn}>{children}</button>
 
-const Item: React.FC<ItemProps> = ({ children, onClick }) => <li className={style.item}>
-  <a href="#" onClick={onClick}>{children}</a>
-</li>
+
+
+const Trigger: React.FC<TriggerProps> = ({ children, toggleMenu }) => {
+
+  return (
+    <button aria-haspopup="true" onClick={toggleMenu} className={style.btn}>
+      {children}
+    </button>
+  )
+}
+
+const Item: React.FC<ItemProps> = ({ children, onClick }) => (
+  <li className={style.item}>
+    <a href="#" onClick={onClick}>
+      {children}
+    </a>
+  </li>
+)
 
 const Icon: React.FC<Props> = ({ children }) => <div className={style.icon}>{children}</div>
 
-export const DropdownMenu = Object.freeze({ Root, Trigger, Item, Portal, Icon })
+const MemoizedPortal = memo(Portal)
+const MemoizedItem = memo(Item)
+const MemoizedIcon = memo(Icon)
+
+export const DropdownMenu = Object.freeze({
+  Root,
+  Trigger,
+  Item: MemoizedItem,
+  Portal: MemoizedPortal,
+  Icon: MemoizedIcon
+})

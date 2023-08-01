@@ -30,7 +30,6 @@ const HomepageTemplate: React.FC<HomepageTemplateProps> = ({ removeModal, noteId
     <Modal className={style.modal}>
       <Navigation changeNote={setCurrentNodeId} open={openNavigation} close={toggleNavigation} />
       <Main
-        noteId={currentNoteId}
         showNavi={toggleNavigation}
         isNaviOpen={openNavigation}
         title={title}
