@@ -48,11 +48,25 @@ export class Initialise extends Dexie {
     })
   }
 
-  public hookCreate(callback: () => void) {
-    this.editor.hook('creating', function () {
-      this.onsuccess = callback
-      this.onerror = console.log
-    })
+  public hook = {
+    create: (callback: () => void) => {
+      this.editor.hook('creating', function () {
+        this.onsuccess = callback
+        this.onerror = console.log
+      })
+    },
+    delete: (callback: () => void) => {
+      this.editor.hook('deleting', function () {
+        this.onsuccess = callback
+        this.onerror = console.log
+      })
+    },
+    updating: (callback: () => void) => {
+      this.editor.hook('updating', function () {
+        this.onsuccess = callback
+        this.onerror = console.log
+      })
+    }
   }
 }
 

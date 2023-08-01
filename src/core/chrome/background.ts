@@ -104,6 +104,14 @@ chrome.contextMenus.onClicked.addListener(function (info, tab) {
 })
 
 // Update contextMenu with new note is saved
-db.hookCreate(() => {
+db.hook.create(() => {
+  createContextMenu().catch(console.error)
+})
+
+db.hook.updating(() => {
+  createContextMenu().catch(console.error)
+})
+
+db.hook.delete(() => {
   createContextMenu().catch(console.error)
 })
