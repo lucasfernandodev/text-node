@@ -1,5 +1,6 @@
 import style from './style.module.css';
 import { LuChevronsRight, LuFileUp, LuMoreHorizontal } from 'react-icons/lu';
+import { TbCloudDownload, TbDownload, TbFileX, TbSquareRoundedPlus } from 'react-icons/tb'
 import { DropdownMenu } from '../../Molecules/DropdownMenu';
 import { useState } from 'react';
 import { Timeago } from '../../Atoms/Timeago';
@@ -62,11 +63,21 @@ export const Main: React.FC<MainProps> = ({
           </h3>
           <DropdownMenu.Root>
             <DropdownMenu.Trigger toggleMenu={toggleMenu}>
-              <LuMoreHorizontal />
+              <LuMoreHorizontal shapeRendering="geometricPrecision" />
             </DropdownMenu.Trigger>
             <DropdownMenu.Portal open={isOpen} onBlur={closeDropdownMenu}>
+              <DropdownMenu.Item>
+                <DropdownMenu.Icon >
+                  <TbSquareRoundedPlus shapeRendering="geometricPrecision" />
+                </DropdownMenu.Icon>
+                Create Note
+              </DropdownMenu.Item>
+              <DropdownMenu.Item>
+                <DropdownMenu.Icon><TbFileX shapeRendering="geometricPrecision" /></DropdownMenu.Icon>
+                Delete
+              </DropdownMenu.Item>
               <DropdownMenu.Item onClick={showExportDialog}>
-                <DropdownMenu.Icon><LuFileUp /></DropdownMenu.Icon>
+                <DropdownMenu.Icon><TbDownload shapeRendering="geometricPrecision" /></DropdownMenu.Icon>
                 Export
               </DropdownMenu.Item>
               <DropdownMenu.Item onClick={closeModal}>

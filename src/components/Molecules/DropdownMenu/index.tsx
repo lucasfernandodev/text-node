@@ -33,7 +33,16 @@ const Portal: React.FC<PortalProps> = ({
     }
   }, [portalRef, open])
 
-  return <ul ref={portalRef} tabIndex={0} aria-expanded={open} data-open={open} onBlur={onBlur} className={style.portal}>{children}</ul>
+  return (
+    <ul ref={portalRef}
+      tabIndex={0}
+      aria-expanded={open}
+      data-open={open}
+      onBlur={onBlur}
+      className={style.portal}>
+      {children}
+    </ul>
+  )
 }
 
 const Trigger: React.FC<TriggerProps> = ({
