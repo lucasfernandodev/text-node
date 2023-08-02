@@ -7,6 +7,7 @@ import { Timeago } from '../../Atoms/Timeago';
 import { DialogExport } from '../DialogExport';
 import { useDialogContext } from '../../../context/DialogsContext';
 import { Menu } from '../Menu';
+import { Button } from '../../Atoms/Button';
 
 interface MainProps {
   children: React.ReactNode
@@ -39,9 +40,9 @@ export const Main: React.FC<MainProps> = ({
     <>
       <main className={style.main} data-navigation-visibility={isNaviOpen}>
         <header className={style.header}>
-          <button data-navigation-is-open={isNaviOpen} onClick={showNavi} className={style['btn-toggle-navigation']}>
+          <Button data-navigation-is-open={isNaviOpen} onClick={showNavi} className={style['btn-toggle-navigation']}>
             <LuChevronsRight />
-          </button>
+          </Button>
           <h3 className={style.title}>
             {title}
           </h3>

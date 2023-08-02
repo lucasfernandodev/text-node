@@ -7,6 +7,7 @@ import { generateHTML } from '@tiptap/react';
 import { notes } from '../../../database/notes';
 import { useNoteContext } from '../../../context/NoteContext';
 import { useDialogContext } from '../../../context/DialogsContext';
+import { Button } from '../../Atoms/Button';
 
 interface Props {
 }
@@ -106,8 +107,8 @@ const DialogExport: React.FC<Props> = () => {
             }} />
           </fieldset>
           <div className={style.footer}>
-            <button onClick={() => setDialog('')} className={style.btn}>Cancel</button>
-            <button onClick={handleExport} className={[style.btn, style.action].join(" ")}>Export</button>
+            <Button onClick={() => setDialog('')} className={style.btn}>Cancel</Button>
+            <Button onClick={handleExport} className={[style.btn, style.action].join(" ")}>Export</Button>
           </div>
         </div>
       </Dialog.Box>

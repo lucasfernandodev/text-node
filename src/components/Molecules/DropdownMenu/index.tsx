@@ -1,5 +1,6 @@
 import { memo, useCallback, useEffect, useRef } from 'react'
 import style from './style.module.css'
+import { Button } from '../../Atoms/Button'
 
 interface Props {
   children: React.ReactNode
@@ -55,21 +56,37 @@ const Portal: React.FC<PortalProps> = ({
 const Trigger: React.FC<TriggerProps> = ({ children, toggleMenu }) => {
 
   return (
-    <button aria-haspopup="true" onClick={toggleMenu} className={style.btn}>
+    <Button aria-haspopup="true" onClick={toggleMenu} className={style.btn}>
       {children}
-    </button>
+    </Button>
   )
 }
 
-const Item: React.FC<ItemProps> = ({ children, onClick }) => (
-  <li className={style.item}>
-    <a href="#" onClick={onClick}>
-      {children}
-    </a>
-  </li>
-)
+
+
+
+const Item: React.FC<ItemProps> = ({ children, onClick }) => {
+
+  function handle(ev: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+    ev.preventDefault()
+    ev.stopPropagation()
+    onClick && onClick(ev)
+  }
+
+  return (
+    <li className={style.item}>
+      <a href="#" onClick={handle}>
+        {children}
+      </a>
+    </li >
+  )
+}
+
+
 
 const Icon: React.FC<Props> = ({ children }) => <div className={style.icon}>{children}</div>
+
+
 
 const MemoizedPortal = memo(Portal)
 const MemoizedItem = memo(Item)

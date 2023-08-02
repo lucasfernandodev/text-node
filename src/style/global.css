@@ -24,13 +24,6 @@
   width: auto;
 }
 
-#tn-root button {
-  background-color: transparent;
-  color: var(--text);
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-
 #tn-root .isMoving {
   cursor: grabbing !important;
   z-index: 9999;

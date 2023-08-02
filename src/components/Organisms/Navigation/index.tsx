@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { notes } from '../../../database/notes';
 import { ListNotes } from '../../Molecules/ListNotes';
 import { INote } from '../../../types/note';
+import { Button } from '../../Atoms/Button';
 
 interface NavigationProps {
   open: boolean
@@ -31,9 +32,9 @@ export const Navigation: React.FC<NavigationProps> = ({ changeNote, open, close 
     <aside className={style.navigation} data-is-open={open}>
       <header className={style.header}>
         <h3 className={style.title}>My Notes</h3>
-        <button onClick={close} className={style['btn-toggle-options']}>
+        <Button onClick={close} className={style['btn-toggle-options']}>
           <LuChevronsLeft />
-        </button>
+        </Button>
       </header>
       <section className={style.explorer}>
         {listNotes.length === 0 && (<p>You haven't created any notes yet.</p>)}
