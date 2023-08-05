@@ -2,7 +2,7 @@ import { useEffect, useState, lazy } from "react"
 import { communication, CommunicationProps, } from "../../core/chrome/communication";
 import { nanoid } from "nanoid";
 import { Container } from "../../components/Atoms/Container";
-import { NoteContextProvider, useNoteContext } from "../../context/NoteContext";
+import { NoteContextProvider } from "../../context/NoteContext";
 import { DialogContextProvider } from "../../context/DialogsContext";
 
 const HomepageTemplate = lazy(() => import('../../components/Templates/Modal'))
@@ -11,7 +11,7 @@ interface data {
   editor: { id?: string, command: string }
 }
 
-export const Homepage = () => {
+export const OverlayEditor = () => {
 
   const [noteId, setNoteId] = useState(nanoid())
   const [command, setCommand] = useState<null | string>(null)
@@ -24,7 +24,6 @@ export const Homepage = () => {
           const id = nanoid();
           setCommand(data.editor.command)
           setNoteId(id)
-
         }
 
         if (data.editor.id && data.editor.command === 'open') {

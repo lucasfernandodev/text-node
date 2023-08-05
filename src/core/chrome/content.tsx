@@ -4,7 +4,7 @@ import '../../style/colors.css';
 import '../../style/global.css';
 import '../../style/editor.css';
 import '../../style/highlight.css';
-import { Homepage } from '../../pages/Homepage';
+import { OverlayEditor } from '../../pages/OverlayEditor';
 
 const root = document.createElement('div')
 root.id = 'tn-root'
@@ -12,6 +12,6 @@ document.body.append(root)
 
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <Homepage />
+    <OverlayEditor />
   </React.StrictMode>,
 )
