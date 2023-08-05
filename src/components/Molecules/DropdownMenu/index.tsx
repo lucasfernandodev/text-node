@@ -21,7 +21,7 @@ interface ItemProps extends Props {
 }
 
 const Root: React.FC<Props> = ({ children }) => {
-  return (<div className={style.root}>{children}</div>)
+  return (<div className={[style.root, 'surface-ignore'].join(" ")}>{children}</div>)
 }
 
 

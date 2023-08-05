@@ -2,4 +2,4 @@
 
 # Text Node
 
-Adicione um editor de texto ao chrome.
+Adicione um editor de texto simples e completo ao chrome.

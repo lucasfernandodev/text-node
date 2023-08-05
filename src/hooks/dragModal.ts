@@ -15,7 +15,6 @@ const useDragModal = (modal: HTMLElement | null) => {
     modal && headerNavigation.addEventListener("mousedown", startDrag, true);
     modal && headerEditor.addEventListener("mousedown", startDrag, true);
 
-
     function drag(e: MouseEvent) {
       if (modal && isMove === true) {
         e.preventDefault();
@@ -44,20 +43,23 @@ const useDragModal = (modal: HTMLElement | null) => {
       document.removeEventListener("mousemove", drag, true);
     }
 
-
     function startDrag(e: MouseEvent) {
-      isMove = true
-
       const el = e.target as HTMLDivElement
-      el.classList.add('isMoving')
+      console.log("current select element", el)
+      if (!el.closest('.surface-ignore')) {
 
-      document.addEventListener("mousemove", drag, true);
-      document.addEventListener("mouseup", stopDrag, true);
+        el.classList.add('isMoving')
 
-      const react = modal?.getBoundingClientRect() as DOMRect
+        isMove = true
 
-      initialX = e.clientX - react.left;
-      initialY = e.clientY - react.top;
+        document.addEventListener("mousemove", drag, true);
+        document.addEventListener("mouseup", stopDrag, true);
+
+        const react = modal?.getBoundingClientRect() as DOMRect
+
+        initialX = e.clientX - react.left;
+        initialY = e.clientY - react.top;
+      }
     }
 
     return () => {
