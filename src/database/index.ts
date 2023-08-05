@@ -1,15 +1,16 @@
-import { JSONContent } from '@tiptap/react';
 import Dexie, { Table } from 'dexie';
 import { INote } from '../types/note';
 
-interface AddNoteProps {
+export interface AddNoteProps {
   data: Omit<INote, 'updateAt' | 'createAt'>
 }
 
-interface UpdateNoteProps {
+export interface UpdateNoteProps {
   id: string,
   data: Omit<INote, 'createAt'>
 }
+
+export interface GetNoteProps { id: string }
 
 export class Initialise extends Dexie {
   public editor!: Table<INote, string>
@@ -35,7 +36,7 @@ export class Initialise extends Dexie {
     return await this.editor.toArray()
   }
 
-  async getNote({ id }: { id: string }): Promise<INote | undefined> {
+  async getNote({ id }: GetNoteProps): Promise<INote | undefined> {
     return await this.editor.get({
       id
     })

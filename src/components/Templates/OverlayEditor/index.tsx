@@ -6,12 +6,12 @@ import { useEffect, useState } from 'react';
 
 import { Modal } from '../../Atoms/Modal';
 
-interface HomepageTemplateProps {
+interface OverlayEditorTemplateProps {
   noteId: string,
   removeModal: () => void
 }
 
-const HomepageTemplate: React.FC<HomepageTemplateProps> = ({ removeModal, noteId }) => {
+const OverlayEditorTemplate: React.FC<OverlayEditorTemplateProps> = ({ removeModal, noteId }) => {
 
   const [title, setTitle] = useState('Unitled');
   const [openNavigation, setOpenNavigation] = useState(false);
@@ -42,4 +42,4 @@ const HomepageTemplate: React.FC<HomepageTemplateProps> = ({ removeModal, noteId
   )
 }
 
-export default HomepageTemplate
+export default OverlayEditorTemplate

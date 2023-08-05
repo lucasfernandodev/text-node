@@ -1,13 +1,12 @@
-import style from './style.module.css';
 import { LuMoreHorizontal } from 'react-icons/lu';
 import { TbDownload, TbFileX, TbSquareRoundedPlus } from 'react-icons/tb'
 import { DropdownMenu } from '../../Molecules/DropdownMenu';
 import { useState } from 'react';
-import { useDialogContext } from '../../../context/DialogsContext';
+import { useDialog } from '../../../context/Dialog/useDialog';
 
 
 export const Menu = () => {
-  const { setDialog } = useDialogContext()
+  const { setDialog } = useDialog()
   const [isOpen, setIsOpen] = useState(false)
 
   function closeDropdownMenu() {

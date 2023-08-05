@@ -1,11 +1,11 @@
+import { nanoid } from "nanoid";
 import { useEffect, useState, lazy } from "react"
 import { communication, CommunicationProps, } from "../../core/chrome/communication";
-import { nanoid } from "nanoid";
 import { Container } from "../../components/Atoms/Container";
-import { NoteContextProvider } from "../../context/NoteContext";
-import { DialogContextProvider } from "../../context/DialogsContext";
+import { DialogProvider } from "../../context/Dialog/DialogProvider";
+import { NoteProvider } from "../../context/Notes/NoteProvider";
 
-const HomepageTemplate = lazy(() => import('../../components/Templates/Modal'))
+const OverlayEditorTemplate = lazy(() => import('../../components/Templates/OverlayEditor'))
 
 interface data {
   editor: { id?: string, command: string }
@@ -44,11 +44,11 @@ export const OverlayEditor = () => {
 
   return (
     <Container>
-      <DialogContextProvider context={{ dialog, setDialog }}>
-        <NoteContextProvider context={{ changeId: setNoteId, id: noteId }}>
-          {command && <HomepageTemplate removeModal={removeModal} noteId={noteId} />}
-        </NoteContextProvider>
-      </DialogContextProvider>
+      <DialogProvider context={{ dialog, setDialog }}>
+        <NoteProvider context={{ changeId: setNoteId, id: noteId }}>
+          {command && <OverlayEditorTemplate removeModal={removeModal} noteId={noteId} />}
+        </NoteProvider>
+      </DialogProvider>
     </Container >
   )
 }

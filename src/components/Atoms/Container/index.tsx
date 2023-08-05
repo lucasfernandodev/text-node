@@ -1,5 +1,5 @@
 import style from './style.module.css';
-import React, { Component, HTMLAttributes } from "react";
+import React, { HTMLAttributes } from "react";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode,

@@ -1,15 +1,10 @@
-/* eslint-disable @typescript-eslint/no-floating-promises */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-
 import { communication } from "./communication";
-import { db } from "../../database";
+import { AddNoteProps, GetNoteProps, UpdateNoteProps, db } from "../../database";
 import { TCommand } from "../../database/notes";
 
 interface data {
   command: TCommand
-  content: any
+  content: unknown
 }
 
 communication.background.channel<data>(({ data, send }) => {
@@ -18,7 +13,7 @@ communication.background.channel<data>(({ data, send }) => {
     (async () => {
 
       if (data.command === 'addNote') {
-        const response = await db.addNote(data.content)
+        const response = await db.addNote(data.content as AddNoteProps)
         send({ data: { response, origem: 'service_worker', subject: 'db' } });
       }
 
@@ -28,12 +23,12 @@ communication.background.channel<data>(({ data, send }) => {
       }
 
       if (data.command === 'getNote') {
-        const response = await db.getNote(data.content)
+        const response = await db.getNote(data.content as GetNoteProps)
         send({ data: { response, origem: 'service_worker', subject: 'db' } });
       }
 
       if (data.command === 'updateNote') {
-        const response = await db.updateNote(data.content)
+        const response = await db.updateNote(data.content as UpdateNoteProps)
         send({ data: { response, origem: 'service_worker', subject: 'db' } });
       }
 

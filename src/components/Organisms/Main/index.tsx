@@ -3,9 +3,9 @@ import { LuChevronsRight } from 'react-icons/lu';
 import { useEffect, useState } from 'react';
 import { Timeago } from '../../Atoms/Timeago';
 import { DialogExport } from '../DialogExport';
-import { useDialogContext } from '../../../context/DialogsContext';
 import { Menu } from '../Menu';
 import { Button } from '../../Atoms/Button';
+import { useDialog } from '../../../context/Dialog/useDialog';
 
 interface MainProps {
   children: React.ReactNode
@@ -24,7 +24,7 @@ export const Main: React.FC<MainProps> = ({
   isNaviOpen,
 }) => {
 
-  const { dialog } = useDialogContext()
+  const { dialog } = useDialog()
   const [currentTitle, setCurrentTitle] = useState(title)
 
   useEffect(() => {

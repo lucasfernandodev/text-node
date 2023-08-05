@@ -5,20 +5,18 @@ import { useEffect, useState } from 'react';
 import { extensions } from '../../../core/Editor/extensions';
 import { generateHTML } from '@tiptap/react';
 import { notes } from '../../../database/notes';
-import { useNoteContext } from '../../../context/NoteContext';
-import { useDialogContext } from '../../../context/DialogsContext';
 import { Button } from '../../Atoms/Button';
+import { useDialog } from '../../../context/Dialog/useDialog';
+import { useNote } from '../../../context/Notes/useNote';
 
-interface Props {
-}
 
-const DialogExport: React.FC<Props> = () => {
+const DialogExport = () => {
 
   const [exportType, setExportType] = useState('html')
   const [currentContent, setCurrentContent] = useState<null | string>(null)
   const [title, setTitle] = useState('Unitled')
-  const { id } = useNoteContext()
-  const { setDialog } = useDialogContext()
+  const { id } = useNote()
+  const { setDialog } = useDialog()
 
   useEffect(() => {
     async function setContent() {

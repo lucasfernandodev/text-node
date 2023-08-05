@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { communication } from "../core/chrome/communication";
 import { INote } from "../types/note";
 

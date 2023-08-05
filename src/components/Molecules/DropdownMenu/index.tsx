@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useRef } from 'react'
+import { memo, useEffect, useRef } from 'react'
 import style from './style.module.css'
 import { Button } from '../../Atoms/Button'
 
@@ -34,7 +34,7 @@ const Portal: React.FC<PortalProps> = ({
     if (portalRef.current) {
       portalRef.current.focus()
     }
-  }, [portalRef.current])
+  }, [])
 
   if (!open) return null
 

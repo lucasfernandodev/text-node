@@ -1,9 +1,9 @@
-import { LuChevronDown, LuChevronUp, LuFileText } from 'react-icons/lu';
+import { LuChevronUp, LuFileText } from 'react-icons/lu';
 import style from './style.module.css';
 import { INote } from '../../../types/note';
-import React, { useCallback } from 'react';
+import React from 'react';
 import { Details } from '../Details';
-import { useNoteContext } from '../../../context/NoteContext';
+import { useNote } from '../../../context/Notes/useNote';
 
 interface ListNotesProps {
   notes: INote[],
@@ -19,7 +19,7 @@ interface ListProps {
 
 const List: React.FC<ListProps> = ({ title, notes }) => {
 
-  const { id, changeId } = useNoteContext()
+  const { id, changeId } = useNote()
 
   function openNote(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, noteId: string) {
     e.preventDefault()
