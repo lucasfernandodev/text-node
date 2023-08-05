@@ -3,7 +3,6 @@ import { useEffect } from "react";
 
 const useDragModal = (modal: HTMLElement | null) => {
 
-
   useEffect(() => {
 
     let initialX = 0, initialY = 0

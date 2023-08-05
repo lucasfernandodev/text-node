@@ -1,7 +1,5 @@
 import style from './style.module.css';
-import { LuChevronsRight, LuFileUp, LuMoreHorizontal } from 'react-icons/lu';
-import { TbDownload, TbFileX, TbSquareRoundedPlus } from 'react-icons/tb'
-import { DropdownMenu } from '../../Molecules/DropdownMenu';
+import { LuChevronsRight } from 'react-icons/lu';
 import { useEffect, useState } from 'react';
 import { Timeago } from '../../Atoms/Timeago';
 import { DialogExport } from '../DialogExport';
@@ -24,7 +22,6 @@ export const Main: React.FC<MainProps> = ({
   title,
   children,
   isNaviOpen,
-  closeModal
 }) => {
 
   const { dialog } = useDialogContext()
@@ -34,7 +31,7 @@ export const Main: React.FC<MainProps> = ({
     if (title !== currentTitle) {
       setCurrentTitle(title)
     }
-  }, [title])
+  }, [currentTitle, title])
 
   return (
     <>
