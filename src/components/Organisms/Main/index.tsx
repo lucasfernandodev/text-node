@@ -6,6 +6,7 @@ import { DialogExport } from '../DialogExport';
 import { Menu } from '../Menu';
 import { Button } from '../../Atoms/Button';
 import { useDialog } from '../../../context/Dialog/useDialog';
+import { DialogDelete } from '../DialogDelete';
 
 interface MainProps {
   children: React.ReactNode
@@ -53,6 +54,7 @@ export const Main: React.FC<MainProps> = ({
         </footer>
       </main >
       {dialog === 'export' && <DialogExport />}
+      {dialog === 'delete' && <DialogDelete />}
     </>
   )
 }

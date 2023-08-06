@@ -6,7 +6,7 @@ interface updateProps {
   data: Omit<INote, 'createAt'>
 }
 
-export type TCommand = 'addNote' | 'getAllNotes' | 'getNote' | 'updateNote'
+export type TCommand = 'addNote' | 'getAllNotes' | 'getNote' | 'updateNote' | 'delete'
 
 class Notes {
 
@@ -41,6 +41,11 @@ class Notes {
   async update({ id, data }: updateProps): Promise<INote> {
     const response = await this.execute({ id, data }, 'updateNote')
     return response as INote
+  }
+
+  async delete({ id }: { id: string }) {
+    const response = await this.execute({ id }, 'delete')
+    return response as undefined
   }
 }
 

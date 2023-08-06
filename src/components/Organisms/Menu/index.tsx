@@ -36,7 +36,7 @@ export const Menu = () => {
           <DropdownMenu.Icon><TbSquareRoundedPlus /></DropdownMenu.Icon>
           Create Note
         </DropdownMenu.Item>
-        <DropdownMenu.Item>
+        <DropdownMenu.Item dialog="delete">
           <DropdownMenu.Icon><TbFileX /></DropdownMenu.Icon>
           Delete
         </DropdownMenu.Item>

@@ -32,6 +32,11 @@ communication.background.channel<data>(({ data, send }) => {
         send({ data: { response, origem: 'service_worker', subject: 'db' } });
       }
 
+      if (data.command === 'delete') {
+        const response = await db.deleteNote(data.content as { id: string })
+        send({ data: { response, origem: 'service_worker', subject: 'db' } });
+      }
+
     })();
   }
 })

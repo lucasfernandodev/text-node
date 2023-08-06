@@ -1,0 +1,42 @@
+.content {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.btn {
+  all: revert;
+  width: 96px;
+  height: 32px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  background: transparent;
+  color: var(--gray-300);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 250ms linear;
+}
+
+.btn.action {
+  background-color: var(--red-300);
+  color: var(--white);
+}
+
+.btn.action:hover {
+  background-color: var(--red-400);
+}
+
+.btn:hover {
+  color: var(--white);
+}

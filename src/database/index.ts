@@ -43,10 +43,14 @@ export class Initialise extends Dexie {
   }
 
   async updateNote({ id, data }: UpdateNoteProps) {
-    return this.editor.update(id, {
+    return await this.editor.update(id, {
       ...data,
       updateAt: new Date()
     })
+  }
+
+  async deleteNote({ id }: { id: string }) {
+    return await this.editor.delete(id)
   }
 
   public hook = {
