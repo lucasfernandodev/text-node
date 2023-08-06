@@ -44,7 +44,6 @@ const useDragModal = (modal: HTMLElement | null) => {
 
     function startDrag(e: MouseEvent) {
       const el = e.target as HTMLDivElement
-      console.log("current select element", el)
       if (!el.closest('.surface-ignore')) {
 
         el.classList.add('isMoving')
