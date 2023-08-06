@@ -24,11 +24,13 @@ export const OverlayEditor = () => {
           const id = nanoid();
           setCommand(data.editor.command)
           setNoteId(id)
+          setDialog(null)
         }
 
         if (data.editor.id && data.editor.command === 'open') {
           setNoteId(data.editor.id)
           setCommand(data.editor.command)
+          setDialog(null)
         }
       }
     }
