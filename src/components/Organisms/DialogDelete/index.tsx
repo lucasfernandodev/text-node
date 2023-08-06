@@ -15,7 +15,6 @@ const DialogDelete = () => {
 
   function handleDelete() {
     async function execute() {
-      console.log('id', id)
       id && await notes.delete({ id })
     }
 

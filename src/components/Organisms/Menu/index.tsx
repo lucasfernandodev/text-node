@@ -2,9 +2,12 @@ import { LuMoreHorizontal } from 'react-icons/lu';
 import { TbDownload, TbFileX, TbSquareRoundedPlus } from 'react-icons/tb'
 import { DropdownMenu } from '../../Molecules/DropdownMenu';
 import { useState } from 'react';
+import { useNote } from '../../../context/Notes/useNote';
+import { nanoid } from 'nanoid';
 
 export const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const { changeId } = useNote()
 
   function closeDropdownMenu() {
     let timeOut: NodeJS.Timeout | null = null
@@ -26,13 +29,17 @@ export const Menu = () => {
     }
   }
 
+  function CreateNote() {
+    changeId(nanoid())
+  }
+
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger toggleMenu={toggleMenu}>
         <LuMoreHorizontal />
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal open={isOpen} onBlur={closeDropdownMenu}>
-        <DropdownMenu.Item>
+        <DropdownMenu.Item onClick={CreateNote}>
           <DropdownMenu.Icon><TbSquareRoundedPlus /></DropdownMenu.Icon>
           Create Note
         </DropdownMenu.Item>
