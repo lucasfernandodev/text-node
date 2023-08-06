@@ -4,10 +4,12 @@ import { DropdownMenu } from '../../Molecules/DropdownMenu';
 import { useState } from 'react';
 import { useNote } from '../../../context/Notes/useNote';
 import { nanoid } from 'nanoid';
+import { useDialog } from '../../../context/Dialog/useDialog';
 
 export const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { changeId } = useNote()
+  const { setDialog } = useDialog()
 
   function closeDropdownMenu() {
     let timeOut: NodeJS.Timeout | null = null
@@ -33,6 +35,10 @@ export const Menu = () => {
     changeId(nanoid())
   }
 
+  function closeModal() {
+    setDialog('close')
+  }
+
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger toggleMenu={toggleMenu}>
@@ -51,7 +57,7 @@ export const Menu = () => {
           <DropdownMenu.Icon><TbDownload /></DropdownMenu.Icon>
           Export
         </DropdownMenu.Item>
-        <DropdownMenu.Item>
+        <DropdownMenu.Item onClick={closeModal}>
           Sair
         </DropdownMenu.Item>
       </DropdownMenu.Portal>

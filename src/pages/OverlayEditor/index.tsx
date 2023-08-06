@@ -46,7 +46,7 @@ export const OverlayEditor = () => {
     <Container>
       <DialogProvider context={{ dialog, setDialog }}>
         <NoteProvider context={{ changeId: setNoteId, id: noteId }}>
-          {command && <OverlayEditorTemplate removeModal={removeModal} noteId={noteId} />}
+          {command && dialog !== 'close' && <OverlayEditorTemplate removeModal={removeModal} noteId={noteId} />}
         </NoteProvider>
       </DialogProvider>
     </Container >
