@@ -2,11 +2,8 @@ import { LuMoreHorizontal } from 'react-icons/lu';
 import { TbDownload, TbFileX, TbSquareRoundedPlus } from 'react-icons/tb'
 import { DropdownMenu } from '../../Molecules/DropdownMenu';
 import { useState } from 'react';
-import { useDialog } from '../../../context/Dialog/useDialog';
-
 
 export const Menu = () => {
-  const { setDialog } = useDialog()
   const [isOpen, setIsOpen] = useState(false)
 
   function closeDropdownMenu() {
@@ -29,34 +26,28 @@ export const Menu = () => {
     }
   }
 
-  function openExport() {
-    setDialog('export')
-  }
-
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger toggleMenu={toggleMenu}>
-        <LuMoreHorizontal shapeRendering="geometricPrecision" />
+        <LuMoreHorizontal />
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal open={isOpen} onBlur={closeDropdownMenu}>
         <DropdownMenu.Item>
-          <DropdownMenu.Icon >
-            <TbSquareRoundedPlus shapeRendering="geometricPrecision" />
-          </DropdownMenu.Icon>
+          <DropdownMenu.Icon><TbSquareRoundedPlus /></DropdownMenu.Icon>
           Create Note
         </DropdownMenu.Item>
         <DropdownMenu.Item>
-          <DropdownMenu.Icon><TbFileX shapeRendering="geometricPrecision" /></DropdownMenu.Icon>
+          <DropdownMenu.Icon><TbFileX /></DropdownMenu.Icon>
           Delete
         </DropdownMenu.Item>
-        <DropdownMenu.Item onClick={openExport}>
-          <DropdownMenu.Icon><TbDownload shapeRendering="geometricPrecision" /></DropdownMenu.Icon>
+        <DropdownMenu.Item dialog='export'>
+          <DropdownMenu.Icon><TbDownload /></DropdownMenu.Icon>
           Export
         </DropdownMenu.Item>
         <DropdownMenu.Item>
           Sair
         </DropdownMenu.Item>
       </DropdownMenu.Portal>
-    </DropdownMenu.Root>
+    </DropdownMenu.Root >
   )
 }

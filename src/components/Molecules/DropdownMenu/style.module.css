@@ -98,4 +98,5 @@
 .icon svg {
   font-size: 22px;
   stroke-width: 1.5px;
+  shape-rendering: geometricPrecision;
 }

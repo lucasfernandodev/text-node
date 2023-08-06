@@ -1,29 +1,22 @@
 import { memo, useEffect, useRef } from 'react'
 import style from './style.module.css'
 import { Button } from '../../Atoms/Button'
+import { useDialog } from '../../../context/Dialog/useDialog'
 
 interface Props {
   children: React.ReactNode
   className?: string
 }
 
-interface TriggerProps extends Props {
-  toggleMenu: () => void
+const Root: React.FC<Props> = ({ children }) => {
+  return (<div className={[style.root, 'surface-ignore'].join(" ")}>{children}</div>)
 }
+
 
 interface PortalProps extends Props {
   onBlur: () => void,
   open: boolean
 }
-
-interface ItemProps extends Props {
-  onClick?: (ev: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
-}
-
-const Root: React.FC<Props> = ({ children }) => {
-  return (<div className={[style.root, 'surface-ignore'].join(" ")}>{children}</div>)
-}
-
 
 const Portal: React.FC<PortalProps> = ({
   children, onBlur, open
@@ -52,6 +45,9 @@ const Portal: React.FC<PortalProps> = ({
 
 
 
+interface TriggerProps extends Props {
+  toggleMenu: () => void
+}
 
 const Trigger: React.FC<TriggerProps> = ({ children, toggleMenu }) => {
 
@@ -63,14 +59,20 @@ const Trigger: React.FC<TriggerProps> = ({ children, toggleMenu }) => {
 }
 
 
+interface ItemProps extends Props {
+  onClick?: (ev: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
+  dialog?: string
+}
 
+const Item: React.FC<ItemProps> = ({ children, onClick, dialog }) => {
 
-const Item: React.FC<ItemProps> = ({ children, onClick }) => {
+  const { setDialog } = useDialog()
 
   function handle(ev: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
     ev.preventDefault()
     ev.stopPropagation()
     onClick && onClick(ev)
+    dialog && setDialog(dialog)
   }
 
   return (
