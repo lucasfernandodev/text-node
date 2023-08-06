@@ -1,14 +1,14 @@
 import { ReactNode } from "react"
 import { DialogContext } from "./DialogContext"
 
-interface Context {
+interface dialogContext {
   dialog: string | null,
-  setDialog: (value: string) => void
+  setDialog: (value: string | null) => void
 }
 
 interface DialogProviderProps {
   children: ReactNode,
-  context: Context
+  context: dialogContext
 }
 
 

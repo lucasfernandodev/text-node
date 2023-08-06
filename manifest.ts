@@ -17,7 +17,7 @@ export default defineManifest((env) => ({
     "48": "icone48.png",
     "128": "icone128.png"
   },
-  permissions: ["contextMenus"],
+  permissions: ["contextMenus", 'background', 'scripting', 'activeTab', 'tabs'],
   background: {
     service_worker: 'src/core/chrome/background.ts',
     "type": "module"
@@ -26,12 +26,11 @@ export default defineManifest((env) => ({
   content_scripts: [
     {
       js: ["src/core/chrome/content.tsx"],
-      "matches": ["<all_urls>"],
+      matches: ["<all_urls>"],
     }
   ],
   web_accessible_resources: [{
-    "matches": ["<all_urls>"],
-    // copies all png files in src/images
+    matches: ["<all_urls>"],
     resources: ["*.png", "assets/*.css", "*.ttf"]
   }],
 }))
