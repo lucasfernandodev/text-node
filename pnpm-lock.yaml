@@ -115,9 +115,6 @@ devDependencies:
   '@types/react-dom':
     specifier: ^18.0.0
     version: 18.0.0
-  '@types/wkhtmltopdf':
-    specifier: ^0.3.4
-    version: 0.3.4
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.61.0
     version: 5.61.0(@typescript-eslint/parser@5.61.0)(eslint@8.44.0)(typescript@5.0.2)
@@ -1333,10 +1330,6 @@ packages:
     resolution: {integrity: sha512-Hr5Jfhc9eYOQNPYO5WLDq/n4jqijdHNlDXjuAQkkt+mWdQR+XJToOHrsD4cPaMXpn6KO7y2+wM8AZEs8VpBLVA==}
     dev: true
 
-  /@types/node@20.4.5:
-    resolution: {integrity: sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==}
-    dev: true
-
   /@types/object.omit@3.0.0:
     resolution: {integrity: sha512-I27IoPpH250TUzc9FzXd0P1BV/BMJuzqD3jOz98ehf9dQqGkxlq+hO1bIqZGWqCg5bVOy0g4AUVJtnxe0klDmw==}
     dev: false
@@ -1385,12 +1378,6 @@ packages:
   /@types/unist@2.0.7:
     resolution: {integrity: sha512-cputDpIbFgLUaGQn6Vqg3/YsJwxUwHLO13v3i5ouxT4lat0khip9AEWxtERujXV9wxIB1EyF97BSJFt6vpdI8g==}
     dev: false
-
-  /@types/wkhtmltopdf@0.3.4:
-    resolution: {integrity: sha512-W+HCS7HBkrqfH1Jxj+nz7YkKTQ3Pkee31qKC5WU1VhTebgXTTbAxHVQivv7hm5SixXP/jAkQ9BONgJFxkEYtqA==}
-    dependencies:
-      '@types/node': 20.4.5
-    dev: true
 
   /@typescript-eslint/eslint-plugin@5.61.0(@typescript-eslint/parser@5.61.0)(eslint@8.44.0)(typescript@5.0.2):
     resolution: {integrity: sha512-A5l/eUAug103qtkwccSCxn8ZRwT+7RXWkFECdA4Cvl1dOlDUgTpAOfSEElZn2uSUxhdDpnCdetrf0jvU4qrL+g==}
