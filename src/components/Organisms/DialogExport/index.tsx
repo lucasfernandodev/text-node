@@ -8,6 +8,7 @@ import { notes } from '../../../database/notes';
 import { Button } from '../../Atoms/Button';
 import { useDialog } from '../../../context/Dialog/useDialog';
 import { useNote } from '../../../context/Notes/useNote';
+import { styles } from './select-style';
 
 
 const DialogExport = () => {
@@ -62,47 +63,7 @@ const DialogExport = () => {
         <div className={style.form}>
           <fieldset>
             <label htmlFor="">Export</label>
-            <Select onChange={ev => setExportType(ev?.value as string)} defaultValue={{ value: 'html', label: 'HTML' }} options={options} isSearchable={false} styles={{
-              container: () => ({
-                width: 'auto',
-                position: 'relative'
-              }),
-              indicatorsContainer: () => ({
-                backgroundColor: 'transparent',
-              }),
-              indicatorSeparator: () => ({
-                backgroundColor: '#666'
-              }),
-              control: () => ({
-                backgroundColor: 'transparent',
-                width: 'auto',
-                display: 'flex',
-              }),
-              singleValue: (base) => ({
-                ...base,
-                color: "#fff"
-              }),
-              valueContainer: (base) => ({
-                ...base,
-                color: '#fff',
-                cursor: 'pointer'
-              }),
-              menu: () => ({
-                backgroundColor: '#242424',
-                widht: '200px',
-                position: 'absolute',
-                right: '0px',
-                padding: "8px 4px",
-                borderRadius: "3px",
-                boxShadow: '-4px 4px 9px 0px rgba(0,0,0,0.25),'
-              }),
-              option: (base, state) => ({
-                ...base,
-                width: '200px',
-                cursor: "pointer",
-                background: state.isFocused ? '#323232' : '#242424'
-              })
-            }} />
+            <Select onChange={ev => setExportType(ev?.value as string)} defaultValue={{ value: 'html', label: 'HTML' }} options={options} isSearchable={false} styles={{ ...styles }} />
           </fieldset>
           <div className={style.footer}>
             <Button onClick={() => setDialog('')} className={style.btn}>Cancel</Button>

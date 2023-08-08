@@ -37,7 +37,7 @@
   align-items: center;
   font-weight: 600;
   background: transparent;
-  color: var(--gray-300);
+  color: var(--button-cancel-color);
   border-radius: 4px;
   cursor: pointer;
   transition: 250ms linear;
