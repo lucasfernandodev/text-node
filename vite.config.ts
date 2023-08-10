@@ -7,7 +7,8 @@ import manifest from './manifest'
 export default defineConfig({
   plugins: [react(), chromeExtension({ manifest })],
   build: {
-    modulePreload: false
+    modulePreload: false,
+    outDir: '../dist/'
   },
   server: {
     port: 5173,
@@ -15,5 +16,8 @@ export default defineConfig({
     hmr: {
       port: 5173,
     },
+    watch: {
+      usePolling: true
+    }
   },
 })
