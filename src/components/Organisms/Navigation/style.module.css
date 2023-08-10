@@ -58,7 +58,7 @@
 }
 
 .navigation .header button:hover {
-  background-color: var(--navy-400);
+  background-color: var(--trigger-hover-bg);
 }
 
 .navigation[data-is-open="true"] .header button {

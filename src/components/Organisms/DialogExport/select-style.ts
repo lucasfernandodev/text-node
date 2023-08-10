@@ -30,7 +30,7 @@ export const styles: StylesConfig<{ value: string; label: string; }, false, Grou
     widht: '200px',
     position: 'absolute',
     right: '0px',
-    padding: "8px 4px",
+    padding: "8px 6px",
     borderRadius: "3px",
     boxShadow: '-4px 4px 9px 0px rgba(0,0,0,0.25),'
   }),

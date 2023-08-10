@@ -10,6 +10,8 @@
   align-items: center;
   width: 100%;
   gap: 24px;
+  border: none;
+  outline: none;
 }
 
 .form fieldset label {
@@ -35,7 +37,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 600;
+  font-weight: 500;
   background: transparent;
   color: var(--button-cancel-color);
   border-radius: 4px;

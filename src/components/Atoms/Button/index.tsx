@@ -1,5 +1,5 @@
-import { HTMLAttributes, ReactNode } from 'react';
 import style from './style.module.css';
+import { HTMLAttributes, ReactNode } from 'react';
 
 interface Props extends HTMLAttributes<HTMLButtonElement> {
   children: ReactNode

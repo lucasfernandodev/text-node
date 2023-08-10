@@ -8,7 +8,7 @@
   grid-template-areas: "header" "content" "footer";
 }
 
-.main .header {
+.header {
   grid-area: header;
   width: 100%;
   height: var(--header-height);
@@ -23,13 +23,13 @@
   position: relative;
 }
 
-.main .header button {
+.btnToggleNavigation {
   height: 32px;
   width: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: .9s linear;
+  transition: .5s linear;
   border-radius: 3px;
 }
 
@@ -50,8 +50,8 @@
   height: 24px;
 }
 
-.main .header button:hover {
-  background-color: var(--navy-400);
+.btnToggleNavigation:hover {
+  background-color: var(--trigger-hover-bg);
 }
 
 .main .header .title {

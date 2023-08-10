@@ -38,7 +38,10 @@ export const Main: React.FC<MainProps> = ({
     <>
       <main className={style.main} data-navigation-visibility={isNaviOpen}>
         <header className={style.header}>
-          <Button data-navigation-is-open={isNaviOpen} onClick={showNavi} className={style['btn-toggle-navigation']}>
+          <Button
+            data-navigation-is-open={isNaviOpen}
+            onClick={showNavi}
+            className={style.btnToggleNavigation}>
             <LuChevronsRight />
           </Button>
           <h3 className={style.title}>

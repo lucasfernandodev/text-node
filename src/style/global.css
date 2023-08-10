@@ -1,12 +1,3 @@
-@font-face {
-  font-family: 'Merriweather';
-  src: url(/public/fonts/Merriweather-Regular.ttf);
-  src: url(/public/fonts/Merriweather-Black.ttf);
-  src: url(/public/fonts/Merriweather-BlackItalic.ttf);
-  src: url(/public/fonts/Merriweather-Bold.ttf);
-  src: url(/public/fonts/Merriweather-BoldItalic.ttf);
-}
-
 #tn-root {
   --font-family: 'Merriweather', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji",
     Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
@@ -17,6 +8,9 @@
 
 #tn-root *:is(p, h1, h2, h3, h4, h5, h6, a, li, button, input) {
   font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -mox-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 #tn-root {

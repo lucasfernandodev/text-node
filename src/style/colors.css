@@ -1,17 +1,23 @@
 #tn-root {
 
+  /* Colors Root */
+
   --white: #f3f5f7;
 
   --black-900: rgba(18, 18, 18, 90%);
-  --black-800: rgba(25, 25, 25, 1);
-  --black-700: rgba(29, 29, 29, 1);
-  --black-500: rgba(40, 40, 40, 1);
+  --black-800: rgba(19, 20, 22,1);
+  --black-700: rgba(27, 29, 31, 1);
+  --black-400: rgba(35, 37, 39, 1);
+  --black-300: rgba(39, 40, 42, 1);
 
-  --navy-300: rgba(83, 86, 89, 1);
-  --navy-400: rgba(52, 54, 56, 1);
+  --navy-300: rgba(52, 54, 56, 1);
+  --navy-400: rgba(83, 86, 89, 1);
 
-  --gray-300: rgba(129, 129, 129, 1);
-  --gray-400: rgba(50, 50, 50, 1);
+
+  --gray-300: rgba(48, 50, 52, 1);
+  --gray-400: rgba(69, 71, 73, 1);
+  --gray-500: rgba(127, 129, 131, 1);
+
 
   --red-300: rgba(255, 84, 84, 1);
   --red-400: rgba(255, 51, 51, 1);
@@ -19,20 +25,41 @@
   --blue-300: rgba(84, 160, 255, 1);
   --blue-400: rgba(51, 142, 255, 1);
 
+
+  /* Colors Elements */
+
   --accent: var(--blue-400);
 
   --bg: var(--black-800);
   --text: var(--white);
   --border: var(--black-700);
-  --scroll-thumb: var(--black-500);
-  --time: var(--gray-300);
+  --scroll-thumb: var(--black-300);
+  --time: var(--gray-500);
 
-  --placeholder: var(--black-500);
-  --placeholder-title: var(--black-500);
-  --hr: var(--navy-300);
-  --bg-code: var(--black-500);
-  --bg-bubbleMenu: var(--black-500);
+  --placeholder: var(--black-300);
+  --placeholder-title: var(--black-300);
+  --hr: var(--navy-400);
+  --bg-code: var(--black-300);
+  --bg-bubbleMenu: var(--black-300);
 
-  --dropdown-menu-bg: var(--black-500);
-  --dialog-box-bg: var(--gray-400);
+  --dialog-box-bg: var(--gray-300);
+
+
+  /* Dropdown Menu */
+  --trigger-hover-bg: var(--black-400);
+  --dropdown-menu-bg: var(--black-300);
+  --dropdown-menu-item-hover-bg: var(--gray-400);
+
+  /* Select */
+  --select-option-hover-bg: var(--gray-400);
+  --select-portal-bg: var(--black-300);
+  --select-indicatorSeparator-bg: var(--gray-500);
+  --select-color: var(--white);
+
+  /* Buttons */
+  --button-cancel-color: var(--gray-500);
+  --button-hover-border: 2px solid var(--gray-300);
+
+  /* Navigation */
+  --nav-item-color: var(--gray-300);
 }

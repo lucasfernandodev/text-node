@@ -50,9 +50,8 @@ interface TriggerProps extends Props {
 }
 
 const Trigger: React.FC<TriggerProps> = ({ children, toggleMenu }) => {
-
   return (
-    <Button aria-haspopup="true" onClick={toggleMenu} className={style.btn}>
+    <Button aria-haspopup="true" onClick={toggleMenu} className={style.btnTrigger}>
       {children}
     </Button>
   )
@@ -83,7 +82,6 @@ const Item: React.FC<ItemProps> = ({ children, onClick, dialog }) => {
     </li >
   )
 }
-
 
 
 const Icon: React.FC<Props> = ({ children }) => <div className={style.icon}>{children}</div>

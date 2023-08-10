@@ -9,7 +9,6 @@ import { OverlayEditor } from '../../pages/OverlayEditor';
 const root = document.createElement('div')
 root.id = 'tn-root'
 document.body.append(root)
-
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
     <OverlayEditor />

@@ -2,41 +2,28 @@
   position: relative;
 }
 
-.btn {
+.btnTrigger {
   height: 32px;
   width: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: .9s linear;
+  transition: border-color 250ms linear;
   border-radius: 3px;
 }
 
-.btn[data-navigation-is-open="false"] {
-  display: flex;
-  visibility: visible;
-  animation: bshowIn 0.5s linear forwards;
-}
-
-.btn[data-navigation-is-open="true"] {
-  display: none;
-  visibility: none;
-  animation: bshowOut 0.5s linear forwards;
-}
-
-.btn svg {
+.btnTrigger svg {
   width: 24px;
   height: 24px;
 }
 
-.btn:hover {
-  background-color: var(--navy-400);
+.btnTrigger:hover {
+  background-color: var(--trigger-hover-bg);
 }
 
 .portal {
   width: 175px;
-  box-sizing: border-box;
-  padding: 8px 4px !important;
+  padding: 8px 6px;
   background-color: var(--dropdown-menu-bg);
   position: absolute;
   top: 36px;
@@ -84,7 +71,7 @@
 }
 
 .item a:hover {
-  background-color: var(--navy-400);
+  background-color: var(--dropdown-menu-item-hover-bg);
 }
 
 .icon {
