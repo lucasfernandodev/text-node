@@ -31,6 +31,6 @@ export default defineManifest((env) => ({
   ],
   web_accessible_resources: [{
     matches: ["<all_urls>"],
-    resources: ["*.png", "assets/*.css", "*.ttf"]
+    resources: ["*.png", "assets/*.css", "fonts/*.ttf"]
   }],
 }))
