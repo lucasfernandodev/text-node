@@ -50,7 +50,7 @@ const List: React.FC<ListProps> = ({ title, notes }) => {
 
 export const ListNotes = ({ notes, changeNote }: ListNotesProps) => {
 
-  const filterNotes = (notesUnfiltred: INote[]) => {
+  const filterNotes: (notesUnfiltred: INote[]) => [INote[], INote[]] = (notesUnfiltred: INote[]) => {
     const arr: [INote[], INote[]] = [[], []]
 
     notesUnfiltred.map(n => {
@@ -66,7 +66,7 @@ export const ListNotes = ({ notes, changeNote }: ListNotesProps) => {
   return (
     <>
       <List title="Local" openNote={changeNote} notes={localNotes} />
-      <List title="Global" openNote={changeNote} notes={globalNotes} />
+      {globalNotes.length !== 0 && <List title="Global" openNote={changeNote} notes={globalNotes} />}
     </>
   )
 }
