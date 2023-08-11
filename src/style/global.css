@@ -6,7 +6,7 @@
   --footer-height: 48px
 }
 
-#tn-root *:is(p, h1, h2, h3, h4, h5, h6, a, li, button, input) {
+#tn-root *:is(p, h1, span, h2, h3, h4, h5, h6, a, li, button, input) {
   font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -mox-osx-font-smoothing: grayscale;
@@ -16,6 +16,7 @@
 #tn-root {
   box-sizing: border-box;
   width: auto;
+  font-family: var(--font-family);
 }
 
 #tn-root .isMoving {
