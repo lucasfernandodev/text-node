@@ -109,6 +109,9 @@ devDependencies:
   '@types/chrome':
     specifier: ^0.0.242
     version: 0.0.242
+  '@types/node':
+    specifier: ^20.4.9
+    version: 20.4.9
   '@types/react':
     specifier: ^18.0.0
     version: 18.0.0
@@ -138,7 +141,7 @@ devDependencies:
     version: 5.0.2
   vite:
     specifier: ^4.2.1
-    version: 4.2.1
+    version: 4.2.1(@types/node@20.4.9)
 
 packages:
 
@@ -1254,6 +1257,10 @@ packages:
 
   /@types/json-schema@7.0.12:
     resolution: {integrity: sha512-Hr5Jfhc9eYOQNPYO5WLDq/n4jqijdHNlDXjuAQkkt+mWdQR+XJToOHrsD4cPaMXpn6KO7y2+wM8AZEs8VpBLVA==}
+    dev: true
+
+  /@types/node@20.4.9:
+    resolution: {integrity: sha512-8e2HYcg7ohnTUbHk8focoklEQYvemQmu9M/f43DZVx43kHn0tE3BY/6gSDxS7k0SprtS0NHvj+L80cGLnoOUcQ==}
     dev: true
 
   /@types/object.omit@3.0.0:
@@ -3118,7 +3125,7 @@ packages:
       react: 18.0.0
     dev: false
 
-  /vite@4.2.1:
+  /vite@4.2.1(@types/node@20.4.9):
     resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -3143,6 +3150,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 20.4.9
       esbuild: 0.17.19
       postcss: 8.4.27
       resolve: 1.22.4
