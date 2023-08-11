@@ -1,11 +1,10 @@
-
-.time{
+.time {
   all: revert;
   line-height: auto;
-  font-size: 14px;
+  font-size: 12px;
   color: var(--time);
 }
 
-.time time{
+.time time {
   color: var(--time);
 }
