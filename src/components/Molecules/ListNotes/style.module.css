@@ -27,6 +27,11 @@
   color: var(--white);
 }
 
+.group .title:hover,
+.group .title:hover span{
+  color: var(--white)
+}
+
 .group[open] .title .control {
   transform: rotate(-180deg);
 }
