@@ -12,6 +12,7 @@ export const Menu = () => {
   const { setDialog } = useDialog()
 
   function closeDropdownMenu() {
+    console.log('closeMenu')
     let timeOut: NodeJS.Timeout | null = null
     timeOut = setTimeout(() => {
       setIsOpen(false)

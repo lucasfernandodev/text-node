@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef } from 'react'
+import { memo, useCallback } from 'react'
 import style from './style.module.css'
 import { Button } from '../../Atoms/Button'
 import { useDialog } from '../../../context/Dialog/useDialog'
@@ -21,21 +21,18 @@ interface PortalProps extends Props {
 const Portal: React.FC<PortalProps> = ({
   children, onBlur, open
 }) => {
-  const portalRef = useRef<HTMLUListElement>(null)
 
-  useEffect(() => {
-    if (portalRef.current) {
-      portalRef.current.focus()
-    }
+  const portal = useCallback((ref: HTMLUListElement) => {
+    ref && ref.focus()
   }, [])
 
   if (!open) return null
 
   return (
-    <ul ref={portalRef}
+    <ul ref={portal}
       tabIndex={0}
       aria-expanded={true}
-      data-open={true}
+      data-open={open}
       onBlur={onBlur}
       className={style.portal}>
       {children}
