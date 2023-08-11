@@ -1,5 +1,5 @@
-import { ComponentProps, ReactNode, useEffect, useRef } from "react"
-import { useDragModal } from "../../../hooks/dragModal"
+import { ComponentProps, ReactNode, useCallback } from "react"
+import { dragModal } from "../../../utils/dragModal"
 
 interface Props extends ComponentProps<'section'> {
   children: ReactNode
@@ -8,8 +8,9 @@ interface Props extends ComponentProps<'section'> {
 
 const Modal: React.FC<Props> = ({ ...props }) => {
 
-  const ref = useRef<HTMLElement>(null)
-  useDragModal(ref.current)
+  const _dragModal = useCallback((ref: HTMLElement) => {
+    dragModal(ref)
+  }, [])
 
   const newStyle = `
       @font-face{
@@ -48,14 +49,8 @@ const Modal: React.FC<Props> = ({ ...props }) => {
       }
     `
 
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.focus()
-    }
-  }, [])
-
   return (
-    <section ref={ref} aria-modal="true" role="dialog" tabIndex={-1} {...props}>
+    <section ref={_dragModal} aria-modal="true" role="dialog" tabIndex={-1} {...props}>
       <style dangerouslySetInnerHTML={{ __html: newStyle }}></style>
       {props.children}
     </section>
