@@ -1,11 +1,11 @@
 .main {
   grid-area: editor;
   display: grid;
-  height: 380px;
+  height: 400px;
   width: 100%;
   max-width: 500px;
   grid-template-rows: 48px calc(100% - 96px) 48px;
-  grid-template-areas: "header" "content" "footer";
+  grid-template-areas: "header""content""footer";
 }
 
 .header {
@@ -19,7 +19,7 @@
   align-items: center;
   border-bottom: 1px solid var(--border);
   gap: 16px;
-  background: transparent;
+  background: var(--header-bg);
   position: relative;
 }
 
@@ -78,7 +78,7 @@
   grid-area: content;
   width: 100%;
   box-sizing: border-box;
-  height: clamp(280px, calc(100% - (var(--header-height) + var(--header-height))), calc(380px - var(--header-height)));
+  height: clamp(280px, calc(100% - (var(--header-height) + var(--header-height))), calc(400px - var(--header-height)));
   padding: 24px;
 
   overflow-x: hidden;

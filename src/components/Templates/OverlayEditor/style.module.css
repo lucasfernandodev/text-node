@@ -1,11 +1,11 @@
-.modal{
+.modal {
   position: fixed;
   top: 100px;
   left: 100px;
   z-index: 99999;
 
   width: auto;
-  height: 380px;
+  height: 400px;
 
   background: var(--bg);
   color: var(--text);
@@ -16,9 +16,10 @@
   display: grid;
   grid-template-columns: 500px;
   grid-template-areas: "editor";
+  overflow: hidden;
 }
 
-.modal:has(aside[data-is-open="true"]){
+.modal:has(aside[data-is-open="true"]) {
   grid-template-columns: 230px 500px;
   grid-template-areas: "navigation editor";
 }

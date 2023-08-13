@@ -33,6 +33,7 @@ const List: React.FC<ListProps> = ({ title, notes }) => {
         <span className={style.control}><LuChevronUp /></span>
       </Details.Summary>
       <Details.Content>
+        {notes.length === 0 && <p className={style.listEmpty}>You haven't written any notes yet.</p>}
         <ul>
           {notes.map(note => (
             <li className={style.item} key={note.id} data-active={id === note.id}>

@@ -83,16 +83,18 @@ const Item: React.FC<ItemProps> = ({ children, onClick, dialog }) => {
 
 const Icon: React.FC<Props> = ({ children }) => <div className={style.icon}>{children}</div>
 
-
+const Divider = () => <div className={style.divider} />
 
 const MemoizedPortal = memo(Portal)
 const MemoizedItem = memo(Item)
 const MemoizedIcon = memo(Icon)
+const MemoizedDivider = memo(Divider)
 
 export const DropdownMenu = Object.freeze({
   Root,
   Trigger,
   Item: MemoizedItem,
   Portal: MemoizedPortal,
-  Icon: MemoizedIcon
+  Icon: MemoizedIcon,
+  Divider: MemoizedDivider
 })

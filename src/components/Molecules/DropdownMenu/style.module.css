@@ -15,6 +15,7 @@
 .btnTrigger svg {
   width: 24px;
   height: 24px;
+  fill: transparent
 }
 
 .btnTrigger:hover {
@@ -23,7 +24,7 @@
 
 .portal {
   width: 175px;
-  padding: 8px 6px;
+  padding: 8px 0px;
   background-color: var(--dropdown-menu-bg);
   position: absolute;
   top: 36px;
@@ -50,6 +51,7 @@
 .portal li {
   width: 100%;
   box-sizing: border-box;
+  padding: 0px 6px;
 }
 
 .item a {
@@ -86,4 +88,15 @@
   font-size: 22px;
   stroke-width: 1.5px;
   shape-rendering: geometricPrecision;
+  fill: transparent
+}
+
+/* Divider */
+
+.divider {
+  width: 100%;
+  height: 1.5px;
+  border-radius: 3px;
+  background-color: var(--gray-600);
+  display: block;
 }

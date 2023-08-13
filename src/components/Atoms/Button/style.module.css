@@ -4,23 +4,10 @@
   color: var(--text);
   cursor: pointer;
   border: 2px solid transparent;
-  outline-color: 2px solid transparent;
+  outline: 2px solid transparent;
+  border-radius: 3px
 }
 
-.btn:hover {
-  border: var(--button-hover-border)
-}
-
-.btn:active {
-  outline: 2px solid var(--black-400);
-  border: var(--button-hover-border);
-  outline-offset: 1px;
-  transition: unset !important;
-}
-
-.btn:focus-visible{
-  border: var(--button-hover-border);
-  outline: 2px solid var(--black-400);
-  outline-offset: 1px;
-  transition: unset !important;
+.btn svg {
+  fill: transparent
 }

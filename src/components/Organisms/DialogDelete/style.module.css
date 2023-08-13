@@ -10,33 +10,32 @@
   display: flex;
   justify-content: flex-end;
   margin-top: 16px;
+  gap: 8px
 }
 
 .btn {
-  all: revert;
-  width: 96px;
-  height: 32px;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 500;
-  background: transparent;
-  color: var(--button-cancel-color);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: 250ms linear;
+  width: 100px;
+  height: 30px;
+  background: var(--gray-500);
+  border-color: var(--gray-500);
 }
 
-.btn.action {
-  background-color: var(--red-300);
-  color: var(--white);
-}
-
-.btn.action:hover {
-  background-color: var(--red-400);
+.btnDelete {
+  background: var(--red-300);
+  border-color: var(--red-300);
 }
 
 .btn:hover {
+  border-color: var(--gray-400);
   color: var(--white);
+}
+
+.btnDelete:hover {
+  background: var(--red-400);
+  border-color: var(--red-400);
+  color: var(--white)
+}
+
+.btnDelete:focus {
+  border-color: var(--red-300);
 }

@@ -31,7 +31,7 @@ export const Navigation: React.FC<NavigationProps> = ({ changeNote, open, close 
   return (
     <aside className={style.navigation} data-is-open={open}>
       <header className={style.header}>
-        <h3 className={style.title}>My Notes</h3>
+        <h3 className={style.title}>Notes</h3>
         <Button onClick={close} className={style['btn-toggle-options']}>
           <LuChevronsLeft />
         </Button>

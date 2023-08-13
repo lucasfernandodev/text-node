@@ -30,7 +30,7 @@ const DialogDelete = () => {
           <div className={style.content}><span>Are you sure?</span></div>
           <div className={style.footer}>
             <Button onClick={() => setDialog('')} className={style.btn}>Cancel</Button>
-            <Button onClick={handleDelete} className={[style.btn, style.action].join(" ")}>Deletar</Button>
+            <Button onClick={handleDelete} className={[style.btn, style.btnDelete].join(" ")}>Deletar</Button>
           </div>
         </div>
       </Dialog.Box>

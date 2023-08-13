@@ -18,7 +18,8 @@ export const styles: StylesConfig<{ value: string; label: string; }, false, Grou
   }),
   singleValue: (base) => ({
     ...base,
-    color: "var(--select-color)"
+    color: "var(--select-color)",
+    fontSize: "14px"
   }),
   valueContainer: (base) => ({
     ...base,
@@ -38,6 +39,7 @@ export const styles: StylesConfig<{ value: string; label: string; }, false, Grou
     ...base,
     width: '200px',
     cursor: "pointer",
-    background: state.isFocused ? 'var(--select-option-hover-bg)' : 'var(--select-portal-bg)'
+    background: state.isFocused ? 'var(--select-option-hover-bg)' : 'var(--select-portal-bg)',
+    fontSize: "14px"
   })
 }

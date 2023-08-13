@@ -67,7 +67,7 @@ const DialogExport = () => {
           </fieldset>
           <div className={style.footer}>
             <Button onClick={() => setDialog('')} className={style.btn}>Cancel</Button>
-            <Button onClick={handleExport} className={[style.btn, style.action].join(" ")}>Export</Button>
+            <Button onClick={handleExport} className={[style.btn, style.btnExport].join(" ")}>Export</Button>
           </div>
         </div>
       </Dialog.Box>

@@ -1,7 +1,7 @@
 .group {
   width: 100%;
   height: auto;
-  padding: 4px 0px;
+  padding: 8px 0px;
   margin: 0px;
   display: flex;
   flex-direction: column;
@@ -19,22 +19,32 @@
   align-items: center;
   font-size: 12px;
   font-weight: 400;
-  color: var(--gray-500);
+  color: var(--nav-list-title-color);
+}
+
+.group .title::before,
+.group .title::after {
+  content: "";
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .group[open] .title,
 .group[open] .title .control {
-  color: var(--white);
+  color: var(--nav-title-open-color);
+}
+
+.group .title svg {
+  fill: transparent
 }
 
 .group .title:hover,
-.group .title:hover span{
-  color: var(--white)
+.group .title:hover span {
+  color: var(--nav-title-hover-color)
 }
 
-.group[open] .title .control {
-  transform: rotate(-180deg);
-}
 
 .group .title .control {
   width: 16px;
@@ -43,6 +53,39 @@
   justify-content: center;
   align-items: center;
   color: var(--gray-500);
+  animation: rotate 250ms linear forwards
+}
+
+.group[open] .title .control {
+  animation: rotateInvert 250ms linear forwards
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes rotateInvert {
+  0% {
+    transform: rotate(-180deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+
+}
+
+.group .listEmpty {
+  font-size: 11px;
+  color: var(--gray-300);
+  width: 100%;
+  text-align: center;
 }
 
 .group ul {
@@ -86,13 +129,14 @@
 
 .group ul li[data-active=true] a,
 .group ul li[data-active=true] a span {
-  color: var(--white);
+  color: var(--nav-item-active-color);
 }
 
 .group ul li a i svg {
   width: 16px;
   height: 16px;
   font-size: 16px;
+  fill: transparent;
 }
 
 .group ul li a span {
@@ -110,10 +154,10 @@
 }
 
 .group ul li a:hover {
-  background-color: var(--navy-400);
-  color: var(--white);
+  background-color: var(--nav-item-hover-bg);
+  color: var(--nav-item-hover-color);
 }
 
-.group ul li a:hover span{
-    color: var(--white);
+.group ul li a:hover span {
+  color: var(--nav-item-hover-color);
 }

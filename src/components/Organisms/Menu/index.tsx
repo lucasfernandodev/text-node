@@ -57,8 +57,9 @@ export const Menu = () => {
           <DropdownMenu.Icon><TbDownload /></DropdownMenu.Icon>
           Export
         </DropdownMenu.Item>
+        <DropdownMenu.Divider />
         <DropdownMenu.Item onClick={closeModal}>
-          Sair
+          Close
         </DropdownMenu.Item>
       </DropdownMenu.Portal>
     </DropdownMenu.Root >
