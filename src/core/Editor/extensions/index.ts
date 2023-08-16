@@ -20,7 +20,9 @@ export const extensions = [
     codeBlock: false
   }),
   ...Title,
-  Heading,
+  Heading.configure({
+    levels: [1, 2, 3]
+  }),
   Text,
   ...Placeholder,
   ...Dropcursor,
