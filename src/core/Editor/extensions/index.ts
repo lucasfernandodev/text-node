@@ -4,7 +4,6 @@ import Text from '@tiptap/extension-text'
 import { Link } from './Link';
 import { Focus } from './Focus';
 import { Image } from './Image';
-import { Table } from './Table';
 import { CodeBlock } from './CodeBlock';
 import { Dropcursor } from './Dropcursor';
 import { Placeholder } from './Placeholder';
@@ -26,7 +25,6 @@ export const extensions = [
   ...Placeholder,
   ...Dropcursor,
   ...CodeBlock,
-  ...Table,
   ...Image,
   ...Focus,
   ...Link
