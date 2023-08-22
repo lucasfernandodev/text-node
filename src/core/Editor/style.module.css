@@ -1,24 +1,62 @@
 #editor {
-  height: 100%;
-  height: 100%;
+  --font-size: 14px;
+  --flow-space: 1.375em;
+
+  height: auto;
   background: none;
-  font-size: 14px;
+  font-size: var(--font-size);
   font-family: var(--font-family);
-  font-size: 15px;
-  width: 100%;
-  --flow-space: 1em;
   width: 100%;
   position: relative;
   z-index: 500;
 }
 
-
+/* Reset */
 #editor *::selection {
   background-color: var(--accent);
+  color: var(--white)
 }
 
+#editor:focus {
+  outline: none;
+  border: none;
+}
+
+#editor *:is(p, ol, ul) {
+  font-weight: 400;
+  line-height: 1.8571428571428572em;
+  font-family: var(--font-family);
+}
+
+#editor *:is(code) {
+  font-family: monospace;
+}
+
+#editor a {
+  all: revert;
+  cursor: pointer;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--accent);
+}
+
+#editor em {
+  font-style: italic;
+}
+
+
+/*---------- Reset ----------*/
+
+
+
+/* Placeholder */
 #editor [data-placeholder]:is(p)::before {
   visibility: hidden;
+}
+
+#editor .has-focus[data-placeholder]:is(p)::before {
+  visibility: visible;
 }
 
 #editor .placeholder:is(h1):nth-child(1)::before,
@@ -35,70 +73,43 @@
 #editor .placeholder:is(h1):nth-child(1)::before {
   color: var(--placeholder-title);
   visibility: visible;
-  line-height: 1.1;
+  line-height: 1.8571428571428572em;
   font-weight: 800;
   font-size: 28px;
 }
 
-#editor .has-focus[data-placeholder]:is(p)::before {
-  visibility: visible;
-}
+/*---------- Placeholder ----------*/
 
-#editor:focus {
-  outline: none;
-  border: none;
-}
 
-#editor *+* {
-  margin-block-start: var(--flow-space)
-}
+
 
 #editor p {
-  line-height: 26px;
+  font-weight: 400;
   white-space: pre-wrap;
   word-break: break-word;
   color: var(--content-text)
 }
 
 
-
-/* All Title */
-#editor *:is(h1) {
-  --flow-space: 2em;
-}
-
-/* First Title */
-#editor h1:first-child {
-  --flow-space: 0.54em;
-  margin-block-end: var(--flow-space);
-}
-
-#editor *:is(h2, h3, blockquote) {
-  --flow-space: 1.6em;
-}
-
 #editor h1,
 #editor h2,
-#editor h3,
-#editor h4,
-#editor h5,
-#editor h6 {
-  line-height: 1.1;
+#editor h3 {
+  line-height: 1.2;
   font-weight: 800;
   width: 100%;
   display: inline-block;
 }
 
 #editor h1 {
-  font-size: 28px;
+  font-size: 1.7857142857142858em;
 }
 
 #editor h2 {
-  font-size: 22px;
+  font-size: 1.3571428571428572em;
 }
 
 #editor h3 {
-  font-size: 18px;
+  font-size: 1.1428571428571428em;
 }
 
 #editor ul,
@@ -112,15 +123,35 @@
   font-style: italic;
   display: block;
   width: 100%;
-  padding: 16px;
+  padding: 1em;
 }
 
 #editor pre {
   display: block;
   width: 100%;
-  padding: 16px;
+  padding: 1em;
   background: var(--bg-code);
   border-radius: 3px;
+}
+
+#editor code {
+  background-color: var(--bg-code);
+  color: var(--text);
+  font-weight: 400;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 1em;
+  display: inline-block;
+}
+
+#editor pre code {
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  white-space: pre;
+  width: 100%;
+  min-height: 30px;
+  background: transparent
 }
 
 #editor hr {
@@ -143,34 +174,27 @@
   border-radius: 13px;
 }
 
+
+
+
+
+/* Spacing */
+#editor *+* {
+  margin-block-start: var(--flow-space)
+}
+
+
+#editor *+*:is(h1, h2, h3) {
+  --flow-space: 2em
+}
+
+
 #editor *:is(h1, h2, h3)+hr {
   --flow-space: 0.5em;
 }
 
-#editor code {
-  background-color: var(--bg-code);
-  color: var(--text);
-  font-weight: 700;
-  padding: 2px 4px;
-  border-radius: 3px;
-  font-size: 0.7em;
-  display: inline-block;
-  letter-spacing: 0.007rem
-}
-
 #editor li+li {
-  --flow-space: 0.3em
+  --flow-space: 0.5em
 }
 
-#editor a {
-  all: revert;
-  cursor: pointer;
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-color: var(--accent);
-}
-
-#editor em {
-  font-style: italic;
-}
+/*---------- Spacing ----------*/
