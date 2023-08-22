@@ -1,6 +1,6 @@
 import style from './style.module.css';
 import { useEditor, EditorContent } from '@tiptap/react'
-
+import { FloatMenu } from './components/FloatMenu'
 import { BubbleMenu } from './components/BubbleMenu';
 import { memo, useEffect, useMemo, useState } from 'react';
 import { extensions } from './extensions';
@@ -18,6 +18,7 @@ const _Editor = ({ changeTitle, noteId, changeUpdateAt }: props) => {
 
   const storeEditorContent = useMemo(storageEditor, [])
   const [note, setNote] = useState<INote | null>(null)
+  const [slash, setSlash] = useState(false)
 
   const editor = useEditor({
     extensions: [...extensions],
@@ -27,6 +28,12 @@ const _Editor = ({ changeTitle, noteId, changeUpdateAt }: props) => {
         class: 'tn-editor',
         id: (style.editor)
       },
+      handleKeyPress(view, event) {
+        if (event.key === '/') {
+          setSlash(true)
+        }
+        return false
+      }
     },
 
     onUpdate: ({ editor }) => {
@@ -67,9 +74,6 @@ const _Editor = ({ changeTitle, noteId, changeUpdateAt }: props) => {
         }
       }
     }
-
-
-
     setNewContent({ id: noteId }).catch(console.error)
 
   }, [changeTitle, editor, note, noteId])
@@ -82,6 +86,7 @@ const _Editor = ({ changeTitle, noteId, changeUpdateAt }: props) => {
     <>
       <BubbleMenu editor={editor} />
       <EditorContent editor={editor} className={style.editor} />
+      <FloatMenu slash={slash} editor={editor} toggleVisibility={() => setSlash(false)} />
     </>
   )
 }

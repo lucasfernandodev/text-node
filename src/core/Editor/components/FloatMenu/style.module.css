@@ -1,0 +1,37 @@
+.wrapper {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 6px;
+  height: auto;
+  background-color: var(--gray-600);
+  border-radius: 4px;
+}
+
+.wrapper button {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: var(--white);
+  gap: 8px;
+}
+
+.wrapper .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 3px;
+  background-color: var(--black-300);
+}
+
+.wrapper .icon svg {
+  font-size: 22px;
+}

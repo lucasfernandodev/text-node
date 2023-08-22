@@ -1,0 +1,25 @@
+.slashMenuItem {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: var(--white);
+  gap: 8px;
+}
+
+.slashMenuItem .icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 3px;
+  background-color: var(--black-300);
+}
+
+.slashMenuItem .icon svg {
+  font-size: 22px;
+}
