@@ -1,3 +1,4 @@
+
 import { Editor } from "@tiptap/react";
 
 export type allowedElements = 'heading1' | 'heading2' | 'heading3' | 'quote' | 'bulletList' | 'codeBlock'
@@ -8,24 +9,35 @@ interface IToggleElements {
 }
 
 export const toggleElements = ({ el, editor }: IToggleElements) => {
+
+  const EMPTY_PARAGRAPH_CONTENT = '\u00A0';
+
+  const command = editor.chain().focus().selectParentNode().command(({ tr, editor, dispatch }) => {
+    const textNode = editor.schema.text(EMPTY_PARAGRAPH_CONTENT)
+    const transaction = tr.replaceSelectionWith(textNode)
+    dispatch && dispatch(transaction)
+
+    return true
+  })
+
   switch (el) {
     case 'heading1':
-      editor.chain().focus().toggleHeading({ level: 1 }).run()
+      command.toggleHeading({ level: 1 }).run()
       break;
     case 'heading2':
-      editor.chain().focus().toggleHeading({ level: 2 }).run()
+      command.toggleHeading({ level: 2 }).run()
       break;
     case 'heading3':
-      editor.chain().focus().toggleHeading({ level: 3 }).run()
+      command.toggleHeading({ level: 3 }).run()
       break;
     case 'quote':
-      editor.chain().focus().toggleBlockquote().run()
+      command.toggleBlockquote().run()
       break;
     case 'bulletList':
-      editor.chain().focus().toggleBulletList().run()
+      command.toggleBulletList().run()
       break;
     case 'codeBlock':
-      editor.chain().focus().toggleCodeBlock().run()
+      command.toggleCodeBlock().run()
       break;
   }
 }

@@ -13,17 +13,6 @@ interface ISlashMenuItem extends HTMLAttributes<HTMLButtonElement> {
 
 export const SlashMenuItem: React.FC<ISlashMenuItem> = ({ children, Icon, editor, run, ...rest }) => {
   function onClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    // editor.chain().focus().selectParentNode().deleteSelection().insertContent("").run()
-    editor.chain().focus().command(({ tr, editor, state, dispatch }) => {
-      const { from, to } = state.selection
-      editor.state.doc.nodesBetween(from, to, (node, startPos) => {
-        const textNode = editor.schema.text(' ')
-        const paragraphNode = editor.schema.nodes.paragraph.create(null, textNode)
-        const transaction = tr.replaceWith(startPos, startPos + node.nodeSize, paragraphNode)
-        dispatch && dispatch(transaction)
-      })
-      return true;
-    }).run()
     toggleElements({ editor, el: run })
     rest.onClick && rest.onClick(e)
   }
