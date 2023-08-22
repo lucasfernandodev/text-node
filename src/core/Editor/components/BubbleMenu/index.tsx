@@ -1,6 +1,6 @@
+import style from './style.module.css'
 import { FaBold, FaItalic, FaStrikethrough, FaCode } from 'react-icons/fa'
 import { BubbleMenu as BubbleMenuDefault, Editor } from '@tiptap/react'
-import style from './style.module.css'
 import { Button } from '../../../../components/Atoms/Button'
 
 export const BubbleMenu = ({ editor }: { editor: Editor }) => {

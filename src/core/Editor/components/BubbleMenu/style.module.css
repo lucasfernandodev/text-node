@@ -12,9 +12,18 @@
   width: 32px;
   height: 30px;
   transition: 0.5s linear;
+  color: var(--white);
+}
+
+.bubbleMenu button svg {
+  fill: var(--white-500);
 }
 
 .bubbleMenu button:hover, .bubbleMenu button.active {
-  color: var(--white);
+  fill: var(--white);
   background-color: var(--black-700);
+}
+
+.bubbleMenu button.active svg {
+  fill: var(--white);
 }
