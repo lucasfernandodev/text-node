@@ -27,7 +27,6 @@ export const keyboardNavigation: Plugin<Props> = {
         e.preventDefault()
         e.stopPropagation()
         e.stopImmediatePropagation()
-        console.log('childrens', childrens[position])
         childrens.length !== 0 && childrens[position].focus()
       }
 
