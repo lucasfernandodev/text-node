@@ -4,34 +4,41 @@ import { TbH1, TbH2, TbH3 } from 'react-icons/tb';
 import { RiCodeSSlashLine, RiDoubleQuotesL, RiListCheck } from 'react-icons/ri';
 import { SlashMenuItem } from '../../../../components/Molecules/SlashMenu/SlashMenuItem';
 import { SlashMenu } from '../../../../components/Molecules/SlashMenu';
+import { keyboardNavigation } from "../../utils/keyboardNavigation";
+import { useState } from "react";
 
-interface Props {
+interface FloatMenuProps {
   editor: Editor,
   toggleVisibility: (value: boolean) => void,
   slash: boolean
 }
 
 
-export const FloatMenu: React.FC<Props> = ({ editor, slash, toggleVisibility }) => {
+export const FloatMenu: React.FC<FloatMenuProps> = ({ editor, slash, toggleVisibility }) => {
+
+  const [lastPosition, setLastPosition] = useState<number | null>(null)
 
   function shouldShow({ state }: { state: EditorState }) {
     const { $from } = state.selection
     const currentLineText = $from.nodeBefore?.textContent
+    setLastPosition(state.selection.$head.pos)
     const result = currentLineText === '/'
     const node = state.selection.$head.parent
     const currentContent = node.textContent.replaceAll("/", "")
     return currentContent.length === 0 ? result : false
   }
 
+
   const tippyOptions = {
     onHidden() {
       toggleVisibility(false)
     },
     onHide() {
+      editor.chain().focus(lastPosition).run()
       toggleVisibility(false)
-    }
+    },
+    plugins: [keyboardNavigation]
   }
-
 
 
   return (

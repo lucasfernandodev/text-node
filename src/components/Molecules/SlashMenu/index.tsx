@@ -5,5 +5,7 @@ interface ISlashMenu{
 }
 
 export const SlashMenu: React.FC<ISlashMenu> = ({ children }) => {
-  return <div className={style.wrapper}>{children}</div>
+  return (
+    <div tabIndex={0} className={[style.wrapper, 'slashMenu'].join(" ")}>{children}</div>
+  )
 }
