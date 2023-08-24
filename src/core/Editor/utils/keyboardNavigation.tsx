@@ -5,13 +5,11 @@ import { Props, Plugin } from 'tippy.js';
 export const keyboardNavigation: Plugin<Props> = {
   name: 'keyboardNavigationPlugin',
   defaultValue: true,
-  fn({ hide, popper }) {
-    let position = 0;
+  fn({ hide }) {
+    let position = -1;
+    let childrens = [] as HTMLElement[]
 
     function onKeyDown(e: KeyboardEvent) {
-      const target = e.target as HTMLElement
-      const childrens = target.parentNode ? Array.from(target.parentNode.children) as HTMLElement[] : []
-      const qtd = childrens.length
 
       if (e.key === 'Escape') {
         hide();
@@ -21,11 +19,15 @@ export const keyboardNavigation: Plugin<Props> = {
         position = position - 1
       }
 
-      if (e.key === 'ArrowDown' && position < (qtd - 1)) {
+      if (e.key === 'ArrowDown' && position < (childrens.length - 1)) {
         position = position + 1
       }
 
       if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+        e.preventDefault()
+        e.stopPropagation()
+        e.stopImmediatePropagation()
+        console.log('childrens', childrens[position])
         childrens.length !== 0 && childrens[position].focus()
       }
 
@@ -43,14 +45,16 @@ export const keyboardNavigation: Plugin<Props> = {
         });
       },
       onShown() {
-        const element = popper.querySelector('.slashMenu') as HTMLElement
-        element && (element.children[0] as HTMLElement).focus()
-        element && element.addEventListener('keydown', onKeyDown);
+        const menu = document.querySelector('.slashMenu') as HTMLElement
+        menu && childrens.length === 0 && childrens.push(...Array.from(menu.children) as HTMLElement[])
+        menu && menu.addEventListener('keydown', onKeyDown);
+        menu && menu.focus()
       },
       onHide() {
-        position = 0
-        const element = popper.querySelector('.slashMenu') as HTMLElement
-        element && element.removeEventListener('keydown', onKeyDown);
+        position = -1
+        childrens = []
+        const menu = document.querySelector('.slashMenu') as HTMLElement
+        menu && menu.removeEventListener('keydown', onKeyDown);
       },
     };
   },

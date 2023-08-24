@@ -2,10 +2,33 @@
   width: 250px;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 8px;
   padding: 16px 6px;
   height: auto;
   background-color: var(--gray-600);
   border-radius: 4px;
+  height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.wrapper:focus,
+.wrapper:focus-within,
+.wrapper:hover {
+  outline: none;
+  border: none;
+}
+
+.wrapper::-webkit-scrollbar {
+  width: 7px;
+  background: transparent;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+}
+
+.wrapper::-webkit-scrollbar-button {
+  display: none;
 }

@@ -19,9 +19,10 @@ export const FloatMenu: React.FC<FloatMenuProps> = ({ editor, slash, toggleVisib
   const [lastPosition, setLastPosition] = useState<number | null>(null)
 
   function shouldShow({ state }: { state: EditorState }) {
+    setLastPosition(state.selection.$head.pos)
+
     const { $from } = state.selection
     const currentLineText = $from.nodeBefore?.textContent
-    setLastPosition(state.selection.$head.pos)
     const result = currentLineText === '/'
     const node = state.selection.$head.parent
     const currentContent = node.textContent.replaceAll("/", "")

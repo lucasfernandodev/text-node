@@ -25,7 +25,8 @@
 }
 
 .slashMenuItem:focus-within,
-.slashMenuItem:focus {
+.slashMenuItem:focus,
+.slashMenuItem:hover {
   background-color: var(--gray-500);
   outline: none;
   border: none
