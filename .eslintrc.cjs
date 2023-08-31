@@ -29,5 +29,5 @@ module.exports = {
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-floating-promises": "off"
   },
-  ignorePatterns: ["vite.config.ts", "manifest.ts", ".eslintrc.cjs", "node_modules/"]
+  ignorePatterns: ["vite.config.ts", "scripts/firefox.ts", "manifest.ts", ".eslintrc.cjs", "node_modules/"]
 }

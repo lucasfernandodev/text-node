@@ -6,6 +6,18 @@ const names = {
   serve: '[DEV] Text Notes'
 }
 
+const firefoxOptions = process.env.TARGET === 'moz' ? {
+  content_security_policy: {
+    "extension_pages": "default-src 'self'; script-src 'self'; img-src 'self'"
+  },
+  browser_specific_settings: {
+    gecko: {
+      id: "lucasfernando.dev@gmail.com",
+      strict_min_version: "42.0"
+    }
+  },
+} : {}
+
 // import to `vite.config.ts`
 export default defineManifest((env) => ({
   manifest_version: 3,
@@ -17,10 +29,10 @@ export default defineManifest((env) => ({
     "48": "icone48.png",
     "128": "icone128.png"
   },
-  permissions: ["contextMenus", 'background', 'scripting', 'activeTab', 'tabs'],
+  permissions: ["contextMenus", 'scripting', 'activeTab', 'tabs'],
   background: {
     service_worker: 'src/core/chrome/background.ts',
-    "type": "module"
+    type: "module"
   },
   action: { "default_popup": "index.html" },
   content_scripts: [
@@ -33,4 +45,5 @@ export default defineManifest((env) => ({
     matches: ["<all_urls>"],
     resources: ["*.png", "assets/*.css", "fonts/*.ttf"]
   }],
+  ...firefoxOptions
 }))

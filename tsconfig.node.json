@@ -9,6 +9,10 @@
   "include": [
     "vite.config.ts",
     "manifest.ts",
-    "package.json"
+    "package.json",
+    "scripts/firefox.ts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }
