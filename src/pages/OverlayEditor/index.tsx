@@ -12,7 +12,6 @@ interface data {
 }
 
 export const OverlayEditor = () => {
-
   const [noteId, setNoteId] = useState(nanoid())
   const [command, setCommand] = useState<null | string>(null)
   const [dialog, setDialog] = useState<null | string>(null)
