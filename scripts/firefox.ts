@@ -15,11 +15,9 @@ export async function writeManifest() {
 
       if (manifest.web_accessible_resources) {
         manifest.web_accessible_resources = manifest.web_accessible_resources.filter((item: web_accessible_resources) => {
-          if (item.use_dynamic_url) {
-            delete item.use_dynamic_url
-          }
-
-          return item
+          const options = item
+          delete options.use_dynamic_url
+          return options
         })
       }
 

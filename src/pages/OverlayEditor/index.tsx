@@ -17,6 +17,7 @@ export const OverlayEditor = () => {
   const [dialog, setDialog] = useState<null | string>(null)
 
   useEffect(() => {
+
     function listener({ data, source, subject }: CommunicationProps<data>) {
       if (source === 'service_worker' && subject === 'contextmenu:editor') {
         if (data.editor.command === 'new') {
