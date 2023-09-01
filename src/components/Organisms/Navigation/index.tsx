@@ -37,7 +37,7 @@ export const Navigation: React.FC<NavigationProps> = ({ changeNote, open, close 
         </Button>
       </header>
       <section className={style.explorer}>
-        {listNotes.length === 0 && (<p>You haven't created any notes yet.</p>)}
+        {listNotes.length === 0 && (<p className={style.notFound}>You haven't created any notes yet.</p>)}
         {listNotes.length !== 0 && <ListNotes notes={listNotes} changeNote={changeNote} />}
       </section>
     </aside>

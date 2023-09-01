@@ -115,6 +115,10 @@
   display: none;
 }
 
+.navigation .explorer .notFound {
+  font-size: 12px
+}
+
 @keyframes btnNotesAnimationIn {
   0% {
     opacity: 0;
