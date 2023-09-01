@@ -73,7 +73,7 @@
 #editor .placeholder:is(h1):nth-child(1)::before {
   color: var(--placeholder-title);
   visibility: visible;
-  line-height: 1.8571428571428572em;
+  line-height: 1.2;
   font-weight: 800;
   font-size: 28px;
 }
