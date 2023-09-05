@@ -4,8 +4,9 @@ import { TbH1, TbH2, TbH3 } from 'react-icons/tb';
 import { RiCodeSSlashLine, RiDoubleQuotesL, RiListCheck } from 'react-icons/ri';
 import { SlashMenuItem } from '../../../../components/Molecules/SlashMenu/SlashMenuItem';
 import { SlashMenu } from '../../../../components/Molecules/SlashMenu';
-import { keyboardNavigation } from "../../utils/keyboardNavigation";
+import { keyboardNavigation } from "../../plugins/keyboardNavigation";
 import { useState } from "react";
+import { fixOverflowErrorPlugin } from "../../plugins/fixOverflowError";
 
 interface FloatMenuProps {
   editor: Editor,
@@ -19,6 +20,7 @@ export const FloatMenu: React.FC<FloatMenuProps> = ({ editor, slash, toggleVisib
   const [lastPosition, setLastPosition] = useState<number | null>(null)
 
   function shouldShow({ state }: { state: EditorState }) {
+
     setLastPosition(state.selection.$head.pos)
 
     const { $from } = state.selection
@@ -38,7 +40,7 @@ export const FloatMenu: React.FC<FloatMenuProps> = ({ editor, slash, toggleVisib
       editor.chain().focus(lastPosition).run()
       toggleVisibility(false)
     },
-    plugins: [keyboardNavigation]
+    plugins: [keyboardNavigation, fixOverflowErrorPlugin]
   }
 
 

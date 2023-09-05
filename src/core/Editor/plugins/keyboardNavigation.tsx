@@ -1,14 +1,11 @@
 import { Props, Plugin } from 'tippy.js';
 
-
-
 export const keyboardNavigation: Plugin<Props> = {
   name: 'keyboardNavigationPlugin',
   defaultValue: true,
   fn({ hide }) {
     let position = -1;
     let childrens = [] as HTMLElement[]
-
     function onKeyDown(e: KeyboardEvent) {
 
       if (e.key === 'Escape') {
@@ -44,10 +41,12 @@ export const keyboardNavigation: Plugin<Props> = {
         });
       },
       onShown() {
-        const menu = document.querySelector('.slashMenu') as HTMLElement
-        menu && childrens.length === 0 && childrens.push(...Array.from(menu.children) as HTMLElement[])
-        menu && menu.addEventListener('keydown', onKeyDown);
-        menu && menu.focus()
+        const menu = document.querySelector('.slashMenu') as HTMLElement;
+        if (menu) {
+          childrens.length === 0 && childrens.push(...Array.from(menu.children) as HTMLElement[])
+          menu.addEventListener('keydown', onKeyDown);
+          menu.focus()
+        }
       },
       onHide() {
         position = -1

@@ -27,7 +27,7 @@ const OverlayEditorTemplate: React.FC<OverlayEditorTemplateProps> = ({ removeMod
   }
 
   return (
-    <Modal className={style.modal} data-nav-open={openNavigation}>
+    <Modal className={[style.modal, "modal-wrapper"].join(" ")} data-nav-open={openNavigation}>
       <Navigation changeNote={setCurrentNodeId} open={openNavigation} close={toggleNavigation} />
       <Main
         showNavi={toggleNavigation}
