@@ -1,3 +1,4 @@
+import { merge } from '../../../utils/merge';
 import style from './style.module.css';
 import { HTMLAttributes, ReactNode } from 'react';
 
@@ -7,7 +8,7 @@ interface Props extends HTMLAttributes<HTMLButtonElement> {
 
 const Button: React.FC<Props> = (props) => {
   return (
-    <button  {...props} className={[style.btn, props.className].join(" ")}>{props.children}</button>
+    <button  {...props} className={merge([style.btn, props.className])}>{props.children}</button>
   )
 }
 

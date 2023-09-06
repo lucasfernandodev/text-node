@@ -1,4 +1,4 @@
-import { communication } from "./communication";
+import { communication } from "../../utils/browser/communication";
 import { AddNoteProps, GetNoteProps, UpdateNoteProps, db } from "../../database";
 import { TCommand } from "../../database/notes";
 
@@ -10,7 +10,7 @@ interface data {
 communication.background.channel<data>(({ data, send }) => {
 
   if (data.origem === 'content' && data.subject === 'db') {
-    (async () => {
+    const ListenerCommands = async () => {
 
       if (data.command === 'addNote') {
         const response = await db.addNote(data.content as AddNoteProps)
@@ -37,7 +37,9 @@ communication.background.channel<data>(({ data, send }) => {
         send({ data: { response, origem: 'service_worker', subject: 'db' } });
       }
 
-    })();
+    }
+
+    ListenerCommands().catch(console.error)
   }
 })
 

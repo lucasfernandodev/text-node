@@ -9,7 +9,8 @@
     "dev:watch": "TARGET=moz pnpm build --mode=watch",
     "dev": "vite",
     "build": "pnpm clear && tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "build:firefox": "pnpm clear && tsc && TARGET=moz vite build",
+    "lint": "eslint src --ext ts,tsx",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -27,10 +28,6 @@
     "@tiptap/extension-link": "^2.0.4",
     "@tiptap/extension-paragraph": "^2.0.4",
     "@tiptap/extension-placeholder": "^2.0.4",
-    "@tiptap/extension-table": "^2.0.4",
-    "@tiptap/extension-table-cell": "^2.0.4",
-    "@tiptap/extension-table-header": "^2.0.4",
-    "@tiptap/extension-table-row": "^2.0.4",
     "@tiptap/extension-text": "^2.0.4",
     "@tiptap/pm": "^2.0.4",
     "@tiptap/react": "^2.0.4",

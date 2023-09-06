@@ -1,6 +1,7 @@
 import React, { HTMLAttributes, ReactNode, useEffect, useRef } from "react";
 import style from './style.module.css'
 import { Container } from "../../Atoms/Container";
+import { merge } from "../../../utils/merge";
 
 interface Props extends HTMLAttributes<HTMLDetailsElement> {
   children: ReactNode,
@@ -127,7 +128,7 @@ const Summary: React.FC<PropsSummary> = (props) => {
 }
 
 const Content: React.FC<PropsSummary> = (props) => {
-  return <Container {...props} className={[props.className, style.content].join(" ")}>
+  return <Container {...props} className={merge([props.className, style.content])}>
     {props.children}
   </Container>
 }

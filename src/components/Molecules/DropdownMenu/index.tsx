@@ -2,6 +2,7 @@ import { memo, useCallback } from 'react'
 import style from './style.module.css'
 import { Button } from '../../Atoms/Button'
 import { useDialog } from '../../../context/Dialog/useDialog'
+import { merge } from '../../../utils/merge'
 
 interface Props {
   children: React.ReactNode
@@ -9,7 +10,11 @@ interface Props {
 }
 
 const Root: React.FC<Props> = ({ children }) => {
-  return (<div className={[style.root, 'surface-ignore'].join(" ")}>{children}</div>)
+  return (
+    <div className={merge([style.root, 'surface-ignore'])}>
+      {children}
+    </div>
+  )
 }
 
 

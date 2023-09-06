@@ -1,7 +1,7 @@
+import React from 'react';
 import { LuChevronUp, LuFileText } from 'react-icons/lu';
 import style from './style.module.css';
 import { INote } from '../../../types/note';
-import React from 'react';
 import { Details } from '../Details';
 import { useNote } from '../../../context/Notes/useNote';
 
@@ -49,9 +49,11 @@ const List: React.FC<ListProps> = ({ title, notes }) => {
   )
 }
 
+type TFilterNotes = (notesUnfiltred: INote[]) => [INote[], INote[]]
+
 export const ListNotes = ({ notes, changeNote }: ListNotesProps) => {
 
-  const filterNotes: (notesUnfiltred: INote[]) => [INote[], INote[]] = (notesUnfiltred: INote[]) => {
+  const filterNotes: TFilterNotes = (notesUnfiltred: INote[]) => {
     const arr: [INote[], INote[]] = [[], []]
 
     notesUnfiltred.map(n => {

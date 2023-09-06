@@ -5,6 +5,7 @@ import { Navigation } from '../../Organisms/Navigation';
 import { useEffect, useState } from 'react';
 
 import { Modal } from '../../Atoms/Modal';
+import { merge } from '../../../utils/merge';
 
 interface OverlayEditorTemplateProps {
   noteId: string,
@@ -27,7 +28,7 @@ const OverlayEditorTemplate: React.FC<OverlayEditorTemplateProps> = ({ removeMod
   }
 
   return (
-    <Modal className={[style.modal, "modal-wrapper"].join(" ")} data-nav-open={openNavigation}>
+    <Modal className={merge([style.modal, "modal-wrapper"])} data-nav-open={openNavigation}>
       <Navigation changeNote={setCurrentNodeId} open={openNavigation} close={toggleNavigation} />
       <Main
         showNavi={toggleNavigation}

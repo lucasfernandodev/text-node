@@ -5,6 +5,7 @@ import { useDialog } from '../../../context/Dialog/useDialog';
 import { useNote } from '../../../context/Notes/useNote';
 import { notes } from '../../../database/notes';
 import { nanoid } from 'nanoid';
+import { merge } from '../../../utils/merge';
 
 
 const DialogDelete = () => {
@@ -30,7 +31,7 @@ const DialogDelete = () => {
           <div className={style.content}><span>Are you sure?</span></div>
           <div className={style.footer}>
             <Button onClick={() => setDialog('')} className={style.btn}>Cancel</Button>
-            <Button onClick={handleDelete} className={[style.btn, style.btnDelete].join(" ")}>Deletar</Button>
+            <Button onClick={handleDelete} className={merge([style.btn, style.btnDelete])}>Deletar</Button>
           </div>
         </div>
       </Dialog.Box>

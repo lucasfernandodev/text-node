@@ -9,6 +9,7 @@ import { Button } from '../../Atoms/Button';
 import { useDialog } from '../../../context/Dialog/useDialog';
 import { useNote } from '../../../context/Notes/useNote';
 import { styles } from './select-style';
+import { merge } from '../../../utils/merge';
 
 
 const DialogExport = () => {
@@ -63,11 +64,16 @@ const DialogExport = () => {
         <div className={style.form}>
           <fieldset>
             <label htmlFor="">Export</label>
-            <Select onChange={ev => setExportType(ev?.value as string)} defaultValue={{ value: 'html', label: 'HTML' }} options={options} isSearchable={false} styles={{ ...styles }} />
+            <Select
+              onChange={ev => setExportType(ev?.value as string)}
+              defaultValue={{ value: 'html', label: 'HTML' }}
+              options={options}
+              isSearchable={false}
+              styles={{ ...styles }} />
           </fieldset>
           <div className={style.footer}>
             <Button onClick={() => setDialog('')} className={style.btn}>Cancel</Button>
-            <Button onClick={handleExport} className={[style.btn, style.btnExport].join(" ")}>Export</Button>
+            <Button onClick={handleExport} className={merge([style.btn, style.btnExport])}>Export</Button>
           </div>
         </div>
       </Dialog.Box>

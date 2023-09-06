@@ -2,7 +2,8 @@ import style from './style.module.css';
 import { Editor } from "@tiptap/react"
 import { ComponentType, HTMLAttributes } from "react"
 import { IconBaseProps } from 'react-icons';
-import { allowedElements, toggleElements } from '../toggleElements';
+import { allowedElements, toggleElements } from '../../../../utils/tiptap/slashMenu/toggleElements';
+import { merge } from '../../../../utils/merge';
 
 interface ISlashMenuItem extends HTMLAttributes<HTMLButtonElement> {
   editor: Editor,
@@ -18,7 +19,7 @@ export const SlashMenuItem: React.FC<ISlashMenuItem> = ({ children, Icon, editor
   }
 
   return (
-    <button {...rest} onClick={onClick} className={[style.slashMenuItem, rest.className].join(" ")}>
+    <button {...rest} onClick={onClick} className={merge([style.slashMenuItem, rest.className])}>
       <span className={style.icon}>
         <Icon />
       </span>

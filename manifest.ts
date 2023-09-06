@@ -31,13 +31,13 @@ export default defineManifest((env) => ({
   },
   permissions: ["contextMenus", 'scripting', 'activeTab', 'tabs'],
   background: {
-    service_worker: 'src/core/chrome/background.ts',
+    service_worker: 'src/core/browser/background.ts',
     type: "module"
   },
   action: { "default_popup": "index.html" },
   content_scripts: [
     {
-      js: ["src/core/chrome/content.tsx"],
+      js: ["src/core/browser/content.tsx"],
       matches: ["<all_urls>"],
     }
   ],
