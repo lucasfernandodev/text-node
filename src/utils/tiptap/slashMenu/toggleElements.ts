@@ -1,7 +1,7 @@
 
 import { Editor } from "@tiptap/react";
 
-export type allowedElements = 'heading1' | 'heading2' | 'heading3' | 'quote' | 'bulletList' | 'codeBlock'
+export type allowedElements = 'divider' | 'heading1' | 'heading2' | 'heading3' | 'quote' | 'bulletList' | 'codeBlock'
 
 interface IToggleElements {
   el: allowedElements,
@@ -39,5 +39,24 @@ export const toggleElements = ({ el, editor }: IToggleElements) => {
     case 'codeBlock':
       command.toggleCodeBlock().run()
       break;
+    case 'divider':
+
+      try {
+        if (editor.can().setHorizontalRule()) {
+          editor.chain().command(({ tr, dispatch }) => {
+            const divider = editor.schema.node('hr')
+            const transaction = tr.replaceSelectionWith(divider)
+            dispatch && dispatch(transaction)
+            return true
+          }).run()
+        }
+      } catch (error) {
+        editor.chain().selectParentNode().command(({ chain, state }) => {
+          const pos = state.selection.$anchor.pos
+          chain().createParagraphNear().run()
+          chain().setNodeSelection(pos).setHorizontalRule().run()
+          return true
+        }).focus().run()
+      }
   }
 }

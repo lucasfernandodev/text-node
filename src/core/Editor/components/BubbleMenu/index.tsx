@@ -9,7 +9,8 @@ export const BubbleMenu = ({ editor }: { editor: Editor }) => {
   function shouldShow({ state, }: { state: EditorState }) {
     const { $head } = state.selection
     const isEmptySelection = state.selection.empty
-
+    const type = state.selection.$anchor.node().type
+    if (type.name === 'doc') return false
     if (isEmptySelection) return false
     return $head.parent.type.name !== 'title'
   }

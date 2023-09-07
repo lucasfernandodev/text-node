@@ -2,9 +2,9 @@ import { Editor, FloatingMenu as FloatingMenuDefault } from "@tiptap/react"
 import { EditorState } from '@tiptap/pm/state';
 import { TbH1, TbH2, TbH3 } from 'react-icons/tb';
 import { RiCodeSSlashLine, RiDoubleQuotesL, RiListCheck } from 'react-icons/ri';
+import { RxDividerHorizontal } from 'react-icons/rx'
 import { SlashMenuItem } from '../../../../components/Molecules/SlashMenu/SlashMenuItem';
-import { SlashMenu } from '../../../../components/Molecules/SlashMenu';
-import { keyboardNavigation } from "../../../../utils/tippy/plugins/keyboardNavigation";
+import { SlashMenu } from '../../../../components/Molecules/SlashMenu'
 import { useState } from "react";
 import { fixOverflowErrorPlugin } from "../../../../utils/tippy/plugins/fixOverflowError";
 
@@ -64,6 +64,9 @@ export const FloatMenu: React.FC<FloatMenuProps> = ({ editor, slash, toggleVisib
         </SlashMenuItem>
         <SlashMenuItem Icon={RiCodeSSlashLine} editor={editor} run='codeBlock'>
           Code Block
+        </SlashMenuItem>
+        <SlashMenuItem Icon={RxDividerHorizontal} editor={editor} run='divider'>
+          Divider
         </SlashMenuItem>
       </SlashMenu>
     )}

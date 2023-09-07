@@ -154,28 +154,6 @@
   background: transparent
 }
 
-#editor hr {
-  width: 100%;
-  height: 13px;
-  border: none;
-  display: block;
-  position: relative;
-}
-
-#editor hr::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0px;
-  height: 1px;
-  width: 100%;
-  background: var(--hr);
-  border-radius: 13px;
-}
-
-
-
 
 
 /* Spacing */
@@ -198,3 +176,47 @@
 }
 
 /*---------- Spacing ----------*/
+
+#editor hr{
+  width: 100%;
+  height: 12px;
+  border: none;
+  display: block;
+  position: relative;
+  z-index: 2;
+  background: none;
+  cursor: default;
+}
+
+#editor hr::after{
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: var(--gray-500);
+  position: absolute;
+  top: 50%;
+  border-radius: 3px;
+  z-index: 3;
+  display: block;
+  transform: translateY(-50%);
+}
+
+#editor hr:hover{
+ cursor: default;
+}
+
+#editor hr.has-focus::before{
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0px;
+  background: rgba(35, 131, 226, 0.14);
+  z-index: -1;
+  opacity: 1;
+  height: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition-property: opacity;
+  transition-duration: 270ms;
+  transition-timing-function: ease;
+}
