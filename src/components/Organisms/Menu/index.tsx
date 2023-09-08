@@ -44,7 +44,7 @@ export const Menu = () => {
       <DropdownMenu.Trigger toggleMenu={toggleMenu}>
         <LuMoreHorizontal />
       </DropdownMenu.Trigger>
-      <DropdownMenu.Portal open={isOpen} onBlur={closeDropdownMenu}>
+      <DropdownMenu.Portal open={isOpen} onBlur={toggleMenu}>
         <DropdownMenu.Item onClick={CreateNote}>
           <DropdownMenu.Icon><TbSquareRoundedPlus /></DropdownMenu.Icon>
           Create Note

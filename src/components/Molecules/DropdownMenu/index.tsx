@@ -3,7 +3,7 @@ import style from './style.module.css'
 import { Button } from '../../Atoms/Button'
 import { useDialog } from '../../../context/Dialog/useDialog'
 import { merge } from '../../../utils/merge'
-
+import { Portal as PortalDefault } from '../../Atoms/Portal'
 interface Props {
   children: React.ReactNode
   className?: string
@@ -34,14 +34,14 @@ const Portal: React.FC<PortalProps> = ({
   if (!open) return null
 
   return (
-    <ul ref={portal}
+    <PortalDefault as="ul" ref={portal}
       tabIndex={0}
       aria-expanded={true}
       data-open={open}
       onBlur={onBlur}
       className={style.portal}>
       {children}
-    </ul>
+    </PortalDefault>
   )
 }
 

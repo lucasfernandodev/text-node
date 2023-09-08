@@ -18,16 +18,16 @@ export const styles: StylesConfig<{ value: string; label: string; }, false, Grou
   }),
   singleValue: (base) => ({
     ...base,
-    color: "var(--select-color)",
+    color: "var(--portal-color)",
     fontSize: "14px"
   }),
   valueContainer: (base) => ({
     ...base,
-    color: 'var(--select-color)',
+    color: 'var(--portal-color)',
     cursor: 'pointer'
   }),
   menu: () => ({
-    backgroundColor: 'var(--select-portal-bg)',
+    backgroundColor: 'var(--portal-input-bg)',
     widht: '200px',
     position: 'absolute',
     right: '0px',
@@ -39,7 +39,7 @@ export const styles: StylesConfig<{ value: string; label: string; }, false, Grou
     ...base,
     width: '200px',
     cursor: "pointer",
-    background: state.isFocused ? 'var(--select-option-hover-bg)' : 'var(--select-portal-bg)',
+    background: state.isFocused ? 'var(--portal-accent)' : 'var(--portal-input-bg)',
     fontSize: "14px"
   })
 }

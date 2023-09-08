@@ -1,0 +1,6 @@
+.portal{
+  background-color: var(--portal-bg);
+  color: var(--white);
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -1,97 +1,48 @@
-#tn-root {
+#tn-root, #root_popup, .popup-mode {
 
   /* Colors Root */
   --white: #f3f5f7;
   --white-500: #B9BBBC;
 
-  --black-900: #101214e6;
-  --black-800: #121416;
-  --black-700: #1b1d1f;
-  --black-400: #232527;
-  --black-300: #26282a;
+  --black-900: #121416;
+  --black-800: #1E2021;
+  --black-700: #26282A;
+  --black-600: #343638;
+  --black-400: #454749;
 
-  --gray-600: #303234;
-  --gray-500: #454749;
-  --gray-400: #545658;
-  --gray-300: #7f8183;
+  --gray-300: #A4A5A6;
+  --gray-100: #B9BBBC;
 
   --red-300: #F25E5E;
   --red-400: #D95555;
 
   --blue-300: rgba(84, 160, 255, 1);
-  --blue-400: rgba(51, 142, 255, 1);
+  --blue-400: #2871CA;
+
+  --orange-400: #FECF49;
 
 
   /* Components Colors*/
 
   /* Pages */
-  --bg: var(--black-800);
+  --bg: var(--black-900);
   --text: var(--white);
-  --accent: var(--blue-300);
-  --border: var(--black-700);
-  --scroll-thumb: var(--black-300);
-
-
-
-
-  /* Time ago */
+  --accent: var(--blue-400);
+  --border: var(--black-800);
+  --header-bg: linear-gradient(90deg, #121416 0%, #1B1D1F 47.92%, #121416 100%);
+  --scroll-thumb: var(--black-400);
   --time: var(--gray-300);
 
+  --portal-bg: var(--black-700);
+  --portal-input-bg: var(--black-800);
+  --portal-accent: var(--blue-400);
+  --portal-color: var(--white);
 
-
-  /* Dialog */
-  --dialog-box-bg: var(--gray-600);
-
-
-
-
-  /* Dropdown Menu */
-  --trigger-hover-bg: var(--black-400);
-  --dropdown-menu-bg: var(--black-300);
-  --dropdown-menu-item-hover-bg: var(--gray-500);
-
-
-
-
-  /* Select */
-  --select-option-hover-bg: var(--gray-500);
-  --select-portal-bg: var(--black-300);
-  --select-indicatorSeparator-bg: var(--gray-300);
-  --select-color: var(--white);
-
-
-
-
-  /* Buttons */
-  --button-cancel-color: var(--gray-300);
-  --button-hover-border: 2px solid var(--gray-600);
-
-
-
-
-  /* Navigation - List */
-  --nav-list-title-color: var(--gray-300);
-  --nav-title-open-color: var(--white);
-  --nav-title-hover-color: var(--white);
-  --nav-item-color: var(--gray-600);
-  --nav-item-active-color: var(--white);
-  --nav-item-hover-color: var(--white);
-  --nav-item-hover-bg: var(--gray-400);
-
-
-
-
-  /* Header */
-  --header-bg: linear-gradient(90deg, #121416 0%, #1B1D1F 47.92%, #121416 100%);
-
-
-
-
-  /* Editor */
-  --content-text: var(--white-500);
-  --placeholder: var(--black-300);
-  --placeholder-title: var(--black-300);
-  --hr: var(--gray-400);
-  --bg-code: var(--black-300);
-  --bg-bubbleMenu: var(--black-300);
+  --editor-accent: var(--blue-400);
+  --editor-content-color: var(--gray-100);
+  --editor-codeblock: var(--black-800);
+  --editor-inline-code-bg: var(--orange-400);
+  --editor-inline-code-color: var(--black-700);
+  --editor-placeholder: var(--black-600);
+  --editor-divider:var(--black-700);
 }

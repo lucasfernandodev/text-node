@@ -1,7 +1,7 @@
 /* Reset */
-.tn-editor *,
-.tn-editor *::before,
-.tn-editor *::after{
+.tn-editor *:not(pre code, pre *, pre),
+.tn-editor *:not(pre code, pre *, pre)::before,
+.tn-editor *:not(pre code, pre *, pre)::after{
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;

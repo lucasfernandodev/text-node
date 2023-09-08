@@ -5,6 +5,7 @@ import css from 'highlight.js/lib/languages/css'
 import js from 'highlight.js/lib/languages/javascript'
 import ts from 'highlight.js/lib/languages/typescript'
 import html from 'highlight.js/lib/languages/xml'
+import { merge } from '../../../../utils/merge';
 
 lowlight.registerLanguage('html', html)
 lowlight.registerLanguage('css', css)
@@ -14,6 +15,8 @@ lowlight.registerLanguage('ts', ts)
 export const CodeBlock = [
   CodeBlockLowlight.configure({
     lowlight,
-    HTMLAttributes:{ class: style.codeblock}
-  }),
+    HTMLAttributes: {
+      class: merge([style.codeblock]),
+    }
+  })
 ]

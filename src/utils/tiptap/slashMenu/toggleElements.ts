@@ -37,7 +37,7 @@ export const toggleElements = ({ el, editor }: IToggleElements) => {
       command.toggleBulletList().run()
       break;
     case 'codeBlock':
-      command.toggleCodeBlock().run()
+      command.toggleCodeBlock({ language: 'typescript' }).run()
       break;
     case 'divider':
 

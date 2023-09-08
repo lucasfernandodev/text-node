@@ -107,7 +107,7 @@
 
 .group a {
   text-decoration: none;
-  color: var(--gray-500);
+  color: var(--gray-300);
   cursor: pointer;
   height: 30px;
   width: 100%;
@@ -129,7 +129,7 @@
 
 .group ul li[data-active=true] a,
 .group ul li[data-active=true] a span {
-  color: var(--nav-item-active-color);
+  color: var(--white);
 }
 
 .group ul li a i svg {
@@ -154,10 +154,10 @@
 }
 
 .group ul li a:hover {
-  background-color: var(--nav-item-hover-bg);
-  color: var(--nav-item-hover-color);
+  background-color: var(--portal-accent);
+  color: var(--white);
 }
 
 .group ul li a:hover span {
-  color: var(--nav-item-hover-color);
+  color: var(--white);
 }

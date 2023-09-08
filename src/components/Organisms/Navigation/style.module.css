@@ -1,6 +1,6 @@
 .navigation {
   grid-area: navigation;
-  height: 400px;
+  height: var(--modal-height);
   width: 230px;
   display: flex;
   flex-direction: column;
@@ -56,10 +56,15 @@
 .navigation .header button svg {
   width: 24px;
   height: 24px;
+  color: var(--gray-300)
+}
+
+.navigation .header button:hover svg{
+  color: var(--white)
 }
 
 .navigation .header button:hover {
-  background-color: var(--trigger-hover-bg);
+  background-color: var(--black-400);
 }
 
 .navigation[data-is-open="true"] .header button {

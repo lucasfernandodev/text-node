@@ -1,3 +1,4 @@
+import { Portal } from '../../Atoms/Portal'
 import style from './style.module.css'
 
 interface Props {
@@ -10,7 +11,7 @@ interface RootProps extends Props {
 }
 
 const Box: React.FC<Props> = ({ children }) => {
-  return <div className={style.box}>{children}</div>
+  return <Portal className={style.box}>{children}</Portal>
 }
 
 const Root: React.FC<RootProps> = ({ children, open = false }) => {

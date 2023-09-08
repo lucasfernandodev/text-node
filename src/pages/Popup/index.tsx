@@ -1,1 +1,3 @@
-export const Popup = () => <h1>Popup welcome</h1>
+export const Popup = () => {
+  return <div>Notes in Construction</div>
+}

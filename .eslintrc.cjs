@@ -22,12 +22,6 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    // '@typescript-eslint/no-non-null-assertion': 'off',
-    // "@typescript-eslint/no-unsafe-call": "off",
-    // "@typescript-eslint/no-unsafe-member-access": "off",
-    // "@typescript-eslint/class-methods-use-this": "off",
-    // "@typescript-eslint/no-unsafe-assignment": "off",
-    // "@typescript-eslint/no-floating-promises": "off"
   },
   ignorePatterns: ["vite.config.ts", "scripts/firefox.ts", "manifest.ts", ".eslintrc.cjs", "node_modules/"]
 }

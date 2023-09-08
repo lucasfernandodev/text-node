@@ -1,5 +1,6 @@
 import React from 'react';
-import { LuChevronUp, LuFileText } from 'react-icons/lu';
+import { LuChevronUp } from 'react-icons/lu';
+import { TbNote } from 'react-icons/tb'
 import style from './style.module.css';
 import { INote } from '../../../types/note';
 import { Details } from '../Details';
@@ -38,7 +39,7 @@ const List: React.FC<ListProps> = ({ title, notes }) => {
           {notes.map(note => (
             <li className={style.item} key={note.id} data-active={id === note.id}>
               <a href="#" className={style['item-action']} onClick={e => openNote(e, note.id)}>
-                <i><LuFileText /></i>
+                <i><TbNote /></i>
                 <span>{note.title}</span>
               </a>
             </li>

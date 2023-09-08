@@ -1,7 +1,7 @@
 .main {
   grid-area: editor;
   display: grid;
-  height: 400px;
+  height: var(--modal-height);
   width: 100%;
   max-width: 500px;
   grid-template-rows: 48px calc(100% - (var(--footer-height) + var(--header-height))) 48px;
@@ -48,10 +48,15 @@
 .main .header button svg {
   width: 24px;
   height: 24px;
+  color: var(--gray-300)
+}
+
+.main .header button:hover svg{
+    color: var(--white)
 }
 
 .btnToggleNavigation:hover {
-  background-color: var(--trigger-hover-bg);
+ background-color: var(--black-400);
 }
 
 .main .header .title {

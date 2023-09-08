@@ -1,0 +1,30 @@
+.codeblock{
+  display: block;
+  width: 100%;
+  padding: 1.8em 1em 1em 1em;
+  background: var(--editor-codeblock);
+  border-radius: 3px;
+  color: var(--editor-color);
+  max-width: 100%;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+}
+
+.codeblock code {
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  width: 100%;
+  min-height: 30px;
+  background: transparent;
+  font-weight: 400;
+}
+
+.codeblock code,
+.codeblock code *,
+.codeblock *{
+  font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace !important;
+  line-height: 26px;
+  font-weight: 400;
+  font-size: 14px;
+}

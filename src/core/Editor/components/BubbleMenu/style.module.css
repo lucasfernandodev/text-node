@@ -1,5 +1,4 @@
 .bubbleMenu {
-  background-color: var(--bg-bubbleMenu);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -11,19 +10,31 @@
 .bubbleMenu button {
   width: 32px;
   height: 30px;
-  transition: 0.5s linear;
-  color: var(--white);
+  transition: 350ms ease-in;
+  color: var(--portal-color);
+  border-radius: 0px;
 }
 
 .bubbleMenu button svg {
   fill: var(--white-500);
 }
 
-.bubbleMenu button:hover, .bubbleMenu button.active {
-  fill: var(--white);
-  background-color: var(--black-700);
+.bubbleMenu button:hover{
+  background: var(--portal-accent);
 }
 
-.bubbleMenu button.active svg {
-  fill: var(--white);
+.bubbleMenu button:hover svg{
+ fill: var(--portal-color);
+}
+
+.bubbleMenu button.active svg{
+  fill: var(--portal-accent);
+}
+
+.bubbleMenu button.active:hover{
+  background: var(--portal-accent);
+}
+
+.bubbleMenu button.active:hover svg{
+    fill: var(--portal-color);
 }

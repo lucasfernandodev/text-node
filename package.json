@@ -6,7 +6,7 @@
   "scripts": {
     "clear": "rimraf ../dist/",
     "dev:firefox": "pnpm clear && TARGET=moz sh scripts/start.sh ../dist/",
-    "dev:watch": "TARGET=moz pnpm build --mode=watch",
+    "dev:firefox:watch": "TARGET=moz pnpm build --mode=watch",
     "dev": "vite",
     "build": "pnpm clear && tsc && vite build",
     "build:firefox": "pnpm clear && tsc && TARGET=moz vite build",

@@ -1,60 +1,124 @@
+/*!
+  Theme: GitHub Dark
+  Description: Dark theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Outdated base version: https://github.com/primer/github-syntax-dark
+  Current colors taken from GitHub's CSS
+*/
+
 .tn-editor .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  background: #282a36;
+  color: #c9d1d9;
 }
 
+.tn-editor .hljs-doctag,
 .tn-editor .hljs-keyword,
-.tn-editor .hljs-selector-tag,
-.tn-editor .hljs-literal,
-.tn-editor .hljs-section,
-.tn-editor .hljs-link {
-  color: #8be9fd;
-}
-
-.tn-editor .hljs-function .tn-editor .hljs-keyword {
-  color: #ff79c6;
-}
-
-.tn-editor .hljs,
-.tn-editor .hljs-subst {
-  color: #f8f8f2;
-}
-
-.tn-editor .hljs-string,
-.tn-editor .hljs-title,
-.tn-editor .hljs-name,
-.tn-editor .hljs-type,
-.tn-editor .hljs-attribute,
-.tn-editor .hljs-symbol,
-.tn-editor .hljs-bullet,
-.tn-editor .hljs-addition,
-.tn-editor .hljs-variable,
+.tn-editor .hljs-meta .hljs-keyword,
 .tn-editor .hljs-template-tag,
-.tn-editor .hljs-template-variable {
-  color: #f1fa8c;
+.tn-editor .hljs-template-variable,
+.tn-editor .hljs-type,
+.tn-editor .hljs-variable.language_ {
+  /* prettylights-syntax-keyword */
+  color: #ff7b72;
+}
+
+.tn-editor .hljs-title,
+.tn-editor .hljs-title.class_,
+.tn-editor .hljs-title.class_.inherited__,
+.tn-editor .hljs-title.function_ {
+  /* prettylights-syntax-entity */
+  color: #d2a8ff;
+}
+
+.tn-editor .hljs-attr,
+.tn-editor .hljs-attribute,
+.tn-editor .hljs-literal,
+.tn-editor .hljs-meta,
+.tn-editor .hljs-number,
+.tn-editor .hljs-operator,
+.tn-editor .hljs-variable,
+.tn-editor .hljs-selector-attr,
+.tn-editor .hljs-selector-class,
+.tn-editor .hljs-selector-id {
+  /* prettylights-syntax-constant */
+  color: #79c0ff;
+}
+
+.tn-editor .hljs-regexp,
+.tn-editor .hljs-string,
+.tn-editor .hljs-meta .hljs-string {
+  /* prettylights-syntax-string */
+  color: #a5d6ff;
+}
+
+.tn-editor .hljs-built_in,
+.tn-editor .hljs-symbol {
+  /* prettylights-syntax-variable */
+  color: #ffa657;
 }
 
 .tn-editor .hljs-comment,
-.tn-editor .hljs-quote,
-.tn-editor .hljs-deletion,
-.tn-editor .hljs-meta {
-  color: #6272a4;
+.tn-editor .hljs-code,
+.tn-editor .hljs-formula {
+  /* prettylights-syntax-comment */
+  color: #8b949e;
 }
 
-.tn-editor .hljs-keyword,
-.tn-editor .hljs-selector-tag,
-.tn-editor .hljs-literal,
-.tn-editor .hljs-title,
-.tn-editor .hljs-section,
-.tn-editor .hljs-doctag,
-.tn-editor .hljs-type,
 .tn-editor .hljs-name,
-.tn-editor .hljs-strong {
+.tn-editor .hljs-quote,
+.tn-editor .hljs-selector-tag,
+.tn-editor .hljs-selector-pseudo {
+  /* prettylights-syntax-entity-tag */
+  color: #7ee787;
+}
+
+.tn-editor .hljs-subst {
+  /* prettylights-syntax-storage-modifier-import */
+  color: #c9d1d9;
+}
+
+.tn-editor .hljs-section {
+  /* prettylights-syntax-markup-heading */
+  color: #1f6feb;
   font-weight: bold;
 }
 
+.tn-editor .hljs-bullet {
+  /* prettylights-syntax-markup-list */
+  color: #f2cc60;
+}
+
 .tn-editor .hljs-emphasis {
+  /* prettylights-syntax-markup-italic */
+  color: #c9d1d9;
   font-style: italic;
+}
+
+.tn-editor .hljs-strong {
+  /* prettylights-syntax-markup-bold */
+  color: #c9d1d9;
+  font-weight: bold;
+}
+
+.tn-editor .hljs-addition {
+  /* prettylights-syntax-markup-inserted */
+  color: #aff5b4;
+  background-color: #033a16;
+}
+
+.tn-editor .hljs-deletion {
+  /* prettylights-syntax-markup-deleted */
+  color: #ffdcd7;
+  background-color: #67060c;
+}
+
+.tn-editor .hljs-char.escape_,
+.tn-editor .hljs-link,
+.tn-editor .hljs-params,
+.tn-editor .hljs-property,
+.tn-editor .hljs-punctuation,
+.tn-editor .hljs-tag {
+  /* purposely ignored */
 }

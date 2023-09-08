@@ -17,7 +17,7 @@
   width: 32px;
   height: 32px;
   border-radius: 3px;
-  background-color: var(--black-300);
+  background-color: var(--portal-input-bg);
 }
 
 .slashMenuItem .icon svg {
@@ -27,7 +27,7 @@
 .slashMenuItem:focus-within,
 .slashMenuItem:focus,
 .slashMenuItem:hover {
-  background-color: var(--gray-500);
+  background-color: var(--portal-accent);
   outline: none;
   border: none
 }
