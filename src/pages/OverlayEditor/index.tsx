@@ -4,12 +4,9 @@ import { communication, CommunicationProps, } from "../../utils/browser/communic
 import { Container } from "../../components/Atoms/Container";
 import { DialogProvider } from "../../context/Dialog/DialogProvider";
 import { NoteProvider } from "../../context/Notes/NoteProvider";
+import { IContextMenuMessage } from "../../core/browser/scripts/contextmenu";
 
 const OverlayEditorTemplate = lazy(() => import('../../components/Templates/OverlayEditor'))
-
-interface data {
-  editor: { id?: string, command: string }
-}
 
 export const OverlayEditor = () => {
   const [noteId, setNoteId] = useState(nanoid())
@@ -18,8 +15,8 @@ export const OverlayEditor = () => {
 
   useEffect(() => {
 
-    function listener({ data, source, subject }: CommunicationProps<data>) {
-      if (source === 'service_worker' && subject === 'contextmenu:editor') {
+    function listener({ data, source, subject }: CommunicationProps<IContextMenuMessage>) {
+      if (source === 'service_worker' && subject === 'contextmenu:event') {
         if (data.editor.command === 'new') {
           const id = nanoid();
           setCommand(data.editor.command)

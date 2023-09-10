@@ -31,7 +31,7 @@ export default defineManifest((env) => ({
   },
   permissions: ["contextMenus", 'scripting', 'activeTab', 'tabs'],
   background: {
-    service_worker: 'src/core/browser/background.ts',
+    service_worker: 'src/core/browser/scripts/background.ts',
     type: "module"
   },
   action: { "default_popup": "index.html" },
