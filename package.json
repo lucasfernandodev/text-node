@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "clear": "rimraf ../dist/",
-    "dev:firefox": "pnpm clear && TARGET=moz sh scripts/start.sh ../dist/",
-    "dev:firefox:watch": "TARGET=moz pnpm build --mode=watch",
     "dev": "vite",
+    "dev:firefox": "pnpm clear && TARGET=moz sh scripts/start.sh ../dist/",
     "build": "pnpm clear && tsc && vite build",
     "build:firefox": "pnpm clear && tsc && TARGET=moz vite build",
+    "build:firefox:watch": "TARGET=moz pnpm build --mode=watch",
     "lint": "eslint src --ext ts,tsx",
     "preview": "vite preview"
   },
