@@ -9,21 +9,26 @@
 
   background: var(--bg);
   color: var(--text);
-  border-radius: 16px;
+  border-radius: 4px;
   box-shadow: 8px 16px 24px 0px rgba(0, 0, 0, 0.25);
 
   display: grid;
-  grid-template-columns: 500px;
+  grid-template-columns: var(--max-width);
   grid-template-areas: "editor";
   overflow: hidden;
 }
 
 .modal:has(aside):has([data-is-open="true"]) {
-  grid-template-columns: 230px 500px;
+  grid-template-columns: 230px var(--max-width);
   grid-template-areas: "navigation editor";
 }
 
 .modal[data-nav-open="true"] {
-  grid-template-columns: 230px 500px;
+  grid-template-columns: 230px var(--max-width);
   grid-template-areas: "navigation editor";
+}
+
+.modal[data-expanded="true"]{
+  --modal-height: 100vh;
+  --max-width: 668px;
 }

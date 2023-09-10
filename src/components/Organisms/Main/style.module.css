@@ -3,7 +3,7 @@
   display: grid;
   height: var(--modal-height);
   width: 100%;
-  max-width: 500px;
+  max-width: var(--max-width);
   grid-template-rows: 48px calc(100% - (var(--footer-height) + var(--header-height))) 48px;
   grid-template-areas: "header""content""footer";
 }
@@ -89,6 +89,7 @@
   overflow-y: auto;
   margin: 0px;
   position: relative;
+  scrollbar-width: thin;
 }
 
 
@@ -109,10 +110,22 @@
   grid-area: footer;
   height: var(--footer-height);
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
   align-items: center;
   padding: 0px 16px;
   width: 100%;
   border-top: 1px solid var(--border);
+}
+
+.main .footer .btn-expanded{
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s linear;
+  border-radius: 3px;
 }
 
 

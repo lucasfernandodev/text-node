@@ -7,6 +7,7 @@ import { Menu } from '../Menu';
 import { Button } from '../../Atoms/Button';
 import { useDialog } from '../../../context/Dialog/useDialog';
 import { DialogDelete } from '../DialogDelete';
+import { TbArrowsDiagonal, TbArrowsDiagonalMinimize2 } from 'react-icons/tb';
 
 interface MainProps {
   children: React.ReactNode
@@ -14,7 +15,9 @@ interface MainProps {
   showNavi: () => void
   title: string,
   updateAt: string | null,
-  closeModal: () => void
+  closeModal: () => void,
+  changeExpandedOption: () => void
+  isExpanded: boolean
 }
 
 export const Main: React.FC<MainProps> = ({
@@ -23,6 +26,8 @@ export const Main: React.FC<MainProps> = ({
   title,
   children,
   isNaviOpen,
+  changeExpandedOption,
+  isExpanded
 }) => {
 
   const { dialog } = useDialog()
@@ -53,6 +58,9 @@ export const Main: React.FC<MainProps> = ({
           {children}
         </section>
         <footer className={style.footer}>
+        <Button className={style['btn-expanded']} onClick={changeExpandedOption}>
+            {isExpanded ? <TbArrowsDiagonalMinimize2 /> : <TbArrowsDiagonal />}
+          </Button>
           {updateAt !== null && <Timeago time={updateAt} />}
         </footer>
       </main >

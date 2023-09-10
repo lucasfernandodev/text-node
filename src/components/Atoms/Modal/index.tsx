@@ -1,17 +1,11 @@
-import { ComponentProps, ReactNode, useCallback } from "react"
-import { dragModal } from "../../../utils/dragModal"
+import { ComponentProps, ReactNode, Ref, forwardRef } from "react"
 
 interface Props extends ComponentProps<'section'> {
   children: ReactNode
 }
 
 
-const Modal: React.FC<Props> = ({ ...props }) => {
-
-  const _dragModal = useCallback((ref: HTMLElement) => {
-    dragModal(ref)
-  }, [])
-
+const Modal = forwardRef(({ ...props }: Props, ref: Ref<HTMLElement>) => {
   const newStyle = `
       @font-face{
         font-family: 'Merriweather';
@@ -50,11 +44,11 @@ const Modal: React.FC<Props> = ({ ...props }) => {
     `
 
   return (
-    <section ref={_dragModal} aria-modal="true" role="dialog" tabIndex={-1} {...props}>
+    <section ref={ref} aria-modal="true" role="dialog" tabIndex={-1} {...props}>
       <style dangerouslySetInnerHTML={{ __html: newStyle }}></style>
       {props.children}
     </section>
   )
-}
+})
 
 export { Modal }
