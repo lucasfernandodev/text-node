@@ -105,15 +105,32 @@ chrome.contextMenus.onClicked.addListener(function (info, tab) {
   }
 })
 
+function notifyNavigation(){
+  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+    const currentTab = tabs[0];
+    console.log('currentTab', currentTab)
+    communication.background.send<response>(currentTab?.id as number, {
+      source: "service_worker",
+      data: {
+        editor: { command: 'update' },
+      },
+      subject: "navigation:update",
+    })
+});
+}
+
 // Update contextMenu with new note is saved
 db.hook.create(() => {
   createContextMenu().catch(console.error)
+  notifyNavigation()
 })
 
 db.hook.updating(() => {
   createContextMenu().catch(console.error)
+  notifyNavigation()
 })
 
 db.hook.delete(() => {
   createContextMenu().catch(console.error)
+  notifyNavigation()
 })
