@@ -40,6 +40,7 @@
   border-bottom: 1px solid var(--border);
   gap: 16px;
   background: var(--header-bg);
+  font-size: 16px;
 }
 
 

@@ -29,6 +29,6 @@
 }
 
 .modal[data-expanded="true"]{
-  --modal-height: 100vh;
+  --modal-height: calc(100vh - 24px);
   --max-width: 668px;
 }

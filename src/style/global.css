@@ -3,7 +3,8 @@
     Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   --max-width: 500px;
   --header-height: 48px;
-  --footer-height: 48px
+  --footer-height: 48px;
+  --modal-height: 410px;
 }
 
 #tn-root *:is(p, h1, span, h2, h3, h4, h5, h6, a, li, button, input) {
@@ -22,8 +23,4 @@
 #tn-root .isMoving {
   cursor: grabbing !important;
   z-index: 9999;
-}
-
-#tn-root{
-  --modal-height: 410px;
 }
