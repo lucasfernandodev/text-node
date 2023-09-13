@@ -1,5 +1,5 @@
 import { JSONContent } from "@tiptap/react"
-import { notes } from "../../database/notes"
+import { query } from "../../database/notes"
 import { debounce } from "../../utils/debounce"
 
 interface storeNotesProps {
@@ -17,9 +17,9 @@ interface handleStoreContent {
 
 const storeNotesInDB = async ({ content, title, id }: storeNotesProps) => {
 
-  const isContent = await notes.get({ id: id })
+  const isContent = await query.notes.get({ id: id })
 
-  if (isContent) return await notes.update({
+  if (isContent) return await query.notes.update({
     id: isContent.id, data: {
       id: isContent.id,
       site: isContent.site,
@@ -28,13 +28,12 @@ const storeNotesInDB = async ({ content, title, id }: storeNotesProps) => {
     }
   })
 
-  await notes.add({
+  await query.notes.add({data: {
     id: id,
     title: title,
     site: window.location.hostname,
     content: content
-  })
-
+  }})
 }
 
 export const storageEditor = () => debounce(({ content, title, id, setUpdateAt }: handleStoreContent) => {

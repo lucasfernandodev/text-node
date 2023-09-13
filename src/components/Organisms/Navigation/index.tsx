@@ -1,7 +1,7 @@
 import { LuChevronsLeft } from 'react-icons/lu';
 import style from './style.module.css';
 import { useEffect, useState } from 'react';
-import { notes } from '../../../database/notes';
+import { query } from '../../../database/notes';
 import { ListNotes } from '../../Molecules/ListNotes';
 import { INote } from '../../../types/note';
 import { Button } from '../../Atoms/Button';
@@ -20,7 +20,7 @@ export const Navigation: React.FC<NavigationProps> = ({ changeNote, open, close 
 
   useEffect(() => {
     const initialize = async () => {
-      const data = await notes.getAll()
+      const data = await query.notes.getAll()
       data && setListNotes(data)
     }
 

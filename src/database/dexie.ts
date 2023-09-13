@@ -11,8 +11,20 @@ export interface UpdateNoteProps {
 }
 
 export interface GetNoteProps { id: string }
+export interface DeleteNoteProps {id: string}
 
-export class Initialise extends Dexie {
+export interface INotesDatabase{
+  addNote: (props: AddNoteProps) => Promise<string>,
+  getAllNotes: () => Promise<INote[]>,
+  getNote: (props: GetNoteProps) => Promise<INote | undefined>,
+  updateNote: (props: UpdateNoteProps) => Promise<void>,
+  deleteNote: (props: DeleteNoteProps) => Promise<void>,
+}
+
+export type TAllArgs = AddNoteProps & GetNoteProps & DeleteNoteProps & UpdateNoteProps
+export type TNotesDatabaseQuerys = keyof INotesDatabase
+
+export class Initialise extends Dexie implements INotesDatabase {
   public editor!: Table<INote, string>
 
   public constructor() {
@@ -43,14 +55,18 @@ export class Initialise extends Dexie {
   }
 
   async updateNote({ id, data }: UpdateNoteProps) {
-    return await this.editor.update(id, {
+    const result = await this.editor.update(id, {
       ...data,
       updateAt: new Date()
     })
+
+    if(result === 0){
+      throw new Error('DB-Update-Error: Key not found')
+    }
   }
 
-  async deleteNote({ id }: { id: string }) {
-    return await this.editor.delete(id)
+  async deleteNote({ id }: DeleteNoteProps) {
+    await this.editor.delete(id)
   }
 
   public hook = {

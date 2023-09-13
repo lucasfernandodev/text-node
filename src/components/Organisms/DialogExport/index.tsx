@@ -4,7 +4,7 @@ import style from './style.module.css';
 import { useEffect, useState } from 'react';
 import { extensions } from '../../../core/Editor/extensions';
 import { generateHTML } from '@tiptap/react';
-import { notes } from '../../../database/notes';
+import { query } from '../../../database/notes';
 import { Button } from '../../Atoms/Button';
 import { useDialog } from '../../../context/Dialog/useDialog';
 import { useNote } from '../../../context/Notes/useNote';
@@ -23,10 +23,11 @@ const DialogExport = () => {
   useEffect(() => {
     async function setContent() {
       if (id) {
-        const response = await notes.get({ id })
-
-        response && setCurrentContent(generateHTML(response.content, extensions))
-        response && setTitle(response.title)
+        const response = await query.notes.get({ id })
+        if(response !== undefined){
+          response && setCurrentContent(generateHTML(response.content, extensions))
+          response && setTitle(response.title)
+        }
       }
     }
 

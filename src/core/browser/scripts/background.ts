@@ -1,48 +1,10 @@
 import { communication } from "../../../utils/browser/communication";
-import { AddNoteProps, GetNoteProps, UpdateNoteProps, db } from "../../../database";
-import { TCommand } from "../../../database/notes";
+import {  db } from "../../../database/dexie";
 import { ContextMenu } from "./contextmenu";
+import { query } from "../../../database/notes";
 
-interface data {
-  command: TCommand
-  content: unknown
-}
 
-communication.background.channel<data>(({ data, send }) => {
-
-  if (data.origem === 'content' && data.subject === 'db') {
-    const ListenerCommands = async () => {
-
-      if (data.command === 'addNote') {
-        const response = await db.addNote(data.content as AddNoteProps)
-        send({ data: { response, origem: 'service_worker', subject: 'db' } });
-      }
-
-      if (data.command === 'getAllNotes') {
-        const response = await db.getAllNotes()
-        send({ data: { response, origem: 'service_worker', subject: 'db' } });
-      }
-
-      if (data.command === 'getNote') {
-        const response = await db.getNote(data.content as GetNoteProps)
-        send({ data: { response, origem: 'service_worker', subject: 'db' } });
-      }
-
-      if (data.command === 'updateNote') {
-        const response = await db.updateNote(data.content as UpdateNoteProps)
-        send({ data: { response, origem: 'service_worker', subject: 'db' } });
-      }
-
-      if (data.command === 'delete') {
-        const response = await db.deleteNote(data.content as { id: string })
-        send({ data: { response, origem: 'service_worker', subject: 'db' } });
-      }
-
-    }
-
-    ListenerCommands().catch(console.error)
-  }
-})
+query.notes.executeQueryesByMessage()
 
 const contextMenu = new ContextMenu()
 
@@ -68,6 +30,6 @@ function hookUpdate(){
   notifyNavigation()
 }
 
-db.hook.create(hookUpdate)
-db.hook.updating(hookUpdate)
-db.hook.delete(hookUpdate)
+db.hook.create(() => hookUpdate())
+db.hook.updating(() => hookUpdate())
+db.hook.delete(() => hookUpdate())

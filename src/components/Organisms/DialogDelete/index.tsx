@@ -3,7 +3,7 @@ import { Dialog } from '../../Molecules/Dialog';
 import { Button } from '../../Atoms/Button';
 import { useDialog } from '../../../context/Dialog/useDialog';
 import { useNote } from '../../../context/Notes/useNote';
-import { notes } from '../../../database/notes';
+import { query } from '../../../database/notes';
 import { nanoid } from 'nanoid';
 import { merge } from '../../../utils/merge';
 
@@ -16,7 +16,7 @@ const DialogDelete = () => {
 
   function handleDelete() {
     async function execute() {
-      id && await notes.delete({ id })
+      id && await query.notes.delete({ id })
     }
 
     execute().catch(console.error)

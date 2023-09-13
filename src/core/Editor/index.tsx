@@ -4,7 +4,7 @@ import { FloatMenu } from './components/FloatMenu'
 import { BubbleMenu } from './components/BubbleMenu';
 import { memo, useEffect, useMemo, useState } from 'react';
 import { extensions } from './extensions';
-import { notes } from '../../database/notes';
+import { query } from '../../database/notes';
 import { INote } from '../../types/note';
 import { storageEditor } from '../../utils/tiptap/storeNotesInDB';
 
@@ -62,8 +62,8 @@ const _Editor = ({ changeTitle, noteId, changeUpdateAt }: props) => {
   useEffect(() => {
     async function setNewContent({ id }: { id: string }) {
       if (noteId !== note?.id && editor) {
-        const result = await notes.get({ id })
-        if (result !== null && result !== undefined) {
+        const result = await query.notes.get({ id })
+        if (result !== undefined && result !== null) {
           setNote(result)
           editor && editor.commands.setContent(result.content)
           editor && changeTitle(result.title)

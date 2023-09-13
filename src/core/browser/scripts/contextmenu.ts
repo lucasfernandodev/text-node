@@ -1,4 +1,4 @@
-import { db } from "../../../database";
+import { db } from "../../../database/dexie";
 import { communication } from "../../../utils/browser/communication";
 
 export interface IContextMenuMessage{
@@ -16,6 +16,7 @@ export class ContextMenu{
     chrome.contextMenus.removeAll();
 
     const data = await db.getAllNotes()
+    console.log('data:context:menu', data)
   
     chrome.contextMenus.create({
       "title": 'Create Note',
@@ -67,11 +68,12 @@ export class ContextMenu{
   }
 
   public starting(){
-    const createContextMenu = () => {
+    const createContextMenu: () => void = () => {
       this.create().catch(console.error)
     }
     
     chrome.runtime.onInstalled.addListener(createContextMenu);
+    createContextMenu()
     this.listener()
   }
 }

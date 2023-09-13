@@ -6,7 +6,7 @@ import { INote } from '../../../types/note';
 import { Details } from '../Details';
 import { useNote } from '../../../context/Notes/useNote';
 import { CommunicationProps, communication } from '../../../utils/browser/communication';
-import { notes as notesQuery } from '../../../database/notes';
+import { query } from '../../../database/notes';
 
 interface ListNotesProps {
   notes: INote[],
@@ -30,8 +30,6 @@ const List: React.FC<ListProps> = ({ title,notes }) => {
 
   const { id, changeId } = useNote()
 
-  
-
   function openNote(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, noteId: string) {
     e.preventDefault()
     changeId(noteId)
@@ -43,7 +41,7 @@ const List: React.FC<ListProps> = ({ title,notes }) => {
       if (source === 'service_worker' && subject === 'navigation:update') {
         if (data.editor.command === 'update') {
           const initialize = async () => {
-            const data = await notesQuery.getAll()
+            const data = await query.notes.getAll()
             data && setCurrentNotes(data)
           }
       

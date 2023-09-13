@@ -1,21 +1,69 @@
 import { communication } from "../utils/browser/communication";
 import { INote } from "../types/note";
+import {
+  AddNoteProps,
+  DeleteNoteProps,
+  GetNoteProps,
+  TAllArgs,
+  TNotesDatabaseQuerys,
+  UpdateNoteProps,
+  db
+} from "./dexie";
 
-interface updateProps {
-  id: string,
-  data: Omit<INote, 'createAt'>
+interface props {
+  command: TNotesDatabaseQuerys
+  content: unknown
 }
 
-export type TCommand = 'addNote' | 'getAllNotes' | 'getNote' | 'updateNote' | 'delete'
+interface IReceiveQueryConfig {
+  request: {
+    origem: string,
+    subject: string
+  },
+  sendTo: {
+    origem: string,
+    subject: string
+  }
+}
 
-class Notes {
+const querys: TNotesDatabaseQuerys[] = ['addNote', 'getAllNotes', 'getNote', 'updateNote', 'deleteNote']
 
-  async execute(content: object, command: TCommand) {
+class Notes{
+  private receiveQueryConfig: IReceiveQueryConfig = {
+    request: {
+      origem: 'content',
+      subject: 'db'
+    },
+    sendTo: {
+      origem: 'service_worker',
+      subject: 'db'
+    }
+  }
 
+  executeQueryesByMessage({ request, sendTo } = this.receiveQueryConfig) {
+    communication.background.channel<props>(({ data, send }) => {
+      const isRequestValid = data.origem === request.origem && data.subject === request.subject
+      if (isRequestValid) {
+        const executeQueryes = async () => {
+          for (const query of querys) {
+            if (data.command === query) {
+              const response = await db[query](data.content as TAllArgs)
+              const message = { response, origem: sendTo.origem, subject: sendTo.subject }
+              send({ data: message });
+            }
+          }
+        }
+
+        executeQueryes().catch(console.error)
+      }
+    })
+  }
+
+  async execute<T>(content: object, command: TNotesDatabaseQuerys): Promise<T> {
     return new Promise((resolve) => {
       communication.content.channel<{ response: INote }>(({ data, send }) => {
         if (data.origem === 'service_worker' && data.subject === 'db') {
-          resolve(data.response)
+          resolve(data.response as T)
         } else {
           send({ data: { origem: 'content', subject: 'db', content, command } })
         }
@@ -23,30 +71,30 @@ class Notes {
     })
   }
 
-  async add(data: Omit<INote, 'updateAt' | 'createAt'>): Promise<string> {
-    const response = await this.execute({ data }, 'addNote')
-    return response as string
+  async add(data: AddNoteProps) {
+    const response = await this.execute<string>(data, 'addNote')
+    return response
   }
 
-  async getAll(): Promise<[] | INote[]> {
-    const response = await this.execute({}, 'getAllNotes')
-    return response as []
+  async getAll() {
+    const response = await this.execute<INote[]>({}, 'getAllNotes')
+    return response
   }
 
-  async get({ id }: { id: string }): Promise<INote | undefined> {
-    const response = await this.execute({ id }, 'getNote')
-    return response as undefined
+  async get({ id }: GetNoteProps) {
+    const response = await this.execute<INote | undefined>({ id }, 'getNote')
+    return response
   }
 
-  async update({ id, data }: updateProps): Promise<INote> {
-    const response = await this.execute({ id, data }, 'updateNote')
-    return response as INote
+  async update({ id, data }: UpdateNoteProps) {
+    await this.execute<void>({ id, data }, 'updateNote')
   }
 
-  async delete({ id }: { id: string }) {
-    const response = await this.execute({ id }, 'delete')
-    return response as undefined
+  async delete({ id }: DeleteNoteProps) {
+    await this.execute<void>({ id }, 'deleteNote')
   }
 }
 
-export const notes = new Notes()
+export const query = {
+  notes: new Notes()
+}
