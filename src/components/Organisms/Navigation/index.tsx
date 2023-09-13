@@ -1,7 +1,7 @@
 import { LuChevronsLeft } from 'react-icons/lu';
 import style from './style.module.css';
 import { useEffect, useState } from 'react';
-import { query } from '../../../database/notes';
+import { query } from '@database/notes';
 import { ListNotes } from '../../Molecules/ListNotes';
 import { INote } from '../../../types/note';
 import { Button } from '../../Atoms/Button';

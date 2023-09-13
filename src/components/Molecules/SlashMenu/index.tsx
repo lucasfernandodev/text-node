@@ -1,4 +1,4 @@
-import { merge } from '../../../utils/merge';
+import { merge } from '@utils/merge';
 import { Portal } from '../../Atoms/Portal';
 import style from './style.module.css';
 

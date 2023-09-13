@@ -1,4 +1,4 @@
-import { communication } from "../utils/browser/communication";
+import { communication } from "@utils/browser/communication";
 import { INote } from "../types/note";
 import {
   AddNoteProps,

@@ -1,5 +1,5 @@
 import React, { ElementType, HTMLAttributes, forwardRef } from 'react';
-import { merge } from '../../../utils/merge';
+import { merge } from '@utils/merge';
 import style from './style.module.css';
 
 

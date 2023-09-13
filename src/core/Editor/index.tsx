@@ -4,9 +4,9 @@ import { FloatMenu } from './components/FloatMenu'
 import { BubbleMenu } from './components/BubbleMenu';
 import { memo, useEffect, useMemo, useState } from 'react';
 import { extensions } from './extensions';
-import { query } from '../../database/notes';
+import { query } from '@database/notes';
 import { INote } from '../../types/note';
-import { storageEditor } from '../../utils/tiptap/storeNotesInDB';
+import { storageEditor } from '@utils/tiptap/storeNotesInDB';
 
 interface props {
   noteId: string

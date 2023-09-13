@@ -4,9 +4,9 @@ import { TbNote } from 'react-icons/tb'
 import style from './style.module.css';
 import { INote } from '../../../types/note';
 import { Details } from '../Details';
-import { useNote } from '../../../context/Notes/useNote';
-import { CommunicationProps, communication } from '../../../utils/browser/communication';
-import { query } from '../../../database/notes';
+import { useNote } from '@context/Notes/useNote';
+import { CommunicationProps, communication } from '@utils/browser/communication';
+import { query } from '@database/notes';
 
 interface ListNotesProps {
   notes: INote[],

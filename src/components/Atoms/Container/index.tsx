@@ -1,4 +1,4 @@
-import { merge } from '../../../utils/merge';
+import { merge } from '@utils/merge';
 import style from './style.module.css';
 import React, { HTMLAttributes } from "react";
 

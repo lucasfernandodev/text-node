@@ -1,10 +1,10 @@
 import { nanoid } from "nanoid";
 import { useEffect, useState, lazy } from "react"
-import { communication, CommunicationProps, } from "../../utils/browser/communication";
-import { Container } from "../../components/Atoms/Container";
-import { DialogProvider } from "../../context/Dialog/DialogProvider";
-import { NoteProvider } from "../../context/Notes/NoteProvider";
-import { IContextMenuMessage } from "../../core/browser/scripts/contextmenu";
+import { communication, CommunicationProps, } from "@utils/browser/communication";
+import { Container } from "@components/Atoms/Container";
+import { DialogProvider } from "@context/Dialog/DialogProvider";
+import { NoteProvider } from "@context/Notes/NoteProvider";
+import { IContextMenuMessage } from "@core/browser/scripts/contextmenu";
 
 const OverlayEditorTemplate = lazy(() => import('../../components/Templates/OverlayEditor'))
 

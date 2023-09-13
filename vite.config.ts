@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import path from 'path'
 import react from '@vitejs/plugin-react'
 import { chromeExtension, crx } from '@crxjs/vite-plugin'
 import manifest from './manifest'
@@ -35,4 +36,16 @@ export default defineConfig((env) => ({
       usePolling: true
     }
   },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+      "@core": path.resolve(__dirname, "./src/core"),
+      "@utils": path.resolve(__dirname, "./src/utils"),
+      "@components": path.resolve(__dirname, "./src/components"),
+      "@styles": path.resolve(__dirname, "./src/style"),
+      "@pages": path.resolve(__dirname, "./src/pages"),
+      "@database": path.resolve(__dirname, "./src/database"),
+      "@context": path.resolve(__dirname, "./src/context"),
+    }
+  }
 }))

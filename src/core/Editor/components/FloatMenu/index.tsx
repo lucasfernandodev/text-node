@@ -3,10 +3,10 @@ import { EditorState } from '@tiptap/pm/state';
 import { TbH1, TbH2, TbH3 } from 'react-icons/tb';
 import { RiCodeSSlashLine, RiDoubleQuotesL, RiListCheck } from 'react-icons/ri';
 import { RxDividerHorizontal } from 'react-icons/rx'
-import { SlashMenuItem } from '../../../../components/Molecules/SlashMenu/SlashMenuItem';
-import { SlashMenu } from '../../../../components/Molecules/SlashMenu'
+import { SlashMenuItem } from '@components/Molecules/SlashMenu/SlashMenuItem';
+import { SlashMenu } from '@components/Molecules/SlashMenu'
 import { useState } from "react";
-import { fixOverflowErrorPlugin } from "../../../../utils/tippy/plugins/fixOverflowError";
+import { fixOverflowErrorPlugin } from "@utils/tippy/plugins/fixOverflowError";
 
 interface FloatMenuProps {
   editor: Editor,

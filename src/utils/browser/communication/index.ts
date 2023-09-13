@@ -1,5 +1,5 @@
 import { Channel } from "./channel"
-import { listener } from "./listener"
+import {listener} from "./listener"
 
 export interface CommunicationProps<T> {
   source: 'channel' | 'content' | 'service_worker',
@@ -15,7 +15,7 @@ interface contentProps<T> extends CommunicationProps<T> {
   readonly source: 'content'
 }
 
-class Communication extends Channel {
+class Communication extends Channel{
 
   constructor(port?: string) {
     super(port)

@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import '../../style/colors.css';
-import '../../style/global.css';
-import '../../style/editor.css';
-import '../../style/highlight.css';
-import { OverlayEditor } from '../../pages/OverlayEditor';
+import '@styles/colors.css';
+import '@styles/global.css';
+import '@styles/editor.css';
+import '@styles/highlight.css';
+import { OverlayEditor } from '@pages/OverlayEditor';
 
 const root = document.createElement('div')
 root.id = 'tn-root'

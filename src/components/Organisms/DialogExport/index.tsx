@@ -2,14 +2,14 @@ import Select from 'react-select';
 import { Dialog } from '../../Molecules/Dialog';
 import style from './style.module.css';
 import { useEffect, useState } from 'react';
-import { extensions } from '../../../core/Editor/extensions';
+import { extensions } from '@core/Editor/extensions';
 import { generateHTML } from '@tiptap/react';
-import { query } from '../../../database/notes';
+import { query } from '@database/notes';
 import { Button } from '../../Atoms/Button';
-import { useDialog } from '../../../context/Dialog/useDialog';
-import { useNote } from '../../../context/Notes/useNote';
+import { useDialog } from '@context/Dialog/useDialog';
+import { useNote } from '@context/Notes/useNote';
 import { styles } from './select-style';
-import { merge } from '../../../utils/merge';
+import { merge } from '@utils/merge';
 
 
 const DialogExport = () => {

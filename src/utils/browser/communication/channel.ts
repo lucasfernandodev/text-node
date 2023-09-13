@@ -5,7 +5,7 @@ interface ChannelProperties<T> {
   data: T & { origem: origem, subject: string, message?: string }
 }
 
-type callbackPropsType<T> = (props: ChannelProperties<T>) => void
+export type callbackPropsType<T> = (props: ChannelProperties<T>) => void
 
 export class Channel {
 

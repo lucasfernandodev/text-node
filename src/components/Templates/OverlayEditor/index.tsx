@@ -1,12 +1,12 @@
 import style from './style.module.css'
-import Editor from '../../../core/Editor'
+import Editor from '@core/Editor'
 import { Main } from '../../Organisms/Main';
 import { Navigation } from '../../Organisms/Navigation';
 import { useCallback, useEffect, useState } from 'react';
 
 import { Modal } from '../../Atoms/Modal';
-import { merge } from '../../../utils/merge';
-import { dragModal } from '../../../utils/dragModal';
+import { merge } from '@utils/merge';
+import { dragModal } from '@utils/dragModal';
 
 interface OverlayEditorTemplateProps {
   noteId: string,

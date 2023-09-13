@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, ReactNode, useEffect, useRef } from "react";
 import style from './style.module.css'
 import { Container } from "../../Atoms/Container";
-import { merge } from "../../../utils/merge";
+import { merge } from "@utils/merge";
 
 interface Props extends HTMLAttributes<HTMLDetailsElement> {
   children: ReactNode,

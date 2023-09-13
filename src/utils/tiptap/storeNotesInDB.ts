@@ -1,6 +1,6 @@
 import { JSONContent } from "@tiptap/react"
-import { query } from "../../database/notes"
-import { debounce } from "../../utils/debounce"
+import { query } from "@database/notes"
+import { debounce } from "@utils/debounce"
 
 interface storeNotesProps {
   id: string,

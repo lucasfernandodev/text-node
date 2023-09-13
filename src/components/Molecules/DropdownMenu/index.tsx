@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react'
 import style from './style.module.css'
 import { Button } from '../../Atoms/Button'
-import { useDialog } from '../../../context/Dialog/useDialog'
-import { merge } from '../../../utils/merge'
+import { useDialog } from '@context/Dialog/useDialog'
+import { merge } from '@utils/merge'
 import { Portal as PortalDefault } from '../../Atoms/Portal'
 interface Props {
   children: React.ReactNode

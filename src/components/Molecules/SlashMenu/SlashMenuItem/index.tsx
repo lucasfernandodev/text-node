@@ -2,8 +2,8 @@ import style from './style.module.css';
 import { Editor } from "@tiptap/react"
 import { ComponentType, HTMLAttributes } from "react"
 import { IconBaseProps } from 'react-icons';
-import { allowedElements, toggleElements } from '../../../../utils/tiptap/slashMenu/toggleElements';
-import { merge } from '../../../../utils/merge';
+import { allowedElements, toggleElements } from '@utils/tiptap/slashMenu/toggleElements';
+import { merge } from '@utils/merge';
 
 interface ISlashMenuItem extends HTMLAttributes<HTMLButtonElement> {
   editor: Editor,

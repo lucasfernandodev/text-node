@@ -1,7 +1,7 @@
-import { communication } from "../../../utils/browser/communication";
-import {  db } from "../../../database/dexie";
+import { communication } from "@utils/browser/communication";
+import {  db } from "@database/dexie";
 import { ContextMenu } from "./contextmenu";
-import { query } from "../../../database/notes";
+import { query } from "@database/notes";
 
 
 query.notes.executeQueryesByMessage()

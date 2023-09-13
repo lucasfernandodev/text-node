@@ -5,7 +5,7 @@ import css from 'highlight.js/lib/languages/css'
 import js from 'highlight.js/lib/languages/javascript'
 import ts from 'highlight.js/lib/languages/typescript'
 import html from 'highlight.js/lib/languages/xml'
-import { merge } from '../../../../utils/merge';
+import { merge } from '@utils/merge';
 
 lowlight.registerLanguage('html', html)
 lowlight.registerLanguage('css', css)

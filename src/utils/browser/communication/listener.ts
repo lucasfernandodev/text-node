@@ -9,13 +9,13 @@ export interface responseOfContent<T> extends listenProps<T> {
   readonly source: 'content'
 }
 
-interface responseOfBackground<T> extends listenProps<T> {
+export interface responseOfBackground<T> extends listenProps<T> {
   readonly source: 'service_worker'
 }
 
 type listenerResposne = Promise<void> | void
 
-type listenerProps<request, response> = (request: request,
+export type listenerProps<request, response> = (request: request,
   sender: chrome.runtime.MessageSender,
   sendResponse: (response?: response) => void
 ) => listenerResposne

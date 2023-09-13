@@ -2,9 +2,9 @@ import { LuMoreHorizontal } from 'react-icons/lu';
 import { TbDownload, TbFileX, TbSquareRoundedPlus } from 'react-icons/tb'
 import { DropdownMenu } from '../../Molecules/DropdownMenu';
 import { useState } from 'react';
-import { useNote } from '../../../context/Notes/useNote';
+import { useNote } from '@context/Notes/useNote';
 import { nanoid } from 'nanoid';
-import { useDialog } from '../../../context/Dialog/useDialog';
+import { useDialog } from '@context/Dialog/useDialog';
 
 export const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)

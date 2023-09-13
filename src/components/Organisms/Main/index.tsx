@@ -5,7 +5,7 @@ import { Timeago } from '../../Atoms/Timeago';
 import { DialogExport } from '../DialogExport';
 import { Menu } from '../Menu';
 import { Button } from '../../Atoms/Button';
-import { useDialog } from '../../../context/Dialog/useDialog';
+import { useDialog } from '@context/Dialog/useDialog';
 import { DialogDelete } from '../DialogDelete';
 import { TbArrowsDiagonal, TbArrowsDiagonalMinimize2 } from 'react-icons/tb';
 

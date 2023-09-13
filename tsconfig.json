@@ -1,5 +1,16 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/"],
+      "@core/*": [ "src/core/*"],
+      "@utils/*": [ "src/utils/*"],
+      "@components/*": [ "src/components/*"],
+      "@styles/*": [ "src/style/*"],
+      "@pages/*": [ "src/pages/*"],
+      "@database/*": [ "src/database/*"],
+      "@context/*": [ "src/context/*"],
+    },
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": [
@@ -33,6 +44,7 @@
   "references": [
     {
       "path": "./tsconfig.node.json"
-    }
-  ]
+    },
+  ],
+  
 }

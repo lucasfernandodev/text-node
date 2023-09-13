@@ -1,11 +1,11 @@
 import style from './style.module.css';
 import { Dialog } from '../../Molecules/Dialog';
 import { Button } from '../../Atoms/Button';
-import { useDialog } from '../../../context/Dialog/useDialog';
-import { useNote } from '../../../context/Notes/useNote';
-import { query } from '../../../database/notes';
+import { useDialog } from '@context/Dialog/useDialog';
+import { useNote } from '@context/Notes/useNote';
+import { query } from '@database/notes';
 import { nanoid } from 'nanoid';
-import { merge } from '../../../utils/merge';
+import { merge } from '@utils/merge';
 
 
 const DialogDelete = () => {

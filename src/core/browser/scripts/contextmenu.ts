@@ -1,5 +1,5 @@
-import { db } from "../../../database/dexie";
-import { communication } from "../../../utils/browser/communication";
+import { db } from "@database/dexie";
+import { communication } from "@utils/browser/communication";
 
 export interface IContextMenuMessage{
   editor: {
