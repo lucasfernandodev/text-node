@@ -7,6 +7,7 @@ import { extensions } from './extensions';
 import { query } from '@database/notes';
 import { INote } from '../../types/note';
 import { storageEditor } from '@utils/tiptap/storeNotesInDB';
+import { LinkWidget } from '@components/Molecules/LinkWidget';
 
 interface props {
   noteId: string
@@ -86,6 +87,7 @@ const _Editor = ({ changeTitle, noteId, changeUpdateAt }: props) => {
     <>
       <BubbleMenu editor={editor} />
       <EditorContent editor={editor} className={style.editor} />
+      <LinkWidget editor={editor}/>
       <FloatMenu slash={slash} editor={editor} toggleVisibility={() => setSlash(false)} />
     </>
   )

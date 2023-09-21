@@ -4,6 +4,8 @@ import { BubbleMenu as BubbleMenuDefault, Editor } from '@tiptap/react'
 import { Button } from '@components/Atoms/Button'
 import { EditorState } from '@tiptap/pm/state'
 import { Portal } from '@components/Atoms/Portal'
+import { TbArrowUpRight } from 'react-icons/tb'
+import { merge } from '@utils/merge'
 
 export const BubbleMenu = ({ editor }: { editor: Editor }) => {
 
@@ -16,13 +18,21 @@ export const BubbleMenu = ({ editor }: { editor: Editor }) => {
     return $head.parent.type.name !== 'title'
   }
 
+  const LinkClassName = `btn-toggle-LinkWidget ${style.btnLink}`
+
   return (
     <BubbleMenuDefault editor={editor} className={style.bubbleMenu}
       shouldShow={shouldShow}>
-      <Portal>
+      <Portal className='bubbleMenu'>
+        <Button 
+           className={editor.isActive('link') ? merge([style.btnLink, style.active, 'btn-toggle-LinkWidget']) : LinkClassName}
+        >
+          <TbArrowUpRight/>
+          Link
+        </Button>
         <Button
           onClick={() => editor.chain().focus().toggleBold().run()}
-          className={editor.isActive('bold') ? style.active : ''}
+          className={editor.isActive('bold') ? style.active: ''}
         >
           <FaBold size={12} strokeWidth={1} />
         </Button>

@@ -8,6 +8,7 @@ import { Button } from '../../Atoms/Button';
 import { useDialog } from '@context/Dialog/useDialog';
 import { DialogDelete } from '../DialogDelete';
 import { TbArrowsDiagonal, TbArrowsDiagonalMinimize2 } from 'react-icons/tb';
+import { merge } from '@utils/merge';
 
 interface MainProps {
   children: React.ReactNode
@@ -54,7 +55,7 @@ export const Main: React.FC<MainProps> = ({
           </h3>
           <Menu />
         </header>
-        <section className={style.content}>
+        <section className={merge([style.content,'editor-canvas'])}>
           {children}
         </section>
         <footer className={style.footer}>

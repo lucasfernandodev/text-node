@@ -10,31 +10,64 @@
 .bubbleMenu button {
   width: 32px;
   height: 30px;
-  transition: 350ms ease-in;
   color: var(--portal-color);
   border-radius: 0px;
 }
 
-.bubbleMenu button svg {
+.bubbleMenu button:not(.btnLink) svg {
   fill: var(--white-500);
+}
+
+.bubbleMenu  button.active{
+  color: var(--portal-accent);
+}
+
+.bubbleMenu button.active:not(.btnLink) svg{
+  fill: var(--portal-accent);
 }
 
 .bubbleMenu button:hover{
   background: var(--portal-accent);
 }
 
-.bubbleMenu button:hover svg{
+.bubbleMenu button:not(.btnLink):hover svg{
  fill: var(--portal-color);
 }
 
-.bubbleMenu button.active svg{
-  fill: var(--portal-accent);
+
+.bubbleMenu button.active:not(.btnLink):hover svg{
+  fill: var(--portal-color);
 }
 
-.bubbleMenu button.active:hover{
-  background: var(--portal-accent);
+/* Fix onclick event */
+.bubbleMenu button:first-child svg{
+  pointer-events: none;
 }
 
-.bubbleMenu button.active:hover svg{
-    fill: var(--portal-color);
+.bubbleMenu button.btnLink{
+  width: auto;
+  padding: 0 8px;
+  gap: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white-500);
+}
+
+.bubbleMenu button.btnLink svg{
+  font-size: 24px;
+  stroke-width: 1.12;
+}
+
+
+.bubbleMenu button.btnLink:is(.active),
+.bubbleMenu button.btnLink:is(.active) svg{
+  color: var(--portal-accent);
+}
+
+.bubbleMenu button.btnLink:hover svg,
+.bubbleMenu button.btnLink:hover,
+.bubbleMenu button.btnLink:is(.active):hover,
+.bubbleMenu button.btnLink:is(.active):hover svg{
+  color: var(--portal-color);
 }

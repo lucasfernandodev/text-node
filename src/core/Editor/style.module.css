@@ -6,7 +6,7 @@
   background: none;
   font-size: var(--font-size);
   font-family: var(--font-family);
-  width: 100%;
+  width: calc(100% - 10px);
   position: relative;
   z-index: 500;
 }
