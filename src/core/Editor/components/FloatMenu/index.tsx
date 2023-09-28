@@ -7,6 +7,7 @@ import { SlashMenuItem } from '@components/Molecules/SlashMenu/SlashMenuItem';
 import { SlashMenu } from '@components/Molecules/SlashMenu'
 import { useState } from "react";
 import { fixOverflowErrorPlugin } from "@utils/tippy/plugins/fixOverflowError";
+import { keyboardNavigation } from "@utils/tippy/plugins/keyboardNavigation";
 
 interface FloatMenuProps {
   editor: Editor,
@@ -36,11 +37,22 @@ export const FloatMenu: React.FC<FloatMenuProps> = ({ editor, slash, toggleVisib
     onHidden() {
       toggleVisibility(false)
     },
+    onShown(){
+      let timer: ReturnType<typeof setTimeout> | null = null;
+      timer = setTimeout(() => {
+        const slashWrapper = document.querySelector('.slashMenu') as HTMLElement
+        if(slashWrapper){
+          const item = slashWrapper.firstChild as HTMLElement
+          item && item.focus()
+          clearTimeout(timer as unknown as number)
+        }
+      }, 250)
+    },
     onHide() {
       editor.chain().focus(lastPosition).run()
       toggleVisibility(false)
     },
-    plugins: [fixOverflowErrorPlugin]
+    plugins: [fixOverflowErrorPlugin, keyboardNavigation]
   }
 
 

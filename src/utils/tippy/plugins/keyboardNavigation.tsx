@@ -4,6 +4,7 @@ export const keyboardNavigation: Plugin<Props> = {
   name: 'keyboardNavigationPlugin',
   defaultValue: true,
   fn({ hide }) {
+    let timer: ReturnType<typeof setTimeout> | null = null;
     let position = -1;
     let childrens = [] as HTMLElement[]
     function onKeyDown(e: KeyboardEvent) {
@@ -41,12 +42,14 @@ export const keyboardNavigation: Plugin<Props> = {
         });
       },
       onShown() {
-        const menu = document.querySelector('.slashMenu') as HTMLElement;
-        if (menu) {
-          childrens.length === 0 && childrens.push(...Array.from(menu.children) as HTMLElement[])
-          menu.addEventListener('keydown', onKeyDown);
-          menu.focus()
-        }
+        timer = setTimeout(() => {
+          const menu = document.querySelector('.slashMenu') as HTMLElement;
+          if (menu) {
+            childrens.length === 0 && childrens.push(...Array.from(menu.children) as HTMLElement[])
+            menu.addEventListener('keydown', onKeyDown);
+            clearTimeout(timer as unknown as number)
+          }
+        }, 250)
       },
       onHide() {
         position = -1
