@@ -36,8 +36,7 @@ const DialogExport = () => {
 
 
   const options = [
-    { value: 'html', label: 'HTML' },
-    { value: 'markdown', label: 'Markdown' },
+    { value: 'html', label: 'HTML' }
   ]
 
   const handleExport = () => {
@@ -46,15 +45,15 @@ const DialogExport = () => {
       const htmlBlog = new Blob([currentContent], { type: "text/html" });
 
       // Crie um URL temporário para o Blob
-      const pdfUrl = URL.createObjectURL(htmlBlog);
+      const htmlUrl = URL.createObjectURL(htmlBlog);
 
       // Crie um link de download
       const downloadLink = document.createElement("a");
-      downloadLink.href = pdfUrl;
+      downloadLink.href = htmlUrl;
       downloadLink.download = `${title}.html`; // Defina o nome do arquivo de download
       downloadLink.click();
 
-      URL.revokeObjectURL(pdfUrl);
+      URL.revokeObjectURL(htmlUrl);
     }
   }
 
