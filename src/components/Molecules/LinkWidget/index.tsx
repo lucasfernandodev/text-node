@@ -24,9 +24,10 @@ const LinkWidget = ({ editor }: { editor: Editor }) => {
 
       if (root && editorWrapper) {
         if (isTrigger) {
+
           const node = editor.view.nodeDOM(editor.view.state.selection.anchor)?.parentNode as HTMLLinkElement
 
-          if(!node || typeof node['href'] === undefined){
+          if(node && typeof node['href'] === 'undefined' || !node){
             setInputValue('')
             editor.chain().focus().run()
             setIsOpen(!isOpen)
