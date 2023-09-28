@@ -86,7 +86,6 @@
   color: var(--editor-content-color)
 }
 
-
 #editor h1,
 #editor h2,
 #editor h3 {
@@ -106,6 +105,10 @@
 
 #editor h3 {
   font-size: 1.1428571428571428em;
+}
+
+#editor:first-child{
+  color: var(--editor-title)
 }
 
 #editor ul,

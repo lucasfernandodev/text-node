@@ -38,6 +38,7 @@
   --portal-accent: var(--blue-400);
   --portal-color: var(--white);
 
+  --editor-title: var(--white);
   --editor-accent: var(--blue-400);
   --editor-content-color: var(--gray-100);
   --editor-codeblock: var(--black-800);
@@ -45,4 +46,7 @@
   --editor-inline-code-color: var(--black-700);
   --editor-placeholder: var(--black-600);
   --editor-divider:var(--black-700);
+
+  --explorer-group-title: var(--gray-300);
+  --explorer-group-open-title: var(--white)
 }

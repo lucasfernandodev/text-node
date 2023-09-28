@@ -5,7 +5,6 @@
   margin: 0px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
   transition: height 500ms ease-in-out;
 }
 
@@ -19,7 +18,9 @@
   align-items: center;
   font-size: 12px;
   font-weight: 400;
-  color: var(--nav-list-title-color);
+  color: var(--explorer-group-title);
+  padding: 0 16px;
+  margin-bottom: 8px;
 }
 
 .group .title::before,
@@ -33,16 +34,18 @@
 
 .group[open] .title,
 .group[open] .title .control {
-  color: var(--nav-title-open-color);
+  color: var(--explorer-group-open-title);
 }
 
 .group .title svg {
-  fill: transparent
+  fill: transparent;
+  font-size: 24px;
+  stroke-width: 2px;
 }
 
 .group .title:hover,
 .group .title:hover span {
-  color: var(--nav-title-hover-color)
+  color: var(--explorer-group-open-title)
 }
 
 
@@ -52,7 +55,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--gray-500);
+  color: var(--explorer-group-title);
   animation: rotate 250ms linear forwards
 }
 
@@ -93,7 +96,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 0px;
+  padding: 0px 16px;
   margin: 0px;
   gap: 8px
 }
