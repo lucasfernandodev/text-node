@@ -1,0 +1,95 @@
+
+.menu{
+  display: flex;
+  top: -4px;
+  background: var(--black-700);
+  width: 400px;
+  height: auto;
+  border-radius: 4px;
+  flex-direction: column;
+  z-index: 1250;
+  height: auto;
+  cursor: auto;
+  gap: 8px;
+  padding: 8px 0px;
+}
+
+.menu, .menu *{
+  box-sizing: border-box;
+}
+
+.menu .header{
+  height: auto;
+  width: 100%;
+}
+
+.menu .header .tabs{
+  height: 100%;
+  width: 100%;
+  padding: 0px 8px;
+  display: flex;
+  list-style: none;
+  border-bottom: 1px solid var(--black-600);
+  margin: 0px;
+  height: 32px;
+}
+
+.menu .header .tabs .tab{
+  height: 100%;
+  display: flex;
+  padding: 0px 2px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 32px;
+}
+
+.menu .header .tabs .tab[data-status="active"]{
+  border-bottom: 1px solid var(--white);
+  color: var(--white)
+}
+
+.menu .body{
+  height: auto;
+}
+
+.menu .body > div{
+  display: flex;
+  padding: 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  justify-content: center;
+}
+
+.menu .body input{
+  width: 100%;
+  border-radius: 4px;
+  padding: 6px 8px;
+  background: var(--black-800, #1E2021); 
+  border: 1px solid var(--black-800);
+  color: var(--white);
+  font-size: 11px;
+}
+
+.menu .body input.invalid {
+  border: 1px solid red;
+}
+
+.menu .body input:focus,.menu .body input:hover{
+  outline: none
+}
+
+.menu .body input::placeholder{
+  color: var(--gray-300)
+}
+.menu .body button{
+  width: 250px;
+  height: 30px;
+  background-color: #2871CA;
+  color: var(--white);
+  border: 1px solid #2871CA;
+  border-radius: 4px;
+  cursor: pointer;
+}

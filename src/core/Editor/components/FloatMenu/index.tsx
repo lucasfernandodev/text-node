@@ -2,7 +2,7 @@ import { Editor, FloatingMenu as FloatingMenuDefault } from "@tiptap/react"
 import { EditorState } from '@tiptap/pm/state';
 import { TbH1, TbH2, TbH3 } from 'react-icons/tb';
 import { RiCodeSSlashLine, RiDoubleQuotesL, RiListCheck } from 'react-icons/ri';
-import { RxDividerHorizontal } from 'react-icons/rx'
+import { RxDividerHorizontal, RxImage } from 'react-icons/rx'
 import { SlashMenuItem } from '@components/Molecules/SlashMenu/SlashMenuItem';
 import { SlashMenu } from '@components/Molecules/SlashMenu'
 import { useState } from "react";
@@ -73,6 +73,9 @@ export const FloatMenu: React.FC<FloatMenuProps> = ({ editor, slash, toggleVisib
         </SlashMenuItem>
         <SlashMenuItem Icon={RiListCheck} editor={editor} run='bulletList'>
           List
+        </SlashMenuItem>
+        <SlashMenuItem Icon={RxImage} editor={editor} run='imageBase'>
+          Image
         </SlashMenuItem>
         <SlashMenuItem Icon={RiCodeSSlashLine} editor={editor} run='codeBlock'>
           Code Block

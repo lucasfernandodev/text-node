@@ -1,7 +1,7 @@
 
 import { Editor } from "@tiptap/react";
 
-export type allowedElements = 'divider' | 'heading1' | 'heading2' | 'heading3' | 'quote' | 'bulletList' | 'codeBlock'
+export type allowedElements = 'imageBase' | 'divider' | 'heading1' | 'heading2' | 'heading3' | 'quote' | 'bulletList' | 'codeBlock'
 
 interface IToggleElements {
   el: allowedElements,
@@ -38,6 +38,23 @@ export const toggleElements = ({ el, editor }: IToggleElements) => {
       break;
     case 'codeBlock':
       command.toggleCodeBlock({ language: 'typescript' }).run()
+      break;
+    case 'imageBase':
+      editor.chain().selectParentNode().command(({tr,chain,state, dispatch}) => {
+        const pos = state.selection.$anchor.pos
+        const imageBase = editor.schema.node('ImageBase')
+        const transaction = tr.replaceSelectionWith(imageBase)
+        dispatch && dispatch(transaction)
+        chain().focus(pos).run()
+        return true
+      }).run()
+      editor.chain().focus().command(({state}) => {
+        const node = editor.view.nodeDOM(state.selection.anchor) as HTMLElement
+        if(node){
+          node.querySelector('.image-base[data-show-menu="false"]')?.setAttribute('data-show-menu', "true")
+        }
+        return true
+      }).run()
       break;
     case 'divider':
 

@@ -8,6 +8,7 @@ import { query } from '@database/notes';
 import { INote } from '../../types/note';
 import { storageEditor } from '@utils/tiptap/storeNotesInDB';
 import { LinkWidget } from '@components/Molecules/LinkWidget';
+import { ImageWidget } from '@components/Molecules/ImageWidget';
 
 interface props {
   noteId: string
@@ -85,6 +86,7 @@ const _Editor = ({ changeTitle, noteId, changeUpdateAt }: props) => {
 
   return (
     <>
+      <ImageWidget editor={editor} />
       <BubbleMenu editor={editor} />
       <EditorContent editor={editor} className={style.editor} />
       <LinkWidget editor={editor}/>

@@ -22,7 +22,7 @@
   border: none;
 }
 
-#editor *:is(p, ol, ul) {
+#editor > *:is(p, ol, ul) {
   font-weight: 400;
   line-height: 1.8571428571428572em;
   font-family: var(--font-family);
@@ -111,7 +111,7 @@
   color: var(--editor-title)
 }
 
-#editor ul,
+#editor > ul,
 #editor ol {
   padding-inline-start: 1em;
 }
@@ -139,17 +139,17 @@
 }
 
 /* Spacing */
-#editor *+* {
+#editor > * + * {
   margin-block-start: var(--flow-space)
 }
 
 
-#editor *+*:is(h1, h2, h3) {
+#editor > *+*:is(h1, h2, h3) {
   --flow-space: 2em
 }
 
 
-#editor *:is(h1, h2, h3)+hr {
+#editor > *:is(h1, h2, h3)+hr {
   --flow-space: 0.5em;
 }
 

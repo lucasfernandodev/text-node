@@ -9,6 +9,7 @@ import { Dropcursor } from './Dropcursor';
 import { Placeholder } from './Placeholder';
 import { Title } from './Title';
 import { CustomDocument } from './CustomDocument';
+import ImageBase from '../Nodes/ImageBase/image';
 
 export const extensions = [
   ...CustomDocument,
@@ -24,6 +25,7 @@ export const extensions = [
     levels: [1, 2, 3]
   }),
   Text,
+  ImageBase,
   ...Placeholder,
   ...Dropcursor,
   ...CodeBlock,
