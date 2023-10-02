@@ -5,7 +5,6 @@ import { RiCodeSSlashLine, RiDoubleQuotesL, RiListCheck } from 'react-icons/ri';
 import { RxDividerHorizontal, RxImage } from 'react-icons/rx'
 import { SlashMenuItem } from '@components/Molecules/SlashMenu/SlashMenuItem';
 import { SlashMenu } from '@components/Molecules/SlashMenu'
-import { useState } from "react";
 import { fixOverflowErrorPlugin } from "@utils/tippy/plugins/fixOverflowError";
 import { keyboardNavigation } from "@utils/tippy/plugins/keyboardNavigation";
 
@@ -18,12 +17,7 @@ interface FloatMenuProps {
 
 export const FloatMenu: React.FC<FloatMenuProps> = ({ editor, slash, toggleVisibility }) => {
 
-  const [lastPosition, setLastPosition] = useState<number | null>(null)
-
   function shouldShow({ state }: { state: EditorState }) {
-
-    setLastPosition(state.selection.$head.pos)
-
     const { $from } = state.selection
     const currentLineText = $from.nodeBefore?.textContent
     const result = currentLineText === '/'
@@ -48,7 +42,6 @@ export const FloatMenu: React.FC<FloatMenuProps> = ({ editor, slash, toggleVisib
       }, 250)
     },
     onHide() {
-      // editor.chain().focus(lastPosition).run()
       toggleVisibility(false)
     },
     plugins: [fixOverflowErrorPlugin, keyboardNavigation]
