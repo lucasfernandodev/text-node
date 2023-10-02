@@ -32,7 +32,6 @@ export const FloatMenu: React.FC<FloatMenuProps> = ({ editor, slash, toggleVisib
     return currentContent.length === 0 ? result : false
   }
 
-
   const tippyOptions = {
     onHidden() {
       toggleVisibility(false)
@@ -49,7 +48,7 @@ export const FloatMenu: React.FC<FloatMenuProps> = ({ editor, slash, toggleVisib
       }, 250)
     },
     onHide() {
-      editor.chain().focus(lastPosition).run()
+      // editor.chain().focus(lastPosition).run()
       toggleVisibility(false)
     },
     plugins: [fixOverflowErrorPlugin, keyboardNavigation]
