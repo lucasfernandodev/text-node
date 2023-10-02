@@ -37,7 +37,7 @@
   },
   "include": [
     "src",
-    "src/database/.ts",
+    "src/database/*.ts",
     "scripts/firefox.ts",
     "dist/manifest.json"
   ],
