@@ -12,7 +12,7 @@ const DialogDelete = () => {
 
   const { id } = useNote()
   const { setDialog } = useDialog()
-  const { changeId } = useNote()
+  const { changeNoteId } = useNote()
 
   function handleDelete() {
     async function execute() {
@@ -21,7 +21,7 @@ const DialogDelete = () => {
 
     execute().catch(console.error)
     setDialog('')
-    changeId(nanoid())
+    changeNoteId(nanoid())
   }
 
   return (

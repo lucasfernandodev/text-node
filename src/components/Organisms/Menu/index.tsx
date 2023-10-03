@@ -8,7 +8,7 @@ import { useDialog } from '@context/Dialog/useDialog';
 
 export const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const { changeId } = useNote()
+  const { changeNoteId } = useNote()
   const { setDialog } = useDialog()
 
   function closeDropdownMenu() {
@@ -33,7 +33,7 @@ export const Menu = () => {
 
   const menuCommands = {
     createNote: () => {
-      changeId(nanoid())
+      changeNoteId(nanoid())
     },
     exportNote: () => {
       setDialog('export')

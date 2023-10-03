@@ -2,7 +2,7 @@ import { createContext } from "react"
 
 export interface NoteContext {
   id: string | null,
-  changeId: (value: string) => void
+  changeNoteId: (value: string) => void
 }
 
 export const NoteContext = createContext<NoteContext>({} as NoteContext)

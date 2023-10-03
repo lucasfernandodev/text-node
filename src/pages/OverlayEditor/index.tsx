@@ -9,13 +9,12 @@ const OverlayEditorTemplate = lazy(() => import('../../components/Templates/Over
 export const OverlayEditor = () => {
 
   const { notes, command, dialog } = useNoteIdGenerator()
-  console.log(command.id)
   const isOverlayerShow = command.id && dialog.name !== 'close' ? true : false
 
   return (
     <Container>
       <DialogProvider context={{ dialog: dialog.name, setDialog: dialog.set }}>
-        <NoteProvider context={{ changeId: notes.set, id: notes.id }}>
+        <NoteProvider context={{ changeNoteId: notes.set, id: notes.id }}>
           {isOverlayerShow && <OverlayEditorTemplate noteId={notes.id} />}
         </NoteProvider>
       </DialogProvider>

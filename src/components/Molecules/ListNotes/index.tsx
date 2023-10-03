@@ -28,11 +28,11 @@ const List: React.FC<ListProps> = ({ title,notes }) => {
 
   const [currentNotes, setCurrentNotes] = useState(notes)
 
-  const { id, changeId } = useNote()
+  const { id, changeNoteId } = useNote()
 
   function openNote(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, noteId: string) {
     e.preventDefault()
-    changeId(noteId)
+    changeNoteId(noteId)
   }
 
   useEffect(() => {
