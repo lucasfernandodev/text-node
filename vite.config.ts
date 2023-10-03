@@ -39,6 +39,7 @@ export default defineConfig((env) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@hook": path.resolve(__dirname,"./src/hooks"),
       "@core": path.resolve(__dirname, "./src/core"),
       "@utils": path.resolve(__dirname, "./src/utils"),
       "@components": path.resolve(__dirname, "./src/components"),

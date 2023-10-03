@@ -1,9 +1,8 @@
 import { memo, useCallback } from 'react'
 import style from './style.module.css'
-import { Button } from '../../Atoms/Button'
-import { useDialog } from '@context/Dialog/useDialog'
+import { Button } from '@components/Atoms/Button'
 import { merge } from '@utils/merge'
-import { Portal as PortalDefault } from '../../Atoms/Portal'
+import { Portal as PortalDefault } from '@components/Atoms/Portal'
 interface Props {
   children: React.ReactNode
   className?: string
@@ -62,23 +61,21 @@ const Trigger: React.FC<TriggerProps> = ({ children, toggleMenu }) => {
 
 interface ItemProps extends Props {
   onClick?: (ev: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
-  dialog?: string
+  command?: () => void
 }
 
-const Item: React.FC<ItemProps> = ({ children, onClick, dialog }) => {
+const Item: React.FC<ItemProps> = ({ children, onClick, command }) => {
 
-  const { setDialog } = useDialog()
-
-  function handle(ev: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+  function onClickHandle(ev: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
     ev.preventDefault()
     ev.stopPropagation()
     onClick && onClick(ev)
-    dialog && setDialog(dialog)
+    command && command()
   }
 
   return (
     <li className={style.item}>
-      <a href="#" onClick={handle}>
+      <a href="#" onClick={onClickHandle}>
         {children}
       </a>
     </li >

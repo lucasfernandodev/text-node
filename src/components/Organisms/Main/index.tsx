@@ -16,7 +16,6 @@ interface MainProps {
   showNavi: () => void
   title: string,
   updateAt: string | null,
-  closeModal: () => void,
   changeExpandedOption: () => void
   isExpanded: boolean
 }

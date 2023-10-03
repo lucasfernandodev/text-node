@@ -31,12 +31,19 @@ export const Menu = () => {
     }
   }
 
-  function CreateNote() {
-    changeId(nanoid())
-  }
-
-  function closeModal() {
-    setDialog('close')
+  const menuCommands = {
+    createNote: () => {
+      changeId(nanoid())
+    },
+    exportNote: () => {
+      setDialog('export')
+    },
+    deleteNote: () => {
+      setDialog('delete')
+    },
+    closeNote: () => {
+      setDialog('close')
+    }
   }
 
   return (
@@ -45,20 +52,20 @@ export const Menu = () => {
         <LuMoreHorizontal />
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal open={isOpen} onBlur={toggleMenu}>
-        <DropdownMenu.Item onClick={CreateNote}>
+        <DropdownMenu.Item command={menuCommands.createNote}>
           <DropdownMenu.Icon><TbSquareRoundedPlus /></DropdownMenu.Icon>
           Create Note
         </DropdownMenu.Item>
-        <DropdownMenu.Item dialog="delete">
+        <DropdownMenu.Item command={menuCommands.deleteNote}>
           <DropdownMenu.Icon><TbFileX /></DropdownMenu.Icon>
           Delete
         </DropdownMenu.Item>
-        <DropdownMenu.Item dialog='export'>
+        <DropdownMenu.Item command={menuCommands.exportNote}>
           <DropdownMenu.Icon><TbDownload /></DropdownMenu.Icon>
           Export
         </DropdownMenu.Item>
         <DropdownMenu.Divider />
-        <DropdownMenu.Item onClick={closeModal}>
+        <DropdownMenu.Item command={menuCommands.closeNote}>
           Close
         </DropdownMenu.Item>
       </DropdownMenu.Portal>

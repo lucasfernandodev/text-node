@@ -10,10 +10,9 @@ import { dragModal } from '@utils/dragModal';
 
 interface OverlayEditorTemplateProps {
   noteId: string,
-  removeModal: () => void
 }
 
-const OverlayEditorTemplate: React.FC<OverlayEditorTemplateProps> = ({ removeModal, noteId }) => {
+const OverlayEditorTemplate: React.FC<OverlayEditorTemplateProps> = ({ noteId }) => {
 
   const [title, setTitle] = useState('Unitled');
   const [openNavigation, setOpenNavigation] = useState(false);
@@ -57,7 +56,6 @@ const OverlayEditorTemplate: React.FC<OverlayEditorTemplateProps> = ({ removeMod
         isNaviOpen={openNavigation}
         title={title}
         updateAt={updateAt}
-        closeModal={removeModal}
         changeExpandedOption={changeExpandedOption}
       >
         <Editor noteId={currentNoteId} changeTitle={setTitle} changeUpdateAt={setUpdateAt} />
